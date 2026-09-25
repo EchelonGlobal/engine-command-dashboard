@@ -1,15 +1,15 @@
 {
-  "generated_at_pt": "2026-09-25T09:32:50-07:00",
+  "generated_at_pt": "2026-09-25T10:02:50-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T09:32:50-07:00",
+    "generated_at_pt": "2026-09-25T10:02:50-07:00",
     "paper_trading_only": true,
-    "settled_total": 345,
+    "settled_total": 347,
     "open_total": 17,
-    "pnl_usd_total": 1744.6691,
+    "pnl_usd_total": 1300.1791,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 1742.6143,
+    "pnl_usd_era100_dollar_stakes": 1298.1243,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up": {
@@ -28,7 +28,9 @@
           "progress": "2/20",
           "verdict_by": "2026-10-24",
           "eta": "Oct 7"
-        }
+        },
+        "max_working_capital_usd": 20.1,
+        "open_cost_usd": 0
       },
       "btc-momentum-flat": {
         "settled": 21,
@@ -40,7 +42,9 @@
         "era100_pnl": -689.3537,
         "expectancy_per_1usd": -0.3283,
         "kill_rule": "KILLED",
-        "settled_of_20": "21/20"
+        "settled_of_20": "21/20",
+        "max_working_capital_usd": 300.0,
+        "open_cost_usd": 0
       },
       "btc-momentum-sized": {
         "settled": 10,
@@ -52,25 +56,29 @@
         "era100_pnl": 367.4119,
         "expectancy_per_1usd": 0.1881,
         "kill_rule": "ALIVE",
-        "settled_of_20": "10/20"
+        "settled_of_20": "10/20",
+        "max_working_capital_usd": 611.76,
+        "open_cost_usd": 0
       },
       "btc-momentum-sized2": {
-        "settled": 37,
+        "settled": 38,
         "wins": 20,
-        "losses": 17,
-        "pnl_usd": 1048.1992,
-        "norm_sum": 3.0090532905671226,
+        "losses": 18,
+        "pnl_usd": 827.2392,
+        "norm_sum": 2.0090532905671226,
         "era1_pnl": 0.0,
-        "era100_pnl": 1048.1992,
-        "expectancy_per_1usd": 0.0813,
+        "era100_pnl": 827.2392,
+        "expectancy_per_1usd": 0.0529,
         "kill_rule": "ALIVE",
-        "settled_of_20": "37/20",
+        "settled_of_20": "38/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "37/150",
+          "progress": "38/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 2"
-        }
+        },
+        "max_working_capital_usd": 627.12,
+        "open_cost_usd": 216.54
       },
       "btc-momentum": {
         "settled": 21,
@@ -82,7 +90,9 @@
         "era100_pnl": -305.3848,
         "expectancy_per_1usd": -0.1394,
         "kill_rule": "KILLED",
-        "settled_of_20": "21/20"
+        "settled_of_20": "21/20",
+        "max_working_capital_usd": 200.0,
+        "open_cost_usd": 0
       },
       "eth-momentum-apex-t0up": {
         "settled": 2,
@@ -100,7 +110,9 @@
           "progress": "2/20",
           "verdict_by": "2026-10-24",
           "eta": "Sep 25"
-        }
+        },
+        "max_working_capital_usd": 29.12,
+        "open_cost_usd": 0
       },
       "eth-momentum-flat": {
         "settled": 22,
@@ -112,7 +124,9 @@
         "era100_pnl": -195.7996,
         "expectancy_per_1usd": -0.089,
         "kill_rule": "KILLED",
-        "settled_of_20": "22/20"
+        "settled_of_20": "22/20",
+        "max_working_capital_usd": 300.0,
+        "open_cost_usd": 0
       },
       "eth-momentum-sized": {
         "settled": 18,
@@ -124,25 +138,29 @@
         "era100_pnl": 285.0249,
         "expectancy_per_1usd": 0.2201,
         "kill_rule": "ALIVE",
-        "settled_of_20": "18/20"
+        "settled_of_20": "18/20",
+        "max_working_capital_usd": 602.14,
+        "open_cost_usd": 0
       },
       "eth-momentum-sized2": {
-        "settled": 38,
+        "settled": 39,
         "wins": 22,
-        "losses": 16,
-        "pnl_usd": 1176.7045,
-        "norm_sum": 5.903790783907323,
+        "losses": 17,
+        "pnl_usd": 953.1745,
+        "norm_sum": 4.903790783907323,
         "era1_pnl": 0.0,
-        "era100_pnl": 1176.7045,
-        "expectancy_per_1usd": 0.1554,
+        "era100_pnl": 953.1745,
+        "expectancy_per_1usd": 0.1257,
         "kill_rule": "ALIVE",
-        "settled_of_20": "38/20",
+        "settled_of_20": "39/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "38/150",
+          "progress": "39/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 2"
-        }
+        },
+        "max_working_capital_usd": 447.24,
+        "open_cost_usd": 219.06
       },
       "eth-momentum": {
         "settled": 26,
@@ -154,7 +172,9 @@
         "era100_pnl": -21.0542,
         "expectancy_per_1usd": 0.0661,
         "kill_rule": "KILLED",
-        "settled_of_20": "26/20"
+        "settled_of_20": "26/20",
+        "max_working_capital_usd": 200.0,
+        "open_cost_usd": 0
       },
       "funding-veto": {
         "settled": 124,
@@ -166,7 +186,9 @@
         "era100_pnl": 0.0,
         "expectancy_per_1usd": 0.0,
         "kill_rule": "KILLED",
-        "settled_of_20": "124/20"
+        "settled_of_20": "124/20",
+        "max_working_capital_usd": 0.0,
+        "open_cost_usd": 0
       },
       "nws-poly-weather": {
         "settled": 3,
@@ -178,7 +200,9 @@
         "era100_pnl": 50.8772,
         "expectancy_per_1usd": 0.1696,
         "kill_rule": "ALIVE",
-        "settled_of_20": "3/20"
+        "settled_of_20": "3/20",
+        "max_working_capital_usd": 200.0,
+        "open_cost_usd": 100.0
       },
       "s3-sumarb": {
         "settled": 17,
@@ -190,7 +214,9 @@
         "era100_pnl": 0.0,
         "expectancy_per_1usd": 0.0,
         "kill_rule": "KILLED",
-        "settled_of_20": "17/20"
+        "settled_of_20": "17/20",
+        "max_working_capital_usd": 0.0,
+        "open_cost_usd": 0
       },
       "t5-daily": {
         "settled": 4,
@@ -202,10 +228,39 @@
         "era100_pnl": 0.3363,
         "expectancy_per_1usd": 0.0008,
         "kill_rule": "ALIVE",
-        "settled_of_20": "4/20"
+        "settled_of_20": "4/20",
+        "max_working_capital_usd": 100.0,
+        "open_cost_usd": 100.0
       }
     },
+    "funding": {
+      "league_min_cash_usd": 1218.0,
+      "league_open_cost_usd": 635.6,
+      "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
+    },
     "recent_settled": [
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 25, 12:30PM-12:45PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.465,
+        "stake_usd": 220.96,
+        "outcome": "LOSS",
+        "pnl_usd": -220.96,
+        "settle_ts": "2026-09-25T17:01:58.535291+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 25, 12:30PM-12:45PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.505,
+        "stake_usd": 223.53,
+        "outcome": "LOSS",
+        "pnl_usd": -223.53,
+        "settle_ts": "2026-09-25T16:47:02.019865+00:00"
+      },
       {
         "bot_id": "btc-momentum-apex-t0up",
         "question": "Bitcoin Up or Down - September 25, 10:45AM-11:00AM ET",
@@ -293,28 +348,6 @@
         "outcome": "WIN",
         "pnl_usd": 216.6705,
         "settle_ts": "2026-09-25T12:31:55.894832+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 6:00AM-6:15AM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.495,
-        "stake_usd": 219.24,
-        "outcome": "WIN",
-        "pnl_usd": 223.6691,
-        "settle_ts": "2026-09-25T10:32:03.793510+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-sized2",
-        "question": "Bitcoin Up or Down - September 25, 6:00AM-6:15AM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.505,
-        "stake_usd": 212.47,
-        "outcome": "WIN",
-        "pnl_usd": 208.2627,
-        "settle_ts": "2026-09-25T10:32:01.838792+00:00"
       }
     ],
     "open_positions": [
@@ -440,19 +473,19 @@
       },
       {
         "bot_id": "btc-momentum-sized2",
-        "question": "Bitcoin Up or Down - September 25, 12:30PM-12:45PM ET",
+        "question": "Bitcoin Up or Down - September 25, 1:15PM-1:30PM ET",
         "side": "YES",
-        "price": 0.465,
-        "stake_usd": 220.96,
-        "seal_ts": "2026-09-25T16:16:59.964091+00:00"
+        "price": 0.495,
+        "stake_usd": 216.54,
+        "seal_ts": "2026-09-25T17:02:00.970818+00:00"
       },
       {
         "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 12:30PM-12:45PM ET",
+        "question": "Ethereum Up or Down - September 25, 1:15PM-1:30PM ET",
         "side": "YES",
         "price": 0.505,
-        "stake_usd": 223.53,
-        "seal_ts": "2026-09-25T16:17:01.566819+00:00"
+        "stake_usd": 219.06,
+        "seal_ts": "2026-09-25T17:02:19.680712+00:00"
       }
     ],
     "research": {
@@ -954,7 +987,7 @@
           "label": "T20 published lane round 13 (48 combos, free data: T20-01 comomentum overlay 8 + T20-02 BAC 2 + T20-03 salience ST 4 [VW blocked w/o shares] + T20-04 sentiment overlay 10 [BLOCKED: BW feed unreachable] + T20-05 vol-PercentRank STR 4 + T20-06 country momentum 4 + T20-07 ATR pullback 8 + T20-08 Varadi sector timing 8)",
           "status": "running",
           "queued_at": "2026-09-25T15:45:44.430545+00:00",
-          "launched_at": "2026-09-25T15:53Z"
+          "launched_at": "2026-09-25T16:38Z"
         }
       ],
       "stages_queued": 0,
@@ -1000,14 +1033,14 @@
         "rule": "control: upper third -> CALL, lower third + calm RV20 -> PUT",
         "trades": 1,
         "wins": 0,
-        "losses": 0,
-        "net_pnl_usd": 0.0
+        "losses": 1,
+        "net_pnl_usd": -21.95
       },
       "V2": {
         "id": "V2",
         "name": "always-on",
         "rule": "V1 signal; middle third trades toward nearer range edge",
-        "trades": 2,
+        "trades": 1,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -1016,7 +1049,7 @@
         "id": "V3",
         "name": "extremes",
         "rule": "outer quarters only: pos>=0.75 CALL, pos<=0.25 PUT",
-        "trades": 1,
+        "trades": 0,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -1025,7 +1058,7 @@
         "id": "V4",
         "name": "patient",
         "rule": "identical to V1, entry delayed to 09:30:10 ET",
-        "trades": 1,
+        "trades": 0,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -1565,7 +1598,7 @@
         "label": "T20 published lane round 13 (48 combos, free data: T20-01 comomentum overlay 8 + T20-02 BAC 2 + T20-03 salience ST 4 [VW blocked w/o shares] + T20-04 sentiment overlay 10 [BLOCKED: BW feed unreachable] + T20-05 vol-PercentRank STR 4 + T20-06 country momentum 4 + T20-07 ATR pullback 8 + T20-08 Varadi sector timing 8)",
         "status": "running",
         "queued_at": "2026-09-25T15:45:44.430545+00:00",
-        "launched_at": "2026-09-25T15:53Z"
+        "launched_at": "2026-09-25T16:38Z"
       }
     ],
     "stages_queued": 0,
