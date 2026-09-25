@@ -292,35 +292,35 @@ footer b{color:var(--gold)}
 
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-25T08:02:52-07:00",
+  "generated_at_pt": "2026-09-25T08:32:50-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T08:02:52-07:00",
+    "generated_at_pt": "2026-09-25T08:32:50-07:00",
     "paper_trading_only": true,
-    "settled_total": 344,
-    "open_total": 16,
-    "pnl_usd_total": 1724.9671,
+    "settled_total": 345,
+    "open_total": 15,
+    "pnl_usd_total": 1744.6691,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 1722.9123,
+    "pnl_usd_era100_dollar_stakes": 1742.6143,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up": {
-        "settled": 1,
-        "wins": 1,
+        "settled": 2,
+        "wins": 2,
         "losses": 0,
-        "pnl_usd": 5.05,
-        "norm_sum": 1.02020202020202,
+        "pnl_usd": 24.752,
+        "norm_sum": 2.0004010251771445,
         "era1_pnl": 0.0,
-        "era100_pnl": 5.05,
-        "expectancy_per_1usd": 1.0202,
+        "era100_pnl": 24.752,
+        "expectancy_per_1usd": 1.0002,
         "kill_rule": "ALIVE",
-        "settled_of_20": "1/20",
+        "settled_of_20": "2/20",
         "go_gate": {
           "label": "Apex verdict",
-          "progress": "1/20",
+          "progress": "2/20",
           "verdict_by": "2026-10-24",
-          "eta": null
+          "eta": "Oct 7"
         }
       },
       "btc-momentum-flat": {
@@ -500,6 +500,17 @@ footer b{color:var(--gold)}
     },
     "recent_settled": [
       {
+        "bot_id": "btc-momentum-apex-t0up",
+        "question": "Bitcoin Up or Down - September 25, 10:45AM-11:00AM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.505,
+        "stake_usd": 20.1,
+        "outcome": "WIN",
+        "pnl_usd": 19.702,
+        "settle_ts": "2026-09-25T15:04:20.052694+00:00"
+      },
+      {
         "bot_id": "eth-momentum-sized2",
         "question": "Ethereum Up or Down - September 25, 10:45AM-11:00AM ET",
         "side": "YES",
@@ -597,17 +608,6 @@ footer b{color:var(--gold)}
         "outcome": "WIN",
         "pnl_usd": 208.2627,
         "settle_ts": "2026-09-25T10:32:01.838792+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-sized2",
-        "question": "Bitcoin Up or Down - September 25, 5:30AM-5:45AM ET",
-        "side": "YES",
-        "side_detail": "UP",
-        "price": 0.485,
-        "stake_usd": 212.47,
-        "outcome": "LOSS",
-        "pnl_usd": -212.47,
-        "settle_ts": "2026-09-25T10:01:55.897179+00:00"
       }
     ],
     "open_positions": [
@@ -730,14 +730,6 @@ footer b{color:var(--gold)}
         "price": null,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T14:06:43.853597+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-apex-t0up",
-        "question": "Bitcoin Up or Down - September 25, 10:45AM-11:00AM ET",
-        "side": "YES",
-        "price": 0.505,
-        "stake_usd": 20.1,
-        "seal_ts": "2026-09-25T14:32:41.015641+00:00"
       }
     ],
     "research": {
@@ -853,7 +845,8 @@ footer b{color:var(--gold)}
           "title": "Long-short idiosyncratic-volatility spread",
           "tags": [
             "PENDING",
-            "APPROVED"
+            "APPROVED",
+            "IN_FACTORY"
           ]
         },
         {
@@ -861,7 +854,8 @@ footer b{color:var(--gold)}
           "title": "Sector ETF short-term cross-sectional reversal",
           "tags": [
             "PENDING",
-            "APPROVED"
+            "APPROVED",
+            "IN_FACTORY"
           ]
         },
         {
@@ -869,13 +863,14 @@ footer b{color:var(--gold)}
           "title": "Crypto cross-sectional momentum, N\u22654 panel",
           "tags": [
             "PENDING",
-            "APPROVED"
+            "APPROVED",
+            "IN_FACTORY"
           ]
         }
       ],
       "hypotheses_total": 18,
       "hypotheses_pending": 3,
-      "hypotheses_in_factory": 0,
+      "hypotheses_in_factory": 3,
       "hypotheses_unparsed_annotations": [],
       "verdicts_total": 29,
       "verdicts": [
@@ -1197,9 +1192,42 @@ footer b{color:var(--gold)}
           "executed": 40,
           "survivors": 26,
           "done": null
+        },
+        {
+          "id": "dl-h16",
+          "label": "Discovery-loop H-16: Long-short idiosyncratic-volatility spread",
+          "status": "running",
+          "queued_at": "2026-09-25T15:13:13.315409+00:00",
+          "launched_at": "2026-09-25T15:23Z",
+          "combos_total": 8,
+          "executed": 5,
+          "survivors": 0,
+          "done": true
+        },
+        {
+          "id": "dl-h17",
+          "label": "Discovery-loop H-17: Sector ETF short-term cross-sectional reversal",
+          "status": "queued",
+          "queued_at": "2026-09-25T15:13:13.521062+00:00",
+          "launched_at": null,
+          "combos_total": 3,
+          "executed": 3,
+          "survivors": 0,
+          "done": true
+        },
+        {
+          "id": "dl-h18",
+          "label": "Discovery-loop H-18: Crypto cross-sectional momentum, N\u22654 panel",
+          "status": "queued",
+          "queued_at": "2026-09-25T15:13:13.809001+00:00",
+          "launched_at": null,
+          "combos_total": 3,
+          "executed": 0,
+          "survivors": null,
+          "done": true
         }
       ],
-      "stages_queued": 0,
+      "stages_queued": 2,
       "stages_complete": 16,
       "dl_survivors": 7,
       "loops": [
@@ -1421,7 +1449,8 @@ footer b{color:var(--gold)}
         "title": "Long-short idiosyncratic-volatility spread",
         "tags": [
           "PENDING",
-          "APPROVED"
+          "APPROVED",
+          "IN_FACTORY"
         ]
       },
       {
@@ -1429,7 +1458,8 @@ footer b{color:var(--gold)}
         "title": "Sector ETF short-term cross-sectional reversal",
         "tags": [
           "PENDING",
-          "APPROVED"
+          "APPROVED",
+          "IN_FACTORY"
         ]
       },
       {
@@ -1437,13 +1467,14 @@ footer b{color:var(--gold)}
         "title": "Crypto cross-sectional momentum, N\u22654 panel",
         "tags": [
           "PENDING",
-          "APPROVED"
+          "APPROVED",
+          "IN_FACTORY"
         ]
       }
     ],
     "hypotheses_total": 18,
     "hypotheses_pending": 3,
-    "hypotheses_in_factory": 0,
+    "hypotheses_in_factory": 3,
     "hypotheses_unparsed_annotations": [],
     "verdicts_total": 29,
     "verdicts": [
@@ -1765,9 +1796,42 @@ footer b{color:var(--gold)}
         "executed": 40,
         "survivors": 26,
         "done": null
+      },
+      {
+        "id": "dl-h16",
+        "label": "Discovery-loop H-16: Long-short idiosyncratic-volatility spread",
+        "status": "running",
+        "queued_at": "2026-09-25T15:13:13.315409+00:00",
+        "launched_at": "2026-09-25T15:23Z",
+        "combos_total": 8,
+        "executed": 5,
+        "survivors": 0,
+        "done": true
+      },
+      {
+        "id": "dl-h17",
+        "label": "Discovery-loop H-17: Sector ETF short-term cross-sectional reversal",
+        "status": "queued",
+        "queued_at": "2026-09-25T15:13:13.521062+00:00",
+        "launched_at": null,
+        "combos_total": 3,
+        "executed": 3,
+        "survivors": 0,
+        "done": true
+      },
+      {
+        "id": "dl-h18",
+        "label": "Discovery-loop H-18: Crypto cross-sectional momentum, N\u22654 panel",
+        "status": "queued",
+        "queued_at": "2026-09-25T15:13:13.809001+00:00",
+        "launched_at": null,
+        "combos_total": 3,
+        "executed": 0,
+        "survivors": null,
+        "done": true
       }
     ],
-    "stages_queued": 0,
+    "stages_queued": 2,
     "stages_complete": 16,
     "dl_survivors": 7,
     "loops": [
