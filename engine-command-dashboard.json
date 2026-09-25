@@ -1,12 +1,12 @@
 {
-  "generated_at_pt": "2026-09-25T04:32:50-07:00",
+  "generated_at_pt": "2026-09-25T05:02:50-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T04:32:50-07:00",
+    "generated_at_pt": "2026-09-25T05:02:50-07:00",
     "paper_trading_only": true,
     "settled_total": 337,
-    "open_total": 15,
+    "open_total": 16,
     "pnl_usd_total": 1304.1798,
     "pnl_usd_era1_dollar_stakes": 2.0548,
     "pnl_usd_era100_dollar_stakes": 1302.125,
@@ -437,6 +437,14 @@
         "price": 0.5,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T04:57:38.230467+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 25, 8:00AM-8:15AM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 212.38,
+        "seal_ts": "2026-09-25T11:46:58.793163+00:00"
       }
     ],
     "research": {
