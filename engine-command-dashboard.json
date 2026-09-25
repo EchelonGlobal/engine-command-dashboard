@@ -1,12 +1,12 @@
 {
-  "generated_at_pt": "2026-09-24T23:32:50-07:00",
+  "generated_at_pt": "2026-09-25T00:02:49-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-24T23:32:50-07:00",
+    "generated_at_pt": "2026-09-25T00:02:49-07:00",
     "paper_trading_only": true,
     "settled_total": 331,
-    "open_total": 15,
+    "open_total": 16,
     "pnl_usd_total": 875.7788,
     "pnl_usd_era1_dollar_stakes": 2.0548,
     "pnl_usd_era100_dollar_stakes": 873.724,
@@ -437,6 +437,14 @@
         "price": 0.5,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T04:57:38.230467+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 25, 3:00AM-3:15AM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 210.72,
+        "seal_ts": "2026-09-25T06:46:57.119928+00:00"
       }
     ],
     "research": {
