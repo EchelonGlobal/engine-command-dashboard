@@ -1,15 +1,16 @@
 {
-  "generated_at_pt": "2026-09-25T11:32:52-07:00",
+  "generated_at_pt": "2026-09-25T12:02:54-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T11:32:52-07:00",
+    "generated_at_pt": "2026-09-25T12:02:53-07:00",
     "paper_trading_only": true,
-    "settled_total": 352,
-    "open_total": 16,
-    "pnl_usd_total": 1721.4651,
+    "settled_total": 353,
+    "open_total": 15,
+    "pnl_usd_total": 1942.3821,
+    "paper_pnl_vs_bankroll_pct": 107.89,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 1719.4103,
+    "pnl_usd_era100_dollar_stakes": 1940.3273,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up": {
@@ -61,24 +62,24 @@
         "open_cost_usd": 0
       },
       "btc-momentum-sized2": {
-        "settled": 40,
-        "wins": 22,
+        "settled": 41,
+        "wins": 23,
         "losses": 18,
-        "pnl_usd": 1269.0682,
-        "norm_sum": 4.049456911145307,
+        "pnl_usd": 1489.9852,
+        "norm_sum": 5.029654799156665,
         "era1_pnl": 0.0,
-        "era100_pnl": 1269.0682,
-        "expectancy_per_1usd": 0.1012,
+        "era100_pnl": 1489.9852,
+        "expectancy_per_1usd": 0.1227,
         "kill_rule": "ALIVE",
-        "settled_of_20": "40/20",
+        "settled_of_20": "41/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "40/150",
+          "progress": "41/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 2"
         },
         "max_working_capital_usd": 627.12,
-        "open_cost_usd": 225.38
+        "open_cost_usd": 0
       },
       "btc-momentum": {
         "settled": 21,
@@ -235,10 +236,24 @@
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 425.38,
+      "league_open_cost_usd": 200.0,
+      "true_min_starting_bankroll_usd": 1800.37,
+      "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
+      "avg_position_cost_usd": 139.75,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 25, 2:30PM-2:45PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.505,
+        "stake_usd": 225.38,
+        "outcome": "WIN",
+        "pnl_usd": 220.917,
+        "settle_ts": "2026-09-25T19:02:05.908432+00:00"
+      },
       {
         "bot_id": "eth-momentum-sized2",
         "question": "Ethereum Up or Down - September 25, 1:45PM-2:00PM ET",
@@ -337,17 +352,6 @@
         "outcome": "WIN",
         "pnl_usd": 219.1919,
         "settle_ts": "2026-09-25T15:02:19.070012+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-sized2",
-        "question": "Bitcoin Up or Down - September 25, 10:45AM-11:00AM ET",
-        "side": "YES",
-        "side_detail": "UP",
-        "price": 0.505,
-        "stake_usd": 216.72,
-        "outcome": "WIN",
-        "pnl_usd": 212.4285,
-        "settle_ts": "2026-09-25T15:02:12.478309+00:00"
       }
     ],
     "open_positions": [
@@ -470,14 +474,6 @@
         "price": null,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T14:06:43.853597+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-sized2",
-        "question": "Bitcoin Up or Down - September 25, 2:30PM-2:45PM ET",
-        "side": "YES",
-        "price": 0.505,
-        "stake_usd": 225.38,
-        "seal_ts": "2026-09-25T18:17:00.453363+00:00"
       }
     ],
     "research": {
