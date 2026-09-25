@@ -91,7 +91,8 @@ body{
 .tile{padding:14px 16px;border-radius:14px;position:relative;overflow:hidden;transition:transform .45s var(--ez),border-color .45s var(--ez),box-shadow .45s var(--ez)}
 .tile:hover{transform:translateY(-3px);border-color:rgba(70,230,255,.35);box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 24px rgba(70,230,255,.08)}
 .tile .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;color:var(--faint);margin-bottom:6px}
-.tile .v{font-family:"JetBrains Mono",monospace;font-size:21px;font-weight:600}
+.tile .v{font-family:"JetBrains Mono",monospace;font-size:21px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile .v.long{font-size:15px;letter-spacing:.02em}
 .tile .v.pos{color:var(--mint)}.tile .v.neg{color:var(--blood)}.tile .v.warn{color:var(--gold)}
 
 /* sections */
@@ -290,17 +291,17 @@ footer b{color:var(--gold)}
 
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-25T00:02:49-07:00",
+  "generated_at_pt": "2026-09-25T00:20:09-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T00:02:49-07:00",
+    "generated_at_pt": "2026-09-25T00:20:09-07:00",
     "paper_trading_only": true,
-    "settled_total": 331,
-    "open_total": 16,
-    "pnl_usd_total": 875.7788,
+    "settled_total": 332,
+    "open_total": 15,
+    "pnl_usd_total": 1090.7558,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 873.724,
+    "pnl_usd_era100_dollar_stakes": 1088.701,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up": {
@@ -418,19 +419,19 @@ footer b{color:var(--gold)}
         "settled_of_20": "18/20"
       },
       "eth-momentum-sized2": {
-        "settled": 31,
-        "wins": 17,
+        "settled": 32,
+        "wins": 18,
         "losses": 14,
-        "pnl_usd": 536.1943,
-        "norm_sum": 2.902990333199315,
+        "pnl_usd": 751.1713,
+        "norm_sum": 3.9231924972084267,
         "era1_pnl": 0.0,
-        "era100_pnl": 536.1943,
-        "expectancy_per_1usd": 0.0936,
+        "era100_pnl": 751.1713,
+        "expectancy_per_1usd": 0.1226,
         "kill_rule": "ALIVE",
-        "settled_of_20": "31/20",
+        "settled_of_20": "32/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "31/150",
+          "progress": "32/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 2"
         }
@@ -497,6 +498,17 @@ footer b{color:var(--gold)}
       }
     },
     "recent_settled": [
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 25, 3:00AM-3:15AM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.495,
+        "stake_usd": 210.72,
+        "outcome": "WIN",
+        "pnl_usd": 214.977,
+        "settle_ts": "2026-09-25T07:17:02.580826+00:00"
+      },
       {
         "bot_id": "nws-poly-weather",
         "question": "Will the highest temperature in New York City be between 68-69\u00b0F on September 24?",
@@ -595,17 +607,6 @@ footer b{color:var(--gold)}
         "outcome": "LOSS",
         "pnl_usd": -215.11,
         "settle_ts": "2026-09-24T19:31:58.272817+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 24, 2:30PM-2:45PM ET",
-        "side": "YES",
-        "side_detail": "UP",
-        "price": 0.505,
-        "stake_usd": 215.11,
-        "outcome": "WIN",
-        "pnl_usd": 210.8504,
-        "settle_ts": "2026-09-24T19:02:20.068135+00:00"
       }
     ],
     "open_positions": [
@@ -728,14 +729,6 @@ footer b{color:var(--gold)}
         "price": 0.5,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T04:57:38.230467+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 3:00AM-3:15AM ET",
-        "side": "YES",
-        "price": 0.495,
-        "stake_usd": 210.72,
-        "seal_ts": "2026-09-25T06:46:57.119928+00:00"
       }
     ],
     "research": {
@@ -1799,12 +1792,13 @@ const esc = s => String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replac
 
 function botCard(id, b, killed){
   const pc = b.pnl_usd<0 ? "pnl-neg" : "pnl-pos";
+  const settled = (b.go_gate && b.go_gate.progress) ? b.go_gate.progress : (b.settled_of_20||b.settled);
   const gate = b.go_gate
     ? `<div class="gate"><b>${esc(b.go_gate.label)}</b> · ${esc(b.go_gate.progress)} · verdict ${esc(b.go_gate.verdict_by)}${b.go_gate.eta?` · ETA ~${esc(b.go_gate.eta)}`:""}</div>` : "";
   return `<div class="bot"><div class="energy"></div>
     <div class="bid">${esc(id)}</div>
     <div class="status">${killed ? "KILLED" : "LIVE"}</div>
-    <div class="row"><span>settled</span><span>${esc(b.settled_of_20||b.settled)}</span></div>
+    <div class="row"><span>settled</span><span>${esc(settled)}</span></div>
     <div class="row"><span>W / L</span><span><span class="win">${b.wins}</span> / <span class="loss">${b.losses}</span></span></div>
     <div class="row"><span>P&amp;L</span><span class="${pc}">${fmtUSD(b.pnl_usd)}</span></div>
     <div class="row"><span>expect / $1</span><span>${b.expectancy_per_1usd}</span></div>
@@ -1842,8 +1836,9 @@ function render(){
     {k:"BELL SESSIONS", v: ob.sessions ?? "--", c: ob.status==="RACING"?"pos":(ob.status==="UNREACHABLE"?"warn":"")},
     {k:"AIR NODE", v: air.status || "--", c: air.status==="RUNNING"?"pos":(air.status==="PROVISIONING"?"warn":"")},
   ];
-  $("tiles").innerHTML = tiles.map(t=>
-    `<div class="tile glass"><div class="k">${t.k}</div><div class="v ${t.c}">${t.v}</div></div>`).join("");
+  $("tiles").innerHTML = tiles.map(t=>{
+    const long = String(t.v).length > 9 ? " long" : "";
+    return `<div class="tile glass" title="${esc(String(t.v))}"><div class="k">${t.k}</div><div class="v${t.c?` ${t.c}`:""}${long}">${t.v}</div></div>`;}).join("");
 
   // fleet: live up top, killed parked in the hangar
   const bel = $("bots");
