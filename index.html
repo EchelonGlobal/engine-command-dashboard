@@ -292,38 +292,38 @@ footer b{color:var(--gold)}
 
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-25T10:32:50-07:00",
+  "generated_at_pt": "2026-09-25T11:02:52-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T10:32:50-07:00",
+    "generated_at_pt": "2026-09-25T11:02:52-07:00",
     "paper_trading_only": true,
-    "settled_total": 348,
-    "open_total": 19,
-    "pnl_usd_total": 1081.1191,
+    "settled_total": 350,
+    "open_total": 17,
+    "pnl_usd_total": 1281.5336,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 1079.0643,
+    "pnl_usd_era100_dollar_stakes": 1279.4788,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up": {
-        "settled": 2,
+        "settled": 3,
         "wins": 2,
-        "losses": 0,
-        "pnl_usd": 24.752,
-        "norm_sum": 2.0004010251771445,
+        "losses": 1,
+        "pnl_usd": 4.252,
+        "norm_sum": 1.0004010251771445,
         "era1_pnl": 0.0,
-        "era100_pnl": 24.752,
-        "expectancy_per_1usd": 1.0002,
+        "era100_pnl": 4.252,
+        "expectancy_per_1usd": 0.3335,
         "kill_rule": "ALIVE",
-        "settled_of_20": "2/20",
+        "settled_of_20": "3/20",
         "go_gate": {
           "label": "Apex verdict",
-          "progress": "2/20",
+          "progress": "3/20",
           "verdict_by": "2026-10-24",
-          "eta": "Oct 7"
+          "eta": "Oct 2"
         },
         "max_working_capital_usd": 20.5,
-        "open_cost_usd": 20.5
+        "open_cost_usd": 0
       },
       "btc-momentum-flat": {
         "settled": 21,
@@ -354,24 +354,24 @@ footer b{color:var(--gold)}
         "open_cost_usd": 0
       },
       "btc-momentum-sized2": {
-        "settled": 38,
-        "wins": 20,
+        "settled": 39,
+        "wins": 21,
         "losses": 18,
-        "pnl_usd": 827.2392,
-        "norm_sum": 2.0090532905671226,
+        "pnl_usd": 1048.1537,
+        "norm_sum": 3.029255100856215,
         "era1_pnl": 0.0,
-        "era100_pnl": 827.2392,
-        "expectancy_per_1usd": 0.0529,
+        "era100_pnl": 1048.1537,
+        "expectancy_per_1usd": 0.0777,
         "kill_rule": "ALIVE",
-        "settled_of_20": "38/20",
+        "settled_of_20": "39/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "38/150",
+          "progress": "39/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 2"
         },
         "max_working_capital_usd": 627.12,
-        "open_cost_usd": 433.08
+        "open_cost_usd": 216.54
       },
       "btc-momentum": {
         "settled": 21,
@@ -528,10 +528,32 @@ footer b{color:var(--gold)}
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 868.26,
+      "league_open_cost_usd": 631.22,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 25, 1:15PM-1:30PM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.495,
+        "stake_usd": 216.54,
+        "outcome": "WIN",
+        "pnl_usd": 220.9145,
+        "settle_ts": "2026-09-25T17:46:57.869081+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-apex-t0up",
+        "question": "Bitcoin Up or Down - September 25, 1:15PM-1:30PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.505,
+        "stake_usd": 20.5,
+        "outcome": "LOSS",
+        "pnl_usd": -20.5,
+        "settle_ts": "2026-09-25T17:33:51.771608+00:00"
+      },
       {
         "bot_id": "eth-momentum-sized2",
         "question": "Ethereum Up or Down - September 25, 1:15PM-1:30PM ET",
@@ -619,28 +641,6 @@ footer b{color:var(--gold)}
         "outcome": "WIN",
         "pnl_usd": 0.5864,
         "settle_ts": "2026-09-25T14:06:43.812202+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 9:15AM-9:30AM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.5,
-        "stake_usd": 219.24,
-        "outcome": "WIN",
-        "pnl_usd": 219.24,
-        "settle_ts": "2026-09-25T13:47:00.416456+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 8:45AM-9:00AM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.495,
-        "stake_usd": 223.71,
-        "outcome": "LOSS",
-        "pnl_usd": -223.71,
-        "settle_ts": "2026-09-25T13:02:04.883832+00:00"
       }
     ],
     "open_positions": [
@@ -763,22 +763,6 @@ footer b{color:var(--gold)}
         "price": null,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T14:06:43.853597+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-sized2",
-        "question": "Bitcoin Up or Down - September 25, 1:15PM-1:30PM ET",
-        "side": "YES",
-        "price": 0.495,
-        "stake_usd": 216.54,
-        "seal_ts": "2026-09-25T17:02:00.970818+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-apex-t0up",
-        "question": "Bitcoin Up or Down - September 25, 1:15PM-1:30PM ET",
-        "side": "YES",
-        "price": 0.505,
-        "stake_usd": 20.5,
-        "seal_ts": "2026-09-25T17:02:55.766408+00:00"
       },
       {
         "bot_id": "btc-momentum-sized2",
@@ -1296,7 +1280,7 @@ footer b{color:var(--gold)}
           "label": "T20 published lane round 13 (48 combos, free data: T20-01 comomentum overlay 8 + T20-02 BAC 2 + T20-03 salience ST 4 [VW blocked w/o shares] + T20-04 sentiment overlay 10 [BLOCKED: BW feed unreachable] + T20-05 vol-PercentRank STR 4 + T20-06 country momentum 4 + T20-07 ATR pullback 8 + T20-08 Varadi sector timing 8)",
           "status": "running",
           "queued_at": "2026-09-25T15:45:44.430545+00:00",
-          "launched_at": "2026-09-25T17:23Z"
+          "launched_at": "2026-09-25T17:53Z"
         }
       ],
       "stages_queued": 0,
@@ -1907,7 +1891,7 @@ footer b{color:var(--gold)}
         "label": "T20 published lane round 13 (48 combos, free data: T20-01 comomentum overlay 8 + T20-02 BAC 2 + T20-03 salience ST 4 [VW blocked w/o shares] + T20-04 sentiment overlay 10 [BLOCKED: BW feed unreachable] + T20-05 vol-PercentRank STR 4 + T20-06 country momentum 4 + T20-07 ATR pullback 8 + T20-08 Varadi sector timing 8)",
         "status": "running",
         "queued_at": "2026-09-25T15:45:44.430545+00:00",
-        "launched_at": "2026-09-25T17:23Z"
+        "launched_at": "2026-09-25T17:53Z"
       }
     ],
     "stages_queued": 0,
