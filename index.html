@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ENGINE COMMAND // Quant Engine HUD</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cyan:#00e5ff; --green:#7cffb2; --red:#ff2d55; --amber:#ffb300;
+  --mut:#8a93a6; --bg:#020610; --panel:rgba(0,40,60,.35); --line:rgba(0,229,255,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:#d9f6ff;font-family:'Share Tech Mono',monospace;min-height:100%}
+body{overflow-x:hidden;padding:18px}
+/* drifting grid */
+#grid{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(0,229,255,.06) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(0,229,255,.06) 1px,transparent 1px);
+  background-size:44px 44px;animation:drift 22s linear infinite;}
+@keyframes drift{to{transform:translate(44px,44px)}}
+/* scanlines */
+#scan{position:fixed;inset:0;z-index:50;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);
+  mix-blend-mode:multiply;}
+#vig{position:fixed;inset:0;z-index:49;pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 55%,rgba(0,10,25,.75) 100%);}
+#wrap{position:relative;z-index:10;max-width:1180px;margin:0 auto}
+/* boot overlay */
+#boot{position:fixed;inset:0;background:#01040a;z-index:100;display:flex;align-items:center;justify-content:center;
+  transition:opacity .6s;}
+#boot.done{opacity:0;pointer-events:none}
+#boot .term{font-size:14px;line-height:2;color:var(--cyan);text-shadow:0 0 12px rgba(0,229,255,.7);min-width:min(520px,86vw)}
+#boot .term .ok{color:var(--green)}
+/* header */
+header{display:flex;align-items:center;gap:18px;border:1px solid var(--line);background:var(--panel);
+  padding:14px 18px;margin-bottom:14px;clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px));
+  backdrop-filter:blur(2px)}
+h1{font-family:Orbitron;font-size:clamp(20px,4vw,34px);letter-spacing:.14em;color:var(--cyan);
+  text-shadow:0 0 18px rgba(0,229,255,.8)}
+.sub{color:var(--mut);font-size:12px;letter-spacing:.2em}
+/* arc reactor */
+#reactor{width:74px;height:74px;flex:0 0 74px;position:relative}
+#reactor svg{width:100%;height:100%;filter:drop-shadow(0 0 10px rgba(0,229,255,.9))}
+#reactor .spin{transform-origin:37px 37px;animation:spin 7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#hdr-right{margin-left:auto;text-align:right}
+#clock{font-family:Orbitron;font-size:22px;color:var(--cyan)}
+#dataasof{font-size:12px;color:var(--mut);margin-top:4px}
+#live{display:inline-block;margin-top:6px;font-size:11px;letter-spacing:.25em;padding:4px 10px;border:1px solid var(--green);
+  color:var(--green);animation:pulse 2s ease-in-out infinite}
+#live.off{border-color:var(--amber);color:var(--amber)}
+@keyframes pulse{50%{opacity:.45}}
+/* stat tiles */
+#tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.tile{border:1px solid var(--line);background:var(--panel);padding:12px 14px;position:relative;overflow:hidden}
+.tile::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent)}
+.tile .k{font-size:10px;letter-spacing:.22em;color:var(--mut)}
+.tile .v{font-family:Orbitron;font-size:26px;margin-top:6px;color:var(--cyan);text-shadow:0 0 14px rgba(0,229,255,.6)}
+.tile .v.neg{color:var(--red);text-shadow:0 0 14px rgba(255,45,85,.6)}
+.tile .v.pos{color:var(--green);text-shadow:0 0 14px rgba(124,255,178,.6)}
+.tile .v.warn{color:var(--amber)}
+/* panels */
+.panel{border:1px solid var(--line);background:var(--panel);margin-bottom:14px;padding:16px;
+  clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px))}
+.panel h2{font-family:Orbitron;font-size:15px;letter-spacing:.22em;color:var(--cyan);margin-bottom:12px;
+  border-bottom:1px solid rgba(0,229,255,.2);padding-bottom:8px}
+.panel h2 .tag{color:var(--mut);font-size:10px;letter-spacing:.15em}
+/* bot cards */
+#bots{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.bot{border:1px solid rgba(0,229,255,.25);padding:10px 12px;background:rgba(0,20,35,.4)}
+.bot .bid{font-family:Orbitron;font-size:13px;color:var(--cyan);letter-spacing:.08em}
+.bot .row{display:flex;justify-content:space-between;font-size:12px;margin-top:6px;color:#c7d0e0}
+.bot .pnl-pos{color:var(--green)} .bot .pnl-neg{color:var(--red)}
+.kill-ALIVE{color:var(--green)} .kill-KILLED{color:var(--red)}
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{color:var(--mut);text-align:left;letter-spacing:.12em;font-weight:normal;padding:6px 8px;border-bottom:1px solid var(--line);font-size:10px}
+td{padding:7px 8px;border-bottom:1px solid rgba(0,229,255,.08);color:#c7d0e0;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.win{color:var(--green)} .loss{color:var(--red)}
+/* funnel */
+#funnelbar{display:flex;height:34px;margin:8px 0;border:1px solid var(--line);overflow:hidden}
+#funnelbar div{height:100%}
+.fnote{font-size:11px;color:var(--mut);margin-top:8px}
+/* nodes */
+.node{display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(0,229,255,.25);padding:12px;margin-bottom:8px;background:rgba(0,20,35,.4)}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:4px;flex:0 0 10px}
+.dot.ALIVE{background:var(--green);box-shadow:0 0 10px var(--green)}
+.dot.UNREACHABLE{background:var(--red);box-shadow:0 0 10px var(--red)}
+.dot.PROVISIONING{background:var(--amber);box-shadow:0 0 10px var(--amber);animation:pulse 1.5s infinite}
+.node .nm{font-family:Orbitron;font-size:13px;color:var(--cyan)}
+.node .sp{font-size:11px;color:var(--mut)}
+.node .rl{font-size:12px;color:#c7d0e0;margin-top:4px}
+footer{text-align:center;color:var(--mut);font-size:11px;letter-spacing:.15em;padding:18px 0 8px}
+footer b{color:var(--cyan)}
+.empty{color:var(--mut);font-size:12px;padding:8px 0}
+@media(max-width:640px){.tile .v{font-size:20px}}
+</style>
+</head>
+<body>
+<div id="grid"></div><div id="scan"></div><div id="vig"></div>
+<div id="boot"><div class="term" id="boot-term"></div></div>
+
+<div id="wrap">
+  <header>
+    <div id="reactor">
+      <svg viewBox="0 0 74 74">
+        <g class="spin">
+          <circle cx="37" cy="37" r="34" fill="none" stroke="#00e5ff" stroke-width="2" stroke-dasharray="40 18"/>
+          <circle cx="37" cy="37" r="27" fill="none" stroke="#00e5ff" stroke-width="1" stroke-dasharray="10 8" opacity=".7"/>
+        </g>
+        <circle cx="37" cy="37" r="20" fill="none" stroke="#00e5ff" stroke-width="3"/>
+        <circle cx="37" cy="37" r="11" fill="rgba(0,229,255,.25)" stroke="#d9f6ff" stroke-width="2"/>
+        <circle cx="37" cy="37" r="5" fill="#d9f6ff"/>
+      </svg>
+    </div>
+    <div>
+      <h1>ENGINE COMMAND</h1>
+      <div class="sub">QUANT ENGINE // LIVE OPERATIONS HUD</div>
+    </div>
+    <div id="hdr-right">
+      <div id="clock">--:--:--</div>
+      <div id="dataasof">DATA AS OF --</div>
+      <div><span id="live">LIVE</span></div>
+    </div>
+  </header>
+
+  <div id="tiles"></div>
+
+  <div class="panel">
+    <h2>FORWARD FLEET <span class="tag">// PAPER ONLY - $100 UNITS</span></h2>
+    <div id="bots"></div>
+  </div>
+
+  <div class="panel">
+    <h2>OPENING BELL TOURNAMENT <span class="tag">// PAPER 0DTE - RACE TO 45 TRADES</span></h2>
+    <div id="bell"></div>
+    <div class="fnote" id="bellnote"></div>
+  </div>
+
+  <div class="panel">
+    <h2>STRATEGY COMBINATIONS <span class="tag">// BACKTEST SWEEP</span></h2>
+    <div id="funnelbar"></div>
+    <div id="funnelstats" style="font-size:12px;color:#c7d0e0"></div>
+    <div class="fnote" id="sweepnote"></div>
+  </div>
+
+  <div class="panel">
+    <h2>RESEARCH LOOP <span class="tag">// CONTINUOUS DISCOVERY</span></h2>
+    <div id="research"></div>
+    <div class="fnote" id="researchnote"></div>
+  </div>
+
+  <div class="panel">
+    <h2>ENGINE NODES <span class="tag">// 22 CORES TOTAL</span></h2>
+    <div id="nodes"></div>
+    <div class="fnote" id="airnote"></div>
+  </div>
+
+  <div class="panel">
+    <h2>RESULTS <span class="tag">// RECENT SETTLEMENTS</span></h2>
+    <div id="recent"></div>
+  </div>
+
+  <div class="panel">
+    <h2>OPEN POSITIONS</h2>
+    <div id="open"></div>
+  </div>
+
+  <footer>PAPER TRADING ONLY - <b>NO REAL CAPITAL</b> // ALL FIGURES COMPUTED FROM ENGINE FILES<br>
+  <span id="foot-note"></span></footer>
+</div>
+
+<script id="engine-snapshot" type="application/json">
+{
+  "generated_at_pt": "2026-09-24T21:32:00-07:00",
+  "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
+  "paper_trading_only": true,
+  "forward": {
+    "generated_at_pt": "2026-09-24T21:32:00-07:00",
+    "paper_trading_only": true,
+    "settled_total": 330,
+    "open_total": 15,
+    "pnl_usd_total": 624.9016,
+    "pnl_usd_era1_dollar_stakes": 2.0548,
+    "pnl_usd_era100_dollar_stakes": 622.8468,
+    "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
+    "bots": {
+      "btc-momentum-apex-t0up": {
+        "settled": 1,
+        "wins": 1,
+        "losses": 0,
+        "pnl_usd": 5.05,
+        "norm_sum": 1.02020202020202,
+        "era1_pnl": 0.0,
+        "era100_pnl": 5.05,
+        "expectancy_per_1usd": 1.0202,
+        "kill_rule": "ALIVE",
+        "settled_of_20": "1/20",
+        "go_gate": {
+          "label": "Apex verdict",
+          "progress": "1/20",
+          "verdict_by": "2026-10-24",
+          "eta": null
+        }
+      },
+      "btc-momentum-flat": {
+        "settled": 21,
+        "wins": 7,
+        "losses": 14,
+        "pnl_usd": -689.3537,
+        "norm_sum": -6.893537,
+        "era1_pnl": 0.0,
+        "era100_pnl": -689.3537,
+        "expectancy_per_1usd": -0.3283,
+        "kill_rule": "KILLED",
+        "settled_of_20": "21/20"
+      },
+      "btc-momentum-sized": {
+        "settled": 10,
+        "wins": 6,
+        "losses": 4,
+        "pnl_usd": 367.4119,
+        "norm_sum": 1.881188212699876,
+        "era1_pnl": 0.0,
+        "era100_pnl": 367.4119,
+        "expectancy_per_1usd": 0.1881,
+        "kill_rule": "ALIVE",
+        "settled_of_20": "10/20"
+      },
+      "btc-momentum-sized2": {
+        "settled": 32,
+        "wins": 17,
+        "losses": 15,
+        "pnl_usd": 840.1075,
+        "norm_sum": 2.028455197251523,
+        "era1_pnl": 0.0,
+        "era100_pnl": 840.1075,
+        "expectancy_per_1usd": 0.0634,
+        "kill_rule": "ALIVE",
+        "settled_of_20": "32/20",
+        "go_gate": {
+          "label": "GO gate",
+          "progress": "32/150",
+          "verdict_by": "2026-10-06",
+          "eta": "Oct 2"
+        }
+      },
+      "btc-momentum": {
+        "settled": 21,
+        "wins": 9,
+        "losses": 12,
+        "pnl_usd": -305.2593,
+        "norm_sum": -2.9283479999999993,
+        "era1_pnl": 0.1255,
+        "era100_pnl": -305.3848,
+        "expectancy_per_1usd": -0.1394,
+        "kill_rule": "KILLED",
+        "settled_of_20": "21/20"
+      },
+      "eth-momentum-apex-t0up": {
+        "settled": 2,
+        "wins": 1,
+        "losses": 1,
+        "pnl_usd": 0.9006,
+        "norm_sum": 0.06185439560439554,
+        "era1_pnl": 0.0,
+        "era100_pnl": 0.9006,
+        "expectancy_per_1usd": 0.0309,
+        "kill_rule": "ALIVE",
+        "settled_of_20": "2/20",
+        "go_gate": {
+          "label": "Apex verdict",
+          "progress": "2/20",
+          "verdict_by": "2026-10-24",
+          "eta": "Sep 25"
+        }
+      },
+      "eth-momentum-flat": {
+        "settled": 22,
+        "wins": 10,
+        "losses": 12,
+        "pnl_usd": -195.7996,
+        "norm_sum": -1.9579959999999996,
+        "era1_pnl": 0.0,
+        "era100_pnl": -195.7996,
+        "expectancy_per_1usd": -0.089,
+        "kill_rule": "KILLED",
+        "settled_of_20": "22/20"
+      },
+      "eth-momentum-sized": {
+        "settled": 18,
+        "wins": 11,
+        "losses": 7,
+        "pnl_usd": 285.0249,
+        "norm_sum": 3.9624092016763326,
+        "era1_pnl": 0.0,
+        "era100_pnl": 285.0249,
+        "expectancy_per_1usd": 0.2201,
+        "kill_rule": "ALIVE",
+        "settled_of_20": "18/20"
+      },
+      "eth-momentum-sized2": {
+        "settled": 31,
+        "wins": 17,
+        "losses": 14,
+        "pnl_usd": 536.1943,
+        "norm_sum": 2.902990333199315,
+        "era1_pnl": 0.0,
+        "era100_pnl": 536.1943,
+        "expectancy_per_1usd": 0.0936,
+        "kill_rule": "ALIVE",
+        "settled_of_20": "31/20",
+        "go_gate": {
+          "label": "GO gate",
+          "progress": "31/150",
+          "verdict_by": "2026-10-06",
+          "eta": "Oct 2"
+        }
+      },
+      "eth-momentum": {
+        "settled": 26,
+        "wins": 14,
+        "losses": 12,
+        "pnl_usd": -19.1249,
+        "norm_sum": 1.7187579999999993,
+        "era1_pnl": 1.9293,
+        "era100_pnl": -21.0542,
+        "expectancy_per_1usd": 0.0661,
+        "kill_rule": "KILLED",
+        "settled_of_20": "26/20"
+      },
+      "funding-veto": {
+        "settled": 124,
+        "wins": 0,
+        "losses": 0,
+        "pnl_usd": 0.0,
+        "norm_sum": 0.0,
+        "era1_pnl": 0.0,
+        "era100_pnl": 0.0,
+        "expectancy_per_1usd": 0.0,
+        "kill_rule": "KILLED",
+        "settled_of_20": "124/20"
+      },
+      "nws-poly-weather": {
+        "settled": 2,
+        "wins": 0,
+        "losses": 2,
+        "pnl_usd": -200.0,
+        "norm_sum": -2.0,
+        "era1_pnl": 0.0,
+        "era100_pnl": -200.0,
+        "expectancy_per_1usd": -1.0,
+        "kill_rule": "ALIVE",
+        "settled_of_20": "2/20"
+      },
+      "s3-sumarb": {
+        "settled": 17,
+        "wins": 0,
+        "losses": 0,
+        "pnl_usd": 0.0,
+        "norm_sum": 0.0,
+        "era1_pnl": 0.0,
+        "era100_pnl": 0.0,
+        "expectancy_per_1usd": 0.0,
+        "kill_rule": "KILLED",
+        "settled_of_20": "17/20"
+      },
+      "t5-daily": {
+        "settled": 3,
+        "wins": 0,
+        "losses": 3,
+        "pnl_usd": -0.2501,
+        "norm_sum": -0.0025009999999999998,
+        "era1_pnl": 0.0,
+        "era100_pnl": -0.2501,
+        "expectancy_per_1usd": -0.0008,
+        "kill_rule": "ALIVE",
+        "settled_of_20": "3/20"
+      }
+    },
+    "recent_settled": [
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 25, 12:00AM-12:15AM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.505,
+        "stake_usd": 215.02,
+        "outcome": "LOSS",
+        "pnl_usd": -215.02,
+        "settle_ts": "2026-09-25T04:31:57.767797+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 24, 11:00PM-11:15PM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.505,
+        "stake_usd": 216.71,
+        "outcome": "LOSS",
+        "pnl_usd": -216.71,
+        "settle_ts": "2026-09-25T03:31:56.094119+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 24, 10:45PM-11:00PM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.495,
+        "stake_usd": 216.71,
+        "outcome": "WIN",
+        "pnl_usd": 221.088,
+        "settle_ts": "2026-09-25T03:16:56.143451+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 24, 9:45PM-10:00PM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.505,
+        "stake_usd": 221.14,
+        "outcome": "LOSS",
+        "pnl_usd": -221.14,
+        "settle_ts": "2026-09-25T02:02:37.658421+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 24, 7:15PM-7:30PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.495,
+        "stake_usd": 216.72,
+        "outcome": "WIN",
+        "pnl_usd": 221.0982,
+        "settle_ts": "2026-09-24T23:46:56.806990+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-apex-t0up",
+        "question": "Bitcoin Up or Down - September 24, 7:15PM-7:30PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.495,
+        "stake_usd": 4.95,
+        "outcome": "WIN",
+        "pnl_usd": 5.05,
+        "settle_ts": "2026-09-24T23:32:29.273423+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 24, 6:15PM-6:30PM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.495,
+        "stake_usd": 212.38,
+        "outcome": "WIN",
+        "pnl_usd": 216.6705,
+        "settle_ts": "2026-09-24T22:46:58.147550+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 24, 3:00PM-3:15PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.495,
+        "stake_usd": 215.11,
+        "outcome": "LOSS",
+        "pnl_usd": -215.11,
+        "settle_ts": "2026-09-24T19:31:58.272817+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 24, 2:30PM-2:45PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.505,
+        "stake_usd": 215.11,
+        "outcome": "WIN",
+        "pnl_usd": 210.8504,
+        "settle_ts": "2026-09-24T19:02:20.068135+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 24, 2:00PM-2:15PM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.495,
+        "stake_usd": 216.72,
+        "outcome": "LOSS",
+        "pnl_usd": -216.72,
+        "settle_ts": "2026-09-24T18:31:56.840215+00:00"
+      }
+    ],
+    "open_positions": [
+      {
+        "bot_id": "oscars-favorite",
+        "question": "Will The Odyssey win Best Picture at the 99th Academy Awards?",
+        "side": "YES",
+        "price": 0.535,
+        "stake_usd": 1.0,
+        "seal_ts": "2026-09-18T04:49:08.964708+00:00"
+      },
+      {
+        "bot_id": "poly-favorite",
+        "question": "Will the Democratic Party control the House after the 2026 Midterm elections?",
+        "side": "YES",
+        "price": 0.895,
+        "stake_usd": 1.0,
+        "seal_ts": "2026-09-18T04:49:49.070148+00:00"
+      },
+      {
+        "bot_id": "poly-favorite",
+        "question": "Will the Republicans win the Florida governor race in 2026?",
+        "side": "YES",
+        "price": 0.795,
+        "stake_usd": 1.0,
+        "seal_ts": "2026-09-18T04:49:49.071888+00:00"
+      },
+      {
+        "bot_id": "poly-favorite",
+        "question": "Will the Democrats win the Oregon governor race in 2026?",
+        "side": "YES",
+        "price": 0.855,
+        "stake_usd": 1.0,
+        "seal_ts": "2026-09-18T04:49:49.071996+00:00"
+      },
+      {
+        "bot_id": "poly-favorite",
+        "question": "Will the Republicans win the Kansas governor race in 2026?",
+        "side": "YES",
+        "price": 0.695,
+        "stake_usd": 1.0,
+        "seal_ts": "2026-09-19T22:37:41.917590+00:00"
+      },
+      {
+        "bot_id": "poly-favorite",
+        "question": "Will Xavier Becerra win the California Governor Election in 2026?",
+        "side": "YES",
+        "price": 0.949,
+        "stake_usd": 1.0,
+        "seal_ts": "2026-09-19T23:28:00.354147+00:00"
+      },
+      {
+        "bot_id": "poly-favorite",
+        "question": "Will the Democrats win the 2028 US Presidential Election?",
+        "side": "YES",
+        "price": 0.65,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-20T09:29:12.548428+00:00"
+      },
+      {
+        "bot_id": "poly-favorite",
+        "question": "Will the Republicans win the New Hampshire governor race in 2026?",
+        "side": "YES",
+        "price": 0.9,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-20T16:57:49.306455+00:00"
+      },
+      {
+        "bot_id": "poly-favorite",
+        "question": "Will the Democrats win the New York governor race in 2026?",
+        "side": "YES",
+        "price": 0.945,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-20T17:27:36.582703+00:00"
+      },
+      {
+        "bot_id": "poly-favorite",
+        "question": "Will the Democrats win the Iowa governor race in 2026?",
+        "side": "YES",
+        "price": 0.81,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-21T06:27:50.101695+00:00"
+      },
+      {
+        "bot_id": "poly-favorite",
+        "question": "Will the Democrats win the Minnesota governor race in 2026?",
+        "side": "YES",
+        "price": 0.95,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-21T06:27:50.101983+00:00"
+      },
+      {
+        "bot_id": "spy-v1",
+        "question": null,
+        "side": "long",
+        "price": null,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-22T13:39:18.453640+00:00"
+      },
+      {
+        "bot_id": "nws-poly-weather",
+        "question": "Will the highest temperature in New York City be between 68-69\u00b0F on September 24?",
+        "side": "YES",
+        "price": 0.285,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-24T04:07:40.138801+00:00"
+      },
+      {
+        "bot_id": "t5-daily",
+        "question": null,
+        "side": "long",
+        "price": null,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-24T14:06:35.201404+00:00"
+      },
+      {
+        "bot_id": "nws-poly-weather",
+        "question": "Will the highest temperature in New York City be between 70-71\u00b0F on September 25?",
+        "side": "YES",
+        "price": 0.32,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-25T04:07:40.103925+00:00"
+      }
+    ],
+    "research": {
+      "basis": "COMPUTED from discovery-loop/ + queue_published.json + research-loop cron files + BUDGET.md at build time",
+      "hypotheses": [
+        {
+          "id": "H-01",
+          "title": "Short overnight reversal after extreme intraday runs",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-02",
+          "title": "Short high idiosyncratic volatility",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-03",
+          "title": "Gold time-series momentum",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-04",
+          "title": "Gold flight-to-safety bid after equity vol spikes",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-05",
+          "title": "BTC/ETH cross-sectional momentum",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-06",
+          "title": "BTC volatility-expansion trend continuation",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-07",
+          "title": "Sector ETF cross-sectional momentum",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-08",
+          "title": "Turn-of-month effect on small caps (IWM)",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-09",
+          "title": "Mega-cap tech cross-sectional momentum",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-10",
+          "title": "Betting against beta across S&P 500",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-11",
+          "title": "BTC/ETH ratio 7d/7d time-series momentum (repair of H-05)",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-12",
+          "title": "BAB with continuous (daily) beta re-hedging",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-13",
+          "title": "Gold same-day flight-to-safety bid on VIX spike days",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-14",
+          "title": "Long GLD at the open after an overnight VIX\u226530 cross",
+          "tags": [
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-15",
+          "title": "Long overnight continuation of top-decile intraday winners",
+          "tags": [
+            "DEAD"
+          ]
+        }
+      ],
+      "hypotheses_total": 15,
+      "hypotheses_pending": 0,
+      "hypotheses_in_factory": 0,
+      "hypotheses_unparsed_annotations": [],
+      "verdicts_total": 29,
+      "verdicts": [
+        {
+          "id": "H-03 (dl-h03)",
+          "verdict": "GRADUATE \u2014 full gauntlet cleared 2026-09-23",
+          "stats": "Cost 8/8; DSR (factory dsr.py, K=8, K_eff=2.75): all 8 pass at 1.0000 (factory T-in-bars convention; best 0.9637 under T-in-years, 0.95 bar); WF (split 2016-01-01, pre-registered best-train selection): train +0.695 \u2192 test +0.692, all 8 combos positive OOS (+0.388..+0.741); MC: block-bootstrap 5th-pct Sharpe@2x +0.372 > 0, cost-jitter 1x/2x/3x all > 0, plateau 8/8 positive on test; Kelly f*=4.70 \u2265 1 (no leverage needed); honesty drop_top5-days: net@2x +4.52 compounded, Sharpe@2x +0.617. All V: hidden_files/discovery-loop/h03_walkforward_2026-09-23.json + h03_gauntlet_456_2026-09-23.json (scripts alongside). Reconstruction sanity: recomputed Sharpe@2x matches trials file to 1e-9. Net convention note: factory net_2x is compounded (prod(1+r)-1 = +6.267), not simple sum (+2.221) \u2014 verified identical, not a discrepancy."
+        },
+        {
+          "id": "H-10 (dl-h10)",
+          "verdict": "DEAD \u2014 Stage-1 gate fail (buried 2026-09-22)",
+          "stats": "8 combos executed, 3/8 cost-gate pass, Sharpe@2x mean \u22120.285 / max 0.373 (126d/quintile/beta-neutral), 2016-01-04\u21922026-09-17 (V: state/checkpoint/dl_h10_trials.jsonl)"
+        },
+        {
+          "id": "H-02",
+          "verdict": "DEAD \u2014 STRUCTURALLY FLAWED (buried 2026-09-22)",
+          "stats": "No backtest run; killed at review."
+        },
+        {
+          "id": "H-11",
+          "verdict": "DEAD \u2014 repair test failed (buried 2026-09-22)",
+          "stats": "No factory run; killed by the agentic repair test."
+        },
+        {
+          "id": "H-04",
+          "verdict": "DEAD \u2014 repair test failed (buried 2026-09-23)",
+          "stats": "No factory run; killed by the agentic repair test of the reviewer's core objection."
+        },
+        {
+          "id": "H-12",
+          "verdict": "IN_REVIEW \u2014 routine review WEAK (2026-09-23, $0.0079)",
+          "stats": "No backtest run; killed at review pending repair pass."
+        },
+        {
+          "id": "H-03c",
+          "verdict": "DEAD \u2014 six-bar pre-registered test (buried 2026-09-24, kill-ledger #44)",
+          "stats": "W1 (GLD 2004-12\u21922026-08, n=259mo, f=0.653): bar1 G1 p_cov=0.1111 FAIL; bar2 p_DD=0.1197 FAIL; bar3 dominance PASS (filter CAGR 7.41% \u2265 mix 6.25%, DD 26.54% \u2264 29.66%); bar4 FAIL (drop 2025-03..2026-02 \u2192 p=0.25); bar5 PASS (7.41% \u2265 7.33%); bar6 FAIL (2/15). W2: bar1 PASS (p=0.0467), bar3 FAIL (filter DD 24.12% > mix 23.42%). W0 (1975+, unweighted): bars 1\u20135 PASS \u2014 the long-window effect is real and episode-driven (literature replication, not a trade). D1 variance-timing p=0.88 (wrong sign); D2 shuffled-dominance 19.1% (borderline variance harvesting). All V: hidden_files/discovery-loop/h03c_sixbar_2026-09-24.{py,json}."
+        },
+        {
+          "id": "H-14",
+          "verdict": "DEAD \u2014 kill test failed (buried 2026-09-24, kill-ledger #45)",
+          "stats": "n=30 overnight-cross episodes (daily-close proxy, ^VIX yfinance 2,949 bars 2015-2026, V). Reviewer's test: cross-night overnight GLD premium +14.9 bps/day \u2014 the bid is priced into the opening auction. 1d/2d/3d forward net of 5bps spread: \u22120.464% (t=\u22122.24), \u22120.651% (t=\u22121.96), \u22120.176% (t=\u22120.48) \u2014 all kill bars fire. Script: hidden_files/discovery-loop/h14_kill_test_2026-09-24.py."
+        },
+        {
+          "id": "H-15",
+          "verdict": "DEAD \u2014 split test (buried 2026-09-24, kill-ledger #46)",
+          "stats": "Full sample: +5.8 bps/day gross (t=+3.39, n=2,691) but \u221214.2 bps/day net@2x \u2192 dead on the pre-registered bar. Discovery 2016-2020: +7.5 bps/day (t=+2.57); validation 2021-2026: +4.3 bps/day (t=+2.22) \u2014 REPLICATES. Cached S&P panel (487 names, V; survivorship caveat stamped). Script: hidden_files/discovery-loop/h15_split_test_2026-09-24.py."
+        },
+        {
+          "id": "cell (formation@timeframe/direction)",
+          "verdict": "n",
+          "stats": "exec"
+        },
+        {
+          "id": "DL-H03@daily-formation_m{6,12}-skip{0,1}/LONG",
+          "verdict": "8",
+          "stats": "8"
+        },
+        {
+          "id": "cell (formation/params)",
+          "verdict": "n",
+          "stats": "exec"
+        },
+        {
+          "id": "DL-H10 126d/decile/neutral=False",
+          "verdict": "1",
+          "stats": "1"
+        },
+        {
+          "id": "DL-H10 126d/decile/neutral=True",
+          "verdict": "1",
+          "stats": "1"
+        },
+        {
+          "id": "DL-H10 126d/quintile/neutral=False",
+          "verdict": "1",
+          "stats": "1"
+        },
+        {
+          "id": "DL-H10 126d/quintile/neutral=True",
+          "verdict": "1",
+          "stats": "1"
+        },
+        {
+          "id": "DL-H10 252d/decile/neutral=False",
+          "verdict": "1",
+          "stats": "1"
+        },
+        {
+          "id": "DL-H10 252d/decile/neutral=True",
+          "verdict": "1",
+          "stats": "1"
+        },
+        {
+          "id": "DL-H10 252d/quintile/neutral=False",
+          "verdict": "1",
+          "stats": "1"
+        },
+        {
+          "id": "DL-H10 252d/quintile/neutral=True",
+          "verdict": "1",
+          "stats": "1"
+        },
+        {
+          "id": "combo",
+          "verdict": "train Sharpe@2x",
+          "stats": "test Sharpe@2x"
+        },
+        {
+          "id": "DL-H03-F6-S0-none",
+          "verdict": "+0.695 \u2190 selected",
+          "stats": "+0.692"
+        },
+        {
+          "id": "DL-H03-F6-S0-low_vol",
+          "verdict": "+0.574",
+          "stats": "+0.409"
+        },
+        {
+          "id": "DL-H03-F6-S1-none",
+          "verdict": "+0.601",
+          "stats": "+0.635"
+        },
+        {
+          "id": "DL-H03-F6-S1-low_vol",
+          "verdict": "+0.407",
+          "stats": "+0.388"
+        },
+        {
+          "id": "DL-H03-F12-S0-none",
+          "verdict": "+0.549",
+          "stats": "+0.618"
+        },
+        {
+          "id": "DL-H03-F12-S0-low_vol",
+          "verdict": "+0.592",
+          "stats": "+0.416"
+        },
+        {
+          "id": "DL-H03-F12-S1-none",
+          "verdict": "+0.560",
+          "stats": "+0.741"
+        },
+        {
+          "id": "DL-H03-F12-S1-low_vol",
+          "verdict": "+0.594",
+          "stats": "+0.529"
+        }
+      ],
+      "stages": [
+        {
+          "id": "t8",
+          "label": "T8 published lane round 2 (180 combos, free data)",
+          "status": "complete",
+          "queued_at": null,
+          "launched_at": "2026-09-19T06:36Z",
+          "combos_total": 180,
+          "executed": 164,
+          "survivors": 48,
+          "done": true
+        },
+        {
+          "id": "t7",
+          "label": "T7 published lane top-5 (244 executable combos: T7-02/03/12; T7-01/04/05 blocked on fundamentals feed)",
+          "status": "complete",
+          "queued_at": null,
+          "launched_at": null,
+          "combos_total": 428,
+          "executed": 126,
+          "survivors": 82,
+          "done": null
+        },
+        {
+          "id": "phase_b_published",
+          "label": "Published-lane gauntlet: DSR -> walk-forward -> Monte Carlo -> Kelly/ruin -> honesty -> kill ledger -> preregs (T7+T8 survivors)",
+          "status": "complete",
+          "queued_at": null,
+          "launched_at": "2026-09-20T09:08Z"
+        },
+        {
+          "id": "t9",
+          "label": "T9 published lane round 3 (212 combos, free data: PTV, overnight momentum, convexity, high-volume, ISkew, BAC, drawdown/recovery, Amihud, price delay)",
+          "status": "complete",
+          "queued_at": null,
+          "launched_at": "2026-09-20T11:53Z",
+          "combos_total": 212,
+          "executed": 130,
+          "survivors": 42,
+          "done": null
+        },
+        {
+          "id": "t10",
+          "label": "T10 published lane round 4 (133 combos, free data: 4 TradingView screen reconstructions + skewness-managed overlay, Clenow adjusted-slope, Daniel Breakout screen)",
+          "status": "complete",
+          "queued_at": null,
+          "launched_at": "2026-09-20T13:53Z",
+          "combos_total": 133,
+          "executed": 133,
+          "survivors": 59,
+          "done": null
+        },
+        {
+          "id": "t11",
+          "label": "T11 stacked composites Stage 1 (114 combos, free data: 19 signal pairs x and/or/ranksum x decile/quintile; structure screen before identity expansion)",
+          "status": "complete",
+          "queued_at": null,
+          "launched_at": "2026-09-20T18:23Z",
+          "combos_total": 114,
+          "executed": 24,
+          "survivors": 4,
+          "done": null
+        },
+        {
+          "id": "t12",
+          "label": "T12 published lane round 5 (88 combos, free data: vol-adj dual-lookback momentum, residual triad, momentum-residualized IVOL)",
+          "status": "complete",
+          "queued_at": null,
+          "launched_at": "2026-09-20T20:53Z",
+          "combos_total": 88,
+          "executed": 5,
+          "survivors": 0,
+          "done": null
+        },
+        {
+          "id": "t13",
+          "label": "T13 published lane round 6 (24 combos: vol-adj 12-1 momentum w/ vol cap + SPY gate; frozen-weight composite w/ rank-150 dampening). T13-03 sector rotation BLOCKED (SPDR constituent feed unavailable 2026-09-20).",
+          "status": "complete",
+          "queued_at": null,
+          "launched_at": "2026-09-21T01:38Z",
+          "combos_total": 24,
+          "executed": 24,
+          "survivors": 24,
+          "done": null
+        },
+        {
+          "id": "dl-h03",
+          "label": "Discovery-loop H-03: Gold time-series momentum",
+          "status": "complete",
+          "queued_at": "2026-09-21T05:19:20.530801+00:00",
+          "launched_at": "2026-09-21T05:38Z",
+          "combos_total": 8,
+          "executed": 5,
+          "survivors": 5,
+          "done": true
+        },
+        {
+          "id": "dl-h10",
+          "label": "Discovery-loop H-10: Betting against beta across S&P 500",
+          "status": "complete",
+          "queued_at": "2026-09-21T05:29:01.540396+00:00",
+          "launched_at": "2026-09-21T05:39Z",
+          "combos_total": 8,
+          "executed": 5,
+          "survivors": 2,
+          "done": true
+        },
+        {
+          "id": "t14",
+          "label": "T14 published lane round 7 (48 combos: causal peer-momentum + intramonth calendar WML timing)",
+          "status": "complete",
+          "queued_at": "2026-09-21T13:43:27.105743+00:00",
+          "launched_at": "2026-09-21T13:53Z",
+          "combos_total": 48,
+          "executed": 48,
+          "survivors": 0,
+          "done": null
+        },
+        {
+          "id": "t15",
+          "label": "T15 published lane round 8 (48 combos: sectoral intramonth momentum cycle + industry trend following, free data)",
+          "status": "complete",
+          "queued_at": "2026-09-22T13:01:59.333049+00:00",
+          "launched_at": "2026-09-22T13:08Z",
+          "combos_total": 48,
+          "executed": 48,
+          "survivors": 16,
+          "done": null
+        },
+        {
+          "id": "t16",
+          "label": "T16 published lane round 9 (8 combos: VIX-state factor-weight tilt radar + fixed control, free data)",
+          "status": "complete",
+          "queued_at": "2026-09-22T13:32:02.636735+00:00",
+          "launched_at": "2026-09-22T14:23Z",
+          "combos_total": 8,
+          "executed": 8,
+          "survivors": 0,
+          "done": null
+        },
+        {
+          "id": "t17",
+          "label": "T17 published lane round 10 (56 combos, free data: FF3-residual short-term reversal 24 + valuation-boundary TSMOM overlay 16 + anomaly-driven demand price-subset 16)",
+          "status": "complete",
+          "queued_at": "2026-09-23T14:10:35.368920+00:00",
+          "launched_at": "2026-09-23T14:53Z",
+          "combos_total": 56,
+          "executed": 23,
+          "survivors": 10,
+          "done": null
+        },
+        {
+          "id": "t18",
+          "label": "T18 published lane round 11 (32 combos, free data: diversity-timing EW-vs-cap allocation, Ceco-Shi-Wong 2026 $0 proxy)",
+          "status": "complete",
+          "queued_at": null,
+          "launched_at": "2026-09-24T13:23Z",
+          "combos_total": 32,
+          "executed": 32,
+          "survivors": 32,
+          "done": null
+        },
+        {
+          "id": "t19",
+          "label": "T19 published lane round 12 (72 combos, free data: T19-01 MAD cross-section 64 [VW blocked w/o shares] + T19-02 UR-day timing daily overlay 8, lagged-VIX-gate fix)",
+          "status": "complete",
+          "queued_at": "2026-09-25T01:45:52.364430+00:00",
+          "launched_at": null,
+          "combos_total": 72,
+          "executed": 40,
+          "survivors": 26,
+          "done": null
+        }
+      ],
+      "stages_queued": 0,
+      "stages_complete": 16,
+      "dl_survivors": 7,
+      "loops": [
+        {
+          "id": "strategy-intake-sweep-am",
+          "enabled": true,
+          "schedule": "daily@06:00:00"
+        },
+        {
+          "id": "strategy-intake-sweep-pm",
+          "enabled": true,
+          "schedule": "daily@18:00:00"
+        },
+        {
+          "id": "discovery-loop-daily",
+          "enabled": true,
+          "schedule": "daily@07:30:00"
+        },
+        {
+          "id": "factory-research-scout",
+          "enabled": true,
+          "schedule": "daily@18:00:00"
+        }
+      ],
+      "loops_enabled": 4,
+      "api_ceiling_usd": 70.0,
+      "api_spent_usd": 0.1635,
+      "api_remaining_usd": 69.8365,
+      "api_spend_asof": "2026-09-20"
+    },
+    "bots_active": 17
+  },
+  "opening_bell": {
+    "basis": "COMPUTED from opening-bell-paper/days/*/scoreboard.json on the MacBook Air at build time; fills are Webull PAPER (broker-simulated), P&L net of MODELED $0.65/side",
+    "race_target_trades": 45,
+    "variants": {
+      "V1": {
+        "id": "V1",
+        "name": "sniper",
+        "rule": "control: upper third -> CALL, lower third + calm RV20 -> PUT",
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "net_pnl_usd": 0.0
+      },
+      "V2": {
+        "id": "V2",
+        "name": "always-on",
+        "rule": "V1 signal; middle third trades toward nearer range edge",
+        "trades": 1,
+        "wins": 0,
+        "losses": 0,
+        "net_pnl_usd": 0.0
+      },
+      "V3": {
+        "id": "V3",
+        "name": "extremes",
+        "rule": "outer quarters only: pos>=0.75 CALL, pos<=0.25 PUT",
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "net_pnl_usd": 0.0
+      },
+      "V4": {
+        "id": "V4",
+        "name": "patient",
+        "rule": "identical to V1, entry delayed to 09:30:10 ET",
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "net_pnl_usd": 0.0
+      },
+      "V5": {
+        "id": "V5",
+        "name": "reversal",
+        "rule": "extreme deciles faded: pos>=0.90 PUT, pos<=0.10 CALL",
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "net_pnl_usd": 0.0
+      }
+    },
+    "sessions": 3,
+    "first_date": "2026-09-22",
+    "last_date": "2026-09-24",
+    "status": "RACING"
+  },
+  "sweep": {
+    "label": "BACKTEST-DIAGNOSTIC",
+    "generated": "2026-09-19T12:43:07.719902+00:00",
+    "combinations_tested": 108492,
+    "trials": 541963,
+    "dsr_survivors": 2334,
+    "graduates": 0,
+    "killed": 108492,
+    "funnel": {
+      "tested": 108492,
+      "cost_gate": 124008,
+      "dsr": 2334,
+      "walkforward": 0,
+      "mc": 0,
+      "kelly": 0,
+      "honesty": 0,
+      "graduated": 0,
+      "killed": 108492
+    },
+    "basis": "VERIFIED 2026-09-20 sweep verdict"
+  },
+  "research": {
+    "basis": "COMPUTED from discovery-loop/ + queue_published.json + research-loop cron files + BUDGET.md at build time",
+    "hypotheses": [
+      {
+        "id": "H-01",
+        "title": "Short overnight reversal after extreme intraday runs",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-02",
+        "title": "Short high idiosyncratic volatility",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-03",
+        "title": "Gold time-series momentum",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-04",
+        "title": "Gold flight-to-safety bid after equity vol spikes",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-05",
+        "title": "BTC/ETH cross-sectional momentum",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-06",
+        "title": "BTC volatility-expansion trend continuation",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-07",
+        "title": "Sector ETF cross-sectional momentum",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-08",
+        "title": "Turn-of-month effect on small caps (IWM)",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-09",
+        "title": "Mega-cap tech cross-sectional momentum",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-10",
+        "title": "Betting against beta across S&P 500",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-11",
+        "title": "BTC/ETH ratio 7d/7d time-series momentum (repair of H-05)",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-12",
+        "title": "BAB with continuous (daily) beta re-hedging",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-13",
+        "title": "Gold same-day flight-to-safety bid on VIX spike days",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-14",
+        "title": "Long GLD at the open after an overnight VIX\u226530 cross",
+        "tags": [
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-15",
+        "title": "Long overnight continuation of top-decile intraday winners",
+        "tags": [
+          "DEAD"
+        ]
+      }
+    ],
+    "hypotheses_total": 15,
+    "hypotheses_pending": 0,
+    "hypotheses_in_factory": 0,
+    "hypotheses_unparsed_annotations": [],
+    "verdicts_total": 29,
+    "verdicts": [
+      {
+        "id": "H-03 (dl-h03)",
+        "verdict": "GRADUATE \u2014 full gauntlet cleared 2026-09-23",
+        "stats": "Cost 8/8; DSR (factory dsr.py, K=8, K_eff=2.75): all 8 pass at 1.0000 (factory T-in-bars convention; best 0.9637 under T-in-years, 0.95 bar); WF (split 2016-01-01, pre-registered best-train selection): train +0.695 \u2192 test +0.692, all 8 combos positive OOS (+0.388..+0.741); MC: block-bootstrap 5th-pct Sharpe@2x +0.372 > 0, cost-jitter 1x/2x/3x all > 0, plateau 8/8 positive on test; Kelly f*=4.70 \u2265 1 (no leverage needed); honesty drop_top5-days: net@2x +4.52 compounded, Sharpe@2x +0.617. All V: hidden_files/discovery-loop/h03_walkforward_2026-09-23.json + h03_gauntlet_456_2026-09-23.json (scripts alongside). Reconstruction sanity: recomputed Sharpe@2x matches trials file to 1e-9. Net convention note: factory net_2x is compounded (prod(1+r)-1 = +6.267), not simple sum (+2.221) \u2014 verified identical, not a discrepancy."
+      },
+      {
+        "id": "H-10 (dl-h10)",
+        "verdict": "DEAD \u2014 Stage-1 gate fail (buried 2026-09-22)",
+        "stats": "8 combos executed, 3/8 cost-gate pass, Sharpe@2x mean \u22120.285 / max 0.373 (126d/quintile/beta-neutral), 2016-01-04\u21922026-09-17 (V: state/checkpoint/dl_h10_trials.jsonl)"
+      },
+      {
+        "id": "H-02",
+        "verdict": "DEAD \u2014 STRUCTURALLY FLAWED (buried 2026-09-22)",
+        "stats": "No backtest run; killed at review."
+      },
+      {
+        "id": "H-11",
+        "verdict": "DEAD \u2014 repair test failed (buried 2026-09-22)",
+        "stats": "No factory run; killed by the agentic repair test."
+      },
+      {
+        "id": "H-04",
+        "verdict": "DEAD \u2014 repair test failed (buried 2026-09-23)",
+        "stats": "No factory run; killed by the agentic repair test of the reviewer's core objection."
+      },
+      {
+        "id": "H-12",
+        "verdict": "IN_REVIEW \u2014 routine review WEAK (2026-09-23, $0.0079)",
+        "stats": "No backtest run; killed at review pending repair pass."
+      },
+      {
+        "id": "H-03c",
+        "verdict": "DEAD \u2014 six-bar pre-registered test (buried 2026-09-24, kill-ledger #44)",
+        "stats": "W1 (GLD 2004-12\u21922026-08, n=259mo, f=0.653): bar1 G1 p_cov=0.1111 FAIL; bar2 p_DD=0.1197 FAIL; bar3 dominance PASS (filter CAGR 7.41% \u2265 mix 6.25%, DD 26.54% \u2264 29.66%); bar4 FAIL (drop 2025-03..2026-02 \u2192 p=0.25); bar5 PASS (7.41% \u2265 7.33%); bar6 FAIL (2/15). W2: bar1 PASS (p=0.0467), bar3 FAIL (filter DD 24.12% > mix 23.42%). W0 (1975+, unweighted): bars 1\u20135 PASS \u2014 the long-window effect is real and episode-driven (literature replication, not a trade). D1 variance-timing p=0.88 (wrong sign); D2 shuffled-dominance 19.1% (borderline variance harvesting). All V: hidden_files/discovery-loop/h03c_sixbar_2026-09-24.{py,json}."
+      },
+      {
+        "id": "H-14",
+        "verdict": "DEAD \u2014 kill test failed (buried 2026-09-24, kill-ledger #45)",
+        "stats": "n=30 overnight-cross episodes (daily-close proxy, ^VIX yfinance 2,949 bars 2015-2026, V). Reviewer's test: cross-night overnight GLD premium +14.9 bps/day \u2014 the bid is priced into the opening auction. 1d/2d/3d forward net of 5bps spread: \u22120.464% (t=\u22122.24), \u22120.651% (t=\u22121.96), \u22120.176% (t=\u22120.48) \u2014 all kill bars fire. Script: hidden_files/discovery-loop/h14_kill_test_2026-09-24.py."
+      },
+      {
+        "id": "H-15",
+        "verdict": "DEAD \u2014 split test (buried 2026-09-24, kill-ledger #46)",
+        "stats": "Full sample: +5.8 bps/day gross (t=+3.39, n=2,691) but \u221214.2 bps/day net@2x \u2192 dead on the pre-registered bar. Discovery 2016-2020: +7.5 bps/day (t=+2.57); validation 2021-2026: +4.3 bps/day (t=+2.22) \u2014 REPLICATES. Cached S&P panel (487 names, V; survivorship caveat stamped). Script: hidden_files/discovery-loop/h15_split_test_2026-09-24.py."
+      },
+      {
+        "id": "cell (formation@timeframe/direction)",
+        "verdict": "n",
+        "stats": "exec"
+      },
+      {
+        "id": "DL-H03@daily-formation_m{6,12}-skip{0,1}/LONG",
+        "verdict": "8",
+        "stats": "8"
+      },
+      {
+        "id": "cell (formation/params)",
+        "verdict": "n",
+        "stats": "exec"
+      },
+      {
+        "id": "DL-H10 126d/decile/neutral=False",
+        "verdict": "1",
+        "stats": "1"
+      },
+      {
+        "id": "DL-H10 126d/decile/neutral=True",
+        "verdict": "1",
+        "stats": "1"
+      },
+      {
+        "id": "DL-H10 126d/quintile/neutral=False",
+        "verdict": "1",
+        "stats": "1"
+      },
+      {
+        "id": "DL-H10 126d/quintile/neutral=True",
+        "verdict": "1",
+        "stats": "1"
+      },
+      {
+        "id": "DL-H10 252d/decile/neutral=False",
+        "verdict": "1",
+        "stats": "1"
+      },
+      {
+        "id": "DL-H10 252d/decile/neutral=True",
+        "verdict": "1",
+        "stats": "1"
+      },
+      {
+        "id": "DL-H10 252d/quintile/neutral=False",
+        "verdict": "1",
+        "stats": "1"
+      },
+      {
+        "id": "DL-H10 252d/quintile/neutral=True",
+        "verdict": "1",
+        "stats": "1"
+      },
+      {
+        "id": "combo",
+        "verdict": "train Sharpe@2x",
+        "stats": "test Sharpe@2x"
+      },
+      {
+        "id": "DL-H03-F6-S0-none",
+        "verdict": "+0.695 \u2190 selected",
+        "stats": "+0.692"
+      },
+      {
+        "id": "DL-H03-F6-S0-low_vol",
+        "verdict": "+0.574",
+        "stats": "+0.409"
+      },
+      {
+        "id": "DL-H03-F6-S1-none",
+        "verdict": "+0.601",
+        "stats": "+0.635"
+      },
+      {
+        "id": "DL-H03-F6-S1-low_vol",
+        "verdict": "+0.407",
+        "stats": "+0.388"
+      },
+      {
+        "id": "DL-H03-F12-S0-none",
+        "verdict": "+0.549",
+        "stats": "+0.618"
+      },
+      {
+        "id": "DL-H03-F12-S0-low_vol",
+        "verdict": "+0.592",
+        "stats": "+0.416"
+      },
+      {
+        "id": "DL-H03-F12-S1-none",
+        "verdict": "+0.560",
+        "stats": "+0.741"
+      },
+      {
+        "id": "DL-H03-F12-S1-low_vol",
+        "verdict": "+0.594",
+        "stats": "+0.529"
+      }
+    ],
+    "stages": [
+      {
+        "id": "t8",
+        "label": "T8 published lane round 2 (180 combos, free data)",
+        "status": "complete",
+        "queued_at": null,
+        "launched_at": "2026-09-19T06:36Z",
+        "combos_total": 180,
+        "executed": 164,
+        "survivors": 48,
+        "done": true
+      },
+      {
+        "id": "t7",
+        "label": "T7 published lane top-5 (244 executable combos: T7-02/03/12; T7-01/04/05 blocked on fundamentals feed)",
+        "status": "complete",
+        "queued_at": null,
+        "launched_at": null,
+        "combos_total": 428,
+        "executed": 126,
+        "survivors": 82,
+        "done": null
+      },
+      {
+        "id": "phase_b_published",
+        "label": "Published-lane gauntlet: DSR -> walk-forward -> Monte Carlo -> Kelly/ruin -> honesty -> kill ledger -> preregs (T7+T8 survivors)",
+        "status": "complete",
+        "queued_at": null,
+        "launched_at": "2026-09-20T09:08Z"
+      },
+      {
+        "id": "t9",
+        "label": "T9 published lane round 3 (212 combos, free data: PTV, overnight momentum, convexity, high-volume, ISkew, BAC, drawdown/recovery, Amihud, price delay)",
+        "status": "complete",
+        "queued_at": null,
+        "launched_at": "2026-09-20T11:53Z",
+        "combos_total": 212,
+        "executed": 130,
+        "survivors": 42,
+        "done": null
+      },
+      {
+        "id": "t10",
+        "label": "T10 published lane round 4 (133 combos, free data: 4 TradingView screen reconstructions + skewness-managed overlay, Clenow adjusted-slope, Daniel Breakout screen)",
+        "status": "complete",
+        "queued_at": null,
+        "launched_at": "2026-09-20T13:53Z",
+        "combos_total": 133,
+        "executed": 133,
+        "survivors": 59,
+        "done": null
+      },
+      {
+        "id": "t11",
+        "label": "T11 stacked composites Stage 1 (114 combos, free data: 19 signal pairs x and/or/ranksum x decile/quintile; structure screen before identity expansion)",
+        "status": "complete",
+        "queued_at": null,
+        "launched_at": "2026-09-20T18:23Z",
+        "combos_total": 114,
+        "executed": 24,
+        "survivors": 4,
+        "done": null
+      },
+      {
+        "id": "t12",
+        "label": "T12 published lane round 5 (88 combos, free data: vol-adj dual-lookback momentum, residual triad, momentum-residualized IVOL)",
+        "status": "complete",
+        "queued_at": null,
+        "launched_at": "2026-09-20T20:53Z",
+        "combos_total": 88,
+        "executed": 5,
+        "survivors": 0,
+        "done": null
+      },
+      {
+        "id": "t13",
+        "label": "T13 published lane round 6 (24 combos: vol-adj 12-1 momentum w/ vol cap + SPY gate; frozen-weight composite w/ rank-150 dampening). T13-03 sector rotation BLOCKED (SPDR constituent feed unavailable 2026-09-20).",
+        "status": "complete",
+        "queued_at": null,
+        "launched_at": "2026-09-21T01:38Z",
+        "combos_total": 24,
+        "executed": 24,
+        "survivors": 24,
+        "done": null
+      },
+      {
+        "id": "dl-h03",
+        "label": "Discovery-loop H-03: Gold time-series momentum",
+        "status": "complete",
+        "queued_at": "2026-09-21T05:19:20.530801+00:00",
+        "launched_at": "2026-09-21T05:38Z",
+        "combos_total": 8,
+        "executed": 5,
+        "survivors": 5,
+        "done": true
+      },
+      {
+        "id": "dl-h10",
+        "label": "Discovery-loop H-10: Betting against beta across S&P 500",
+        "status": "complete",
+        "queued_at": "2026-09-21T05:29:01.540396+00:00",
+        "launched_at": "2026-09-21T05:39Z",
+        "combos_total": 8,
+        "executed": 5,
+        "survivors": 2,
+        "done": true
+      },
+      {
+        "id": "t14",
+        "label": "T14 published lane round 7 (48 combos: causal peer-momentum + intramonth calendar WML timing)",
+        "status": "complete",
+        "queued_at": "2026-09-21T13:43:27.105743+00:00",
+        "launched_at": "2026-09-21T13:53Z",
+        "combos_total": 48,
+        "executed": 48,
+        "survivors": 0,
+        "done": null
+      },
+      {
+        "id": "t15",
+        "label": "T15 published lane round 8 (48 combos: sectoral intramonth momentum cycle + industry trend following, free data)",
+        "status": "complete",
+        "queued_at": "2026-09-22T13:01:59.333049+00:00",
+        "launched_at": "2026-09-22T13:08Z",
+        "combos_total": 48,
+        "executed": 48,
+        "survivors": 16,
+        "done": null
+      },
+      {
+        "id": "t16",
+        "label": "T16 published lane round 9 (8 combos: VIX-state factor-weight tilt radar + fixed control, free data)",
+        "status": "complete",
+        "queued_at": "2026-09-22T13:32:02.636735+00:00",
+        "launched_at": "2026-09-22T14:23Z",
+        "combos_total": 8,
+        "executed": 8,
+        "survivors": 0,
+        "done": null
+      },
+      {
+        "id": "t17",
+        "label": "T17 published lane round 10 (56 combos, free data: FF3-residual short-term reversal 24 + valuation-boundary TSMOM overlay 16 + anomaly-driven demand price-subset 16)",
+        "status": "complete",
+        "queued_at": "2026-09-23T14:10:35.368920+00:00",
+        "launched_at": "2026-09-23T14:53Z",
+        "combos_total": 56,
+        "executed": 23,
+        "survivors": 10,
+        "done": null
+      },
+      {
+        "id": "t18",
+        "label": "T18 published lane round 11 (32 combos, free data: diversity-timing EW-vs-cap allocation, Ceco-Shi-Wong 2026 $0 proxy)",
+        "status": "complete",
+        "queued_at": null,
+        "launched_at": "2026-09-24T13:23Z",
+        "combos_total": 32,
+        "executed": 32,
+        "survivors": 32,
+        "done": null
+      },
+      {
+        "id": "t19",
+        "label": "T19 published lane round 12 (72 combos, free data: T19-01 MAD cross-section 64 [VW blocked w/o shares] + T19-02 UR-day timing daily overlay 8, lagged-VIX-gate fix)",
+        "status": "complete",
+        "queued_at": "2026-09-25T01:45:52.364430+00:00",
+        "launched_at": null,
+        "combos_total": 72,
+        "executed": 40,
+        "survivors": 26,
+        "done": null
+      }
+    ],
+    "stages_queued": 0,
+    "stages_complete": 16,
+    "dl_survivors": 7,
+    "loops": [
+      {
+        "id": "strategy-intake-sweep-am",
+        "enabled": true,
+        "schedule": "daily@06:00:00"
+      },
+      {
+        "id": "strategy-intake-sweep-pm",
+        "enabled": true,
+        "schedule": "daily@18:00:00"
+      },
+      {
+        "id": "discovery-loop-daily",
+        "enabled": true,
+        "schedule": "daily@07:30:00"
+      },
+      {
+        "id": "factory-research-scout",
+        "enabled": true,
+        "schedule": "daily@18:00:00"
+      }
+    ],
+    "loops_enabled": 4,
+    "api_ceiling_usd": 70.0,
+    "api_spent_usd": 0.1635,
+    "api_remaining_usd": 69.8365,
+    "api_spend_asof": "2026-09-20"
+  },
+  "air_node": {
+    "status": "PROVISIONING",
+    "detail": "bundle syncing; validation shard defined (val-2026-09-20-short-01.json), no results yet",
+    "shards_defined": 1,
+    "result_files": 0,
+    "checkpoints": 0,
+    "trials_done": 0,
+    "combinations_done": 0,
+    "best_sharpe": null,
+    "basis": "COMPUTED from air_node_bundle/ at build time"
+  },
+  "nodes": [
+    {
+      "id": "mini",
+      "name": "Mac Mini",
+      "spec": "Apple M4, 10 cores, 16 GB",
+      "role": "TradingView MCP control node + future sweep worker",
+      "liveness": "ALIVE",
+      "liveness_basis": "ssh echo check at payload build time"
+    },
+    {
+      "id": "air",
+      "name": "MacBook Air",
+      "spec": "Apple M4, 10 cores, 24 GB (fanless)",
+      "role": "Dedicated sweep node: new-territory search (shorts, multi-symbol, cross-sectional)",
+      "liveness": "ALIVE",
+      "liveness_basis": "ssh echo check at payload build time"
+    },
+    {
+      "id": "vm",
+      "name": "Linux VM",
+      "spec": "2 CPU cores, ~7 GB RAM",
+      "role": "Forward fleet runner + dashboards + coordination",
+      "liveness": "ALIVE",
+      "liveness_basis": "local"
+    }
+  ]
+}
+
+</script>
+
+<script>
+let DATA = null;
+try { DATA = JSON.parse(document.getElementById('engine-snapshot').textContent); } catch(e){}
+if (!DATA || DATA._placeholder) DATA = null;
+
+function fmtUSD(x){ if(x==null||isNaN(x)) return "--";
+  const s = x<0?"-$":"$"; return s + Math.abs(x).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function fmtInt(x){ if(x==null) return "--"; return Number(x).toLocaleString('en-US'); }
+function asof(iso){ if(!iso) return "DATA AS OF --";
+  try{ const d=new Date(iso);
+    return "DATA AS OF "+d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:true,timeZone:'America/Los_Angeles'})+" PT";
+  }catch(e){ return "DATA AS OF --"; } }
+
+function render(){
+  if(!DATA) return;
+  document.getElementById('dataasof').textContent = asof(DATA.generated_at_pt);
+  document.getElementById('foot-note').textContent = DATA.label_basis || "";
+
+  const fwd = DATA.forward || {};
+  const bots = fwd.bots || {};
+  const botIds = Object.keys(bots).sort();
+  const pnl = fwd.pnl_usd_total;
+  const sw = DATA.sweep || {};
+  const ob = DATA.opening_bell || {};
+  const air = DATA.air_node || {};
+  const rch = DATA.research || {};
+
+  // tiles
+  const tiles = [
+    {k:"FORWARD BOTS", v: fwd.bots_active ?? botIds.length, c:""},
+    {k:"SETTLED", v: fwd.settled_total ?? "--", c:""},
+    {k:"OPEN", v: fwd.open_total ?? "--", c:""},
+    {k:"PAPER P&L", v: fmtUSD(pnl), c: pnl<0?"neg":(pnl>0?"pos":"")},
+    {k:"COMBOS TESTED", v: fmtInt(sw.combinations_tested), c:""},
+    {k:"SWEEP TRIALS", v: fmtInt(sw.trials), c:""},
+    {k:"GRADUATES", v: sw.graduates ?? "--", c: (sw.graduates>0?"pos":"")},
+    {k:"RESEARCH HYPS", v: rch.hypotheses_total ?? "--", c:""},
+    {k:"VERDICTS", v: rch.verdicts_total ?? "--", c: (rch.verdicts_total>0?"pos":"")},
+    {k:"BELL SESSIONS", v: ob.sessions ?? "--", c: ob.status==="RACING"?"pos":(ob.status==="UNREACHABLE"?"neg":"")},
+    {k:"AIR NODE", v: air.status || "--", c: air.status==="RUNNING"?"pos":(air.status==="PROVISIONING"?"warn":"")},
+  ];
+  document.getElementById('tiles').innerHTML = tiles.map(t=>
+    `<div class="tile"><div class="k">${t.k}</div><div class="v ${t.c}">${t.v}</div></div>`).join("");
+
+  // bots
+  const bel = document.getElementById('bots');
+  if(!botIds.length){ bel.innerHTML = '<div class="empty">No paper ledgers yet.</div>'; }
+  else bel.innerHTML = botIds.map(id=>{ const b=bots[id];
+    const pc = b.pnl_usd<0?"pnl-neg":"pnl-pos";
+    return `<div class="bot"><div class="bid">${id}</div>
+      <div class="row"><span>settled</span><span>${b.settled_of_20||b.settled}</span></div>
+      <div class="row"><span>W / L</span><span><span class="win">${b.wins}</span> / <span class="loss">${b.losses}</span></span></div>
+      <div class="row"><span>P&amp;L</span><span class="${pc}">${fmtUSD(b.pnl_usd)}</span></div>
+      <div class="row"><span>expect / $1</span><span>${b.expectancy_per_1usd}</span></div>
+      <div class="row"><span>kill rule</span><span class="kill-${b.kill_rule}">${b.kill_rule}</span></div>
+      ${b.go_gate?`<div class="row"><span>${b.go_gate.label}</span><span style="text-align:right">${b.go_gate.progress} &middot; verdict ${b.go_gate.verdict_by}${b.go_gate.eta?` &middot; ETA ~${b.go_gate.eta}`:""}</span></div>`:""}
+    </div>`;}).join("");
+
+  // opening bell tournament
+  const bellEl = document.getElementById('bell');
+  const vids = Object.keys(ob.variants || {}).sort();
+  if(ob.status === "UNREACHABLE"){
+    bellEl.innerHTML = '<div class="empty">Mac unreachable at build time - showing last known snapshot.</div>';
+  } else if(!vids.length || ob.status === "AWAITING_FIRST_SESSION"){
+    bellEl.innerHTML = '<div class="empty">No opening-bell sessions yet - first tournament session Tue 2026-09-22 6:29 AM PT.</div>';
+  } else {
+    const target = ob.race_target_trades || 45;
+    const leader = vids.reduce((a,b)=> (ob.variants[b].net_pnl_usd > ob.variants[a].net_pnl_usd ? b : a), vids[0]);
+    bellEl.innerHTML = vids.map(id=>{ const v = ob.variants[id];
+      const pc = v.net_pnl_usd<0?"pnl-neg":(v.net_pnl_usd>0?"pnl-pos":"");
+      const prog = Math.min(100, 100*v.trades/target);
+      const crown = id===leader && v.trades>0 ? ' <span style="color:var(--amber)">&#9733;</span>' : '';
+      return `<div class="bot"><div class="bid">${v.id} ${v.name}${crown}</div>
+        <div class="row"><span>rule</span><span style="text-align:right;max-width:60%">${v.rule}</span></div>
+        <div class="row"><span>trades</span><span>${v.trades} / ${target}</span></div>
+        <div style="height:6px;background:rgba(0,229,255,.12);margin-top:6px"><div style="height:100%;width:${prog}%;background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.7)"></div></div>
+        <div class="row"><span>W / L</span><span><span class="win">${v.wins}</span> / <span class="loss">${v.losses}</span></span></div>
+        <div class="row"><span>paper P&amp;L</span><span class="${pc}">${fmtUSD(v.net_pnl_usd)}</span></div>
+      </div>`;}).join("");
+  }
+  document.getElementById('bellnote').textContent = ob.basis || (ob.error || "");
+
+  // funnel
+  const fn = sw.funnel || {};
+  const stages = [["tested","#00e5ff"],["cost_gate","#39ff88"],["dsr","#7cffb2"],
+                  ["walkforward","#ffb300"],["mc","#ff9d00"],["kelly","#ff6b00"],
+                  ["honesty","#ff2d55"],["graduated","#ffffff"]];
+  const max = Math.max(1, fn.tested||0);
+  document.getElementById('funnelbar').innerHTML = stages.map(([k,c])=>{
+    const w = Math.max(0.5, 100*Math.log10(1+(fn[k]||0))/Math.log10(1+max));
+    return `<div title="${k}: ${fmtInt(fn[k])}" style="width:${w}%;background:${c};opacity:.85"></div>`;}).join("");
+  document.getElementById('funnelstats').innerHTML =
+    `tested <b style="color:var(--cyan)">${fmtInt(fn.tested)}</b> &rarr; cost gate ${fmtInt(fn.cost_gate)} &rarr; DSR ${fmtInt(fn.dsr)} &rarr; walk-fwd ${fmtInt(fn.walkforward)} &rarr; MC ${fmtInt(fn.mc)} &rarr; Kelly ${fmtInt(fn.kelly)} &rarr; honesty ${fmtInt(fn.honesty)} &rarr; <b>graduated ${fmtInt(fn.graduated)}</b>`;
+  document.getElementById('sweepnote').textContent =
+    (sw.basis? sw.basis+"; ":"") + "Old T1-T6 long-only/SPY space exhausted (0 graduates). New-territory search runs on the Air node.";
+
+  // research loop
+  const rel2 = document.getElementById('research');
+  const hyps = rch.hypotheses || [];
+  const dlStages = (rch.stages||[]).filter(s=>String(s.id||"").startsWith("dl-"));
+  if(!hyps.length && !dlStages.length){ rel2.innerHTML = '<div class="empty">No research activity yet.</div>'; }
+  else{
+    let h = "";
+    if(hyps.length){
+      h += `<table><tr><th>HYPOTHESIS</th><th>TITLE</th><th>STATUS</th></tr>` +
+        hyps.map(x=>`<tr><td>${x.id}</td><td>${(x.title||"").slice(0,52)}</td>`+
+          `<td>${(x.tags||[]).join(" ")||"--"}</td></tr>`).join("") + `</table>`;
+    }
+    if(dlStages.length){
+      h += `<div style="margin-top:8px;font-size:12px;color:#c7d0e0">DISCOVERY LANES IN FACTORY</div>` +
+        `<table><tr><th>LANE</th><th>STATUS</th><th>COMBOS</th><th>EXEC</th><th>SURVIVORS</th></tr>` +
+        dlStages.map(s=>`<tr><td>${s.id}</td><td>${s.status||"--"}</td>`+
+          `<td>${s.combos_total??"--"}</td><td>${s.executed??"--"}</td>`+
+          `<td class="${(s.survivors||0)>0?'win':''}">${s.survivors??"--"}</td></tr>`).join("") + `</table>`;
+    }
+    rel2.innerHTML = h;
+  }
+  const loops = rch.loops || [];
+  document.getElementById('researchnote').textContent =
+    "LOOPS " + (loops.length? loops.map(l=>`${l.id} ${l.enabled?"ON":"OFF"}`).join(" | ") : "--") +
+    " | verdicts " + (rch.verdicts_total??"--") +
+    " | research API spend $" + (rch.api_spent_usd??"--") + " / $" + (rch.api_ceiling_usd??"--") +
+    (rch.api_spend_asof? " (as of "+rch.api_spend_asof+")" : "") +
+    " | basis: " + (rch.basis||"");
+
+  // nodes
+  document.getElementById('nodes').innerHTML = (DATA.nodes||[]).map(n=>
+    `<div class="node"><div class="dot ${n.liveness}"></div><div>
+      <div class="nm">${n.name} <span style="color:var(--mut);font-size:10px">${n.liveness}</span></div>
+      <div class="sp">${n.spec}</div><div class="rl">${n.role}</div>
+      ${n.liveness==="ALIVE"?"":`<div class="sp" style="color:var(--amber)">${n.liveness_basis||""}</div>`}
+    </div></div>`).join("");
+  document.getElementById('airnote').textContent =
+    "AIR SWEEP NODE: " + (air.status||"--") + " - " + (air.detail||"") +
+    (air.trials_done? ` | trials done ${fmtInt(air.trials_done)}` : "") +
+    (air.best_sharpe!=null? ` | best Sharpe ${air.best_sharpe}` : "") +
+    " | basis: " + (air.basis||"");
+
+  // recent settlements
+  const rel = document.getElementById('recent');
+  const rs = fwd.recent_settled || [];
+  if(!rs.length) rel.innerHTML = '<div class="empty">No settlements yet.</div>';
+  else rel.innerHTML = `<table><tr><th>BOT</th><th>MARKET</th><th>SIDE</th><th>OUTCOME</th><th>P&amp;L</th><th>SETTLED</th></tr>` +
+    rs.map(t=>`<tr><td>${t.bot_id||""}</td><td>${(t.question||"").slice(0,42)}</td><td>${t.side||""}</td>
+      <td class="${t.outcome==='WIN'?'win':(t.outcome==='LOSS'?'loss':'')}">${t.outcome||""}</td>
+      <td class="${(t.pnl_usd||0)<0?'loss':'win'}">${fmtUSD(t.pnl_usd)}</td>
+      <td>${(t.settle_ts||"").slice(0,16).replace("T"," ")}</td></tr>`).join("") + `</table>`;
+
+  // open positions
+  const oel = document.getElementById('open');
+  const op = fwd.open_positions || [];
+  if(!op.length) oel.innerHTML = '<div class="empty">No open positions.</div>';
+  else oel.innerHTML = `<table><tr><th>BOT</th><th>MARKET</th><th>SIDE</th><th>PRICE</th><th>STAKE</th><th>SEALED</th></tr>` +
+    op.map(t=>`<tr><td>${t.bot_id||""}</td><td>${(t.question||"").slice(0,42)}</td><td>${t.side||""}</td>
+      <td>${t.price??""}</td><td>$${t.stake_usd??""}</td>
+      <td>${(t.seal_ts||"").slice(0,16).replace("T"," ")}</td></tr>`).join("") + `</table>`;
+}
+
+async function poll(){
+  try{
+    const r = await fetch('engine-command-dashboard.json',{cache:'no-store'});
+    if(!r.ok) throw 0;
+    const j = await r.json();
+    if(j && j.generated_at_pt && (!DATA || j.generated_at_pt !== DATA.generated_at_pt)){
+      DATA = j; render();
+    }
+    document.getElementById('live').textContent = "LIVE";
+    document.getElementById('live').classList.remove('off');
+  }catch(e){
+    const el = document.getElementById('live');
+    el.textContent = "SNAPSHOT"; el.classList.add('off');
+  }
+}
+
+// boot sequence
+(function(){
+  const term = document.getElementById('boot-term');
+  const lines = ["ENGINE COMMAND v1.0","initializing tactical HUD ...",
+    "linking forward fleet <span class='ok'>OK</span>","linking sweep archive <span class='ok'>OK</span>",
+    "linking research loop <span class='ok'>OK</span>",
+    "linking engine nodes <span class='ok'>OK</span>","rendering holographic panels ..."];
+  let i=0;
+  function next(){
+    if(i<lines.length){ term.innerHTML += lines[i++] + "<br>"; setTimeout(next, 260); }
+    else setTimeout(()=>document.getElementById('boot').classList.add('done'), 500);
+  }
+  next();
+})();
+
+// clock
+setInterval(()=>{
+  document.getElementById('clock').textContent =
+    new Date().toLocaleTimeString('en-US',{hour12:false,timeZone:'America/Los_Angeles'});
+},1000);
+
+render();
+if(DATA) setInterval(poll, 60000);
+</script>
+</body>
+</html>
