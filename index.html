@@ -74,7 +74,7 @@ body{
   background:radial-gradient(circle,rgba(70,230,255,.28),transparent 65%);animation:breathe 3.2s ease-in-out infinite;z-index:-1}
 .titleblock h1{font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.02em;line-height:1.05}
 .titleblock h1 .thin{font-weight:400;color:var(--ghost)}
-.kicker{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.14em;color:var(--arc);margin-top:6px}
+.kicker{font-size:12.5px;letter-spacing:.03em;color:var(--ghost);margin-top:6px}
 .hdr-right{margin-left:auto;text-align:right;font-family:"JetBrains Mono",monospace}
 #clock{font-size:22px;font-weight:600;letter-spacing:.04em}
 #dataasof{font-size:11.5px;color:var(--faint);margin-top:2px}
@@ -90,7 +90,7 @@ body{
 #tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin-bottom:34px}
 .tile{padding:14px 16px;border-radius:14px;position:relative;overflow:hidden;transition:transform .45s var(--ez),border-color .45s var(--ez),box-shadow .45s var(--ez)}
 .tile:hover{transform:translateY(-3px);border-color:rgba(70,230,255,.35);box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 24px rgba(70,230,255,.08)}
-.tile .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;color:var(--faint);margin-bottom:6px}
+.tile .k{font-size:11.5px;letter-spacing:.05em;color:var(--faint);margin-bottom:6px}
 .tile .v{font-family:"JetBrains Mono",monospace;font-size:21px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tile .v.long{font-size:15px;letter-spacing:.02em}
 .tile .v.pos{color:var(--mint)}.tile .v.neg{color:var(--blood)}.tile .v.warn{color:var(--gold)}
@@ -99,7 +99,7 @@ body{
 .panel{padding:24px;margin-bottom:26px;position:relative}
 .panel > h2{font-size:17px;font-weight:600;letter-spacing:.01em;display:flex;align-items:center;gap:12px;margin-bottom:18px}
 .panel > h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
-.panel > h2 .tag{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;color:var(--faint);font-weight:400}
+.panel > h2 .tag{font-size:12.5px;letter-spacing:.02em;color:var(--faint);font-weight:400}
 .fnote{font-size:12.5px;color:var(--faint);margin-top:14px;line-height:1.6}
 
 /* bot cards */
@@ -113,13 +113,14 @@ body{
   padding:4px 10px;border-radius:99px;border:1px solid rgba(65,242,160,.4);color:var(--mint);background:rgba(65,242,160,.07)}
 .bot .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:5px 0;font-size:13.5px}
 .bot .row + .row{border-top:1px solid rgba(238,243,251,.06)}
-.bot .row > span:first-child{color:var(--faint);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;flex:none}
+.bot .row > span:first-child{color:var(--faint);font-size:12px;letter-spacing:.02em;flex:none}
 .bot .row > span:last-child{font-family:"JetBrains Mono",monospace;font-size:13px;text-align:right}
 .bot .pnl-pos{color:var(--mint)}.bot .pnl-neg{color:var(--blood)}
 .bot .win{color:var(--mint)}.bot .loss{color:var(--blood)}
-.bot .gate{margin-top:10px;padding:9px 12px;border-radius:10px;font-family:"JetBrains Mono",monospace;font-size:11.5px;
+.bot .gate{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:12.5px;
   color:var(--gold-hot);background:rgba(242,169,59,.08);border:1px solid rgba(242,169,59,.28);line-height:1.7}
-.bot .gate b{color:var(--gold)}
+.bot .gate b{color:var(--gold);font-weight:600}
+.bot .gate .g2{color:var(--ghost);font-size:12px}
 .energy{position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(105deg,transparent 40%,rgba(70,230,255,.09) 50%,transparent 60%);
   background-size:250% 100%;transition:opacity .3s}
 .bot:hover .energy{opacity:1;animation:sweep 1.4s var(--ez)}
@@ -146,7 +147,7 @@ body{
 
 /* tables */
 table{width:100%;border-collapse:collapse;font-size:13px}
-th{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;color:var(--faint);text-align:left;
+th{font-size:11.5px;letter-spacing:.03em;color:var(--faint);text-align:left;
   padding:10px 12px;border-bottom:1px solid var(--line);font-weight:500;white-space:nowrap}
 td{padding:10px 12px;border-bottom:1px solid rgba(238,243,251,.05);font-family:"JetBrains Mono",monospace;font-size:12.5px;vertical-align:top}
 tr:last-child td{border-bottom:0}
@@ -224,7 +225,7 @@ footer b{color:var(--gold)}
     </div>
     <div class="titleblock">
       <h1>Engine <span class="thin">Command</span></h1>
-      <div class="kicker">QUANT ENGINE // LIVE OPERATIONS HUD</div>
+      <div class="kicker">Quant engine, live operations</div>
     </div>
     <div class="hdr-right">
       <div id="clock">--:--:--</div>
@@ -236,12 +237,12 @@ footer b{color:var(--gold)}
   <div id="tiles" class="rise" style="--d:.12s"></div>
 
   <section class="panel glass rise" style="--d:.18s" aria-label="Forward fleet">
-    <h2>Forward fleet <span class="tag">paper only · no real capital</span></h2>
+    <h2>Forward fleet <span class="tag">Paper only, no real capital</span></h2>
     <div id="bots" class="cards"></div>
   </section>
 
   <section class="panel glass rise" style="--d:.24s" aria-label="Opening bell tournament">
-    <h2>Opening bell <span class="tag">paper 0DTE · race to 45 trades</span></h2>
+    <h2>Opening bell <span class="tag">Paper 0DTE, race to 45 trades</span></h2>
     <div id="bell" class="cards"></div>
     <div class="fnote" id="bellnote"></div>
   </section>
@@ -291,11 +292,11 @@ footer b{color:var(--gold)}
 
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-25T00:20:09-07:00",
+  "generated_at_pt": "2026-09-25T00:22:23-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T00:20:09-07:00",
+    "generated_at_pt": "2026-09-25T00:22:23-07:00",
     "paper_trading_only": true,
     "settled_total": 332,
     "open_total": 15,
@@ -1794,14 +1795,14 @@ function botCard(id, b, killed){
   const pc = b.pnl_usd<0 ? "pnl-neg" : "pnl-pos";
   const settled = (b.go_gate && b.go_gate.progress) ? b.go_gate.progress : (b.settled_of_20||b.settled);
   const gate = b.go_gate
-    ? `<div class="gate"><b>${esc(b.go_gate.label)}</b> · ${esc(b.go_gate.progress)} · verdict ${esc(b.go_gate.verdict_by)}${b.go_gate.eta?` · ETA ~${esc(b.go_gate.eta)}`:""}</div>` : "";
+    ? `<div class="gate"><div><b>${esc(b.go_gate.label)}</b> ${esc(b.go_gate.progress)} settled</div><div class="g2">verdict ${esc(b.go_gate.verdict_by)}${b.go_gate.eta?`, pace ETA ~${esc(b.go_gate.eta)}`:""}</div></div>` : "";
   return `<div class="bot"><div class="energy"></div>
     <div class="bid">${esc(id)}</div>
     <div class="status">${killed ? "KILLED" : "LIVE"}</div>
-    <div class="row"><span>settled</span><span>${esc(settled)}</span></div>
-    <div class="row"><span>W / L</span><span><span class="win">${b.wins}</span> / <span class="loss">${b.losses}</span></span></div>
+    <div class="row"><span>Settled</span><span>${esc(settled)}</span></div>
+    <div class="row"><span>W/L</span><span><span class="win">${b.wins}</span> / <span class="loss">${b.losses}</span></span></div>
     <div class="row"><span>P&amp;L</span><span class="${pc}">${fmtUSD(b.pnl_usd)}</span></div>
-    <div class="row"><span>expect / $1</span><span>${b.expectancy_per_1usd}</span></div>
+    <div class="row"><span>Expect / $1</span><span>${b.expectancy_per_1usd}</span></div>
     ${gate}
   </div>`;
 }
@@ -1824,17 +1825,17 @@ function render(){
   const sw = DATA.sweep || {}, ob = DATA.opening_bell || {}, air = DATA.air_node || {}, rch = DATA.research || {};
   const pnl = fwd.pnl_usd_total;
   const tiles = [
-    {k:"FORWARD BOTS", v: fwd.bots_active ?? ids.length, c:""},
-    {k:"SETTLED", v: fwd.settled_total ?? "--", c:""},
-    {k:"OPEN", v: fwd.open_total ?? "--", c:""},
-    {k:"PAPER P&L", v: fmtUSD(pnl), c: pnl<0?"neg":(pnl>0?"pos":"")},
-    {k:"COMBOS TESTED", v: fmtInt(sw.combinations_tested), c:""},
-    {k:"SWEEP TRIALS", v: fmtInt(sw.trials), c:""},
-    {k:"GRADUATES", v: sw.graduates ?? "--", c: (sw.graduates>0?"pos":"")},
-    {k:"RESEARCH HYPS", v: rch.hypotheses_total ?? "--", c:""},
-    {k:"VERDICTS", v: rch.verdicts_total ?? "--", c: (rch.verdicts_total>0?"pos":"")},
-    {k:"BELL SESSIONS", v: ob.sessions ?? "--", c: ob.status==="RACING"?"pos":(ob.status==="UNREACHABLE"?"warn":"")},
-    {k:"AIR NODE", v: air.status || "--", c: air.status==="RUNNING"?"pos":(air.status==="PROVISIONING"?"warn":"")},
+    {k:"Forward bots", v: fwd.bots_active ?? ids.length, c:""},
+    {k:"Settled", v: fwd.settled_total ?? "--", c:""},
+    {k:"Open", v: fwd.open_total ?? "--", c:""},
+    {k:"Paper P&L", v: fmtUSD(pnl), c: pnl<0?"neg":(pnl>0?"pos":"")},
+    {k:"Combos tested", v: fmtInt(sw.combinations_tested), c:""},
+    {k:"Sweep trials", v: fmtInt(sw.trials), c:""},
+    {k:"Graduates", v: sw.graduates ?? "--", c: (sw.graduates>0?"pos":"")},
+    {k:"Hypotheses", v: rch.hypotheses_total ?? "--", c:""},
+    {k:"Verdicts", v: rch.verdicts_total ?? "--", c: (rch.verdicts_total>0?"pos":"")},
+    {k:"Bell sessions", v: ob.sessions ?? "--", c: ob.status==="RACING"?"pos":(ob.status==="UNREACHABLE"?"warn":"")},
+    {k:"Air node", v: air.status || "--", c: air.status==="RUNNING"?"pos":(air.status==="PROVISIONING"?"warn":"")},
   ];
   $("tiles").innerHTML = tiles.map(t=>{
     const long = String(t.v).length > 9 ? " long" : "";
@@ -1864,12 +1865,12 @@ function render(){
       const prog = Math.min(100, 100*v.trades/target);
       const crown = id===leader && v.trades>0 ? ' <span style="color:var(--gold)">★</span>' : '';
       return `<div class="bot"><div class="energy"></div><div class="bid">${esc(v.id)} ${esc(v.name)}${crown}</div>
-        <div class="row"><span>rule</span><span style="max-width:62%">${esc(v.rule)}</span></div>
-        <div class="row"><span>trades</span><span>${v.trades} / ${target}</span></div>
+        <div class="row"><span>Rule</span><span style="max-width:62%">${esc(v.rule)}</span></div>
+        <div class="row"><span>Trades</span><span>${v.trades} / ${target}</span></div>
         <div style="height:6px;background:rgba(70,230,255,.12);border-radius:4px;margin:8px 0 2px;overflow:hidden">
           <div style="height:100%;width:${prog}%;border-radius:4px;background:linear-gradient(90deg,var(--arc-dim),var(--arc));box-shadow:0 0 10px rgba(70,230,255,.6);transition:width .9s cubic-bezier(.16,1,.3,1)"></div></div>
-        <div class="row"><span>W / L</span><span><span class="win">${v.wins}</span> / <span class="loss">${v.losses}</span></span></div>
-        <div class="row"><span>paper P&amp;L</span><span class="${pc}">${fmtUSD(v.net_pnl_usd)}</span></div>
+        <div class="row"><span>W/L</span><span><span class="win">${v.wins}</span> / <span class="loss">${v.losses}</span></span></div>
+        <div class="row"><span>Paper P&amp;L</span><span class="${pc}">${fmtUSD(v.net_pnl_usd)}</span></div>
       </div>`;}).join("");
   }
   $("bellnote").textContent = ob.basis || (ob.error || "");
@@ -1884,7 +1885,7 @@ function render(){
     const w = Math.max(0.5, 100*Math.log10(1+(fn[k]||0))/Math.log10(1+max));
     return `<div title="${k}: ${fmtInt(fn[k])}" style="width:${w}%;background:${c};opacity:.85"></div>`;}).join("");
   $("funnelstats").innerHTML =
-    `tested <b style="color:var(--arc)">${fmtInt(fn.tested)}</b> → cost gate ${fmtInt(fn.cost_gate)} → DSR ${fmtInt(fn.dsr)} → walk-fwd ${fmtInt(fn.walkforward)} → MC ${fmtInt(fn.mc)} → Kelly ${fmtInt(fn.kelly)} → honesty ${fmtInt(fn.honesty)} → <b>graduated ${fmtInt(fn.graduated)}</b>`;
+    `tested <b style="color:var(--arc)">${fmtInt(fn.tested)}</b>, cost gate ${fmtInt(fn.cost_gate)}, DSR ${fmtInt(fn.dsr)}, walk-fwd ${fmtInt(fn.walkforward)}, MC ${fmtInt(fn.mc)}, Kelly ${fmtInt(fn.kelly)}, honesty ${fmtInt(fn.honesty)}, <b>graduated ${fmtInt(fn.graduated)}</b>`;
   $("sweepnote").textContent =
     (sw.basis? sw.basis+"; ":"") + "Old T1-T6 long-only/SPY space exhausted (0 graduates). New-territory search runs on the Air node.";
 
@@ -1901,7 +1902,7 @@ function render(){
           `<td>${esc((x.tags||[]).join(" ")||"--")}</td></tr>`).join("") + `</tbody></table>`;
     }
     if(dlStages.length){
-      h += `<div style="margin:14px 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--faint)">DISCOVERY LANES IN FACTORY</div>` +
+      h += `<div style="margin:14px 0 6px;font-size:12px;letter-spacing:.03em;color:var(--faint)">Discovery lanes in factory</div>` +
         `<table><thead><tr><th>Lane</th><th>Status</th><th>Combos</th><th>Exec</th><th>Survivors</th></tr></thead><tbody>` +
         dlStages.map(s=>`<tr><td>${esc(s.id)}</td><td>${esc(s.status||"--")}</td>`+
           `<td>${s.combos_total??"--"}</td><td>${s.executed??"--"}</td>`+
@@ -1911,7 +1912,7 @@ function render(){
   }
   const loops = rch.loops || [];
   $("researchnote").textContent =
-    "LOOPS " + (loops.length? loops.map(l=>`${l.id} ${l.enabled?"ON":"OFF"}`).join(" | ") : "--") +
+    "Loops " + (loops.length? loops.map(l=>`${l.id} ${l.enabled?"on":"off"}`).join(", ") : "--") +
     " | verdicts " + (rch.verdicts_total??"--") +
     " | research API spend $" + (rch.api_spent_usd??"--") + " / $" + (rch.api_ceiling_usd??"--") +
     (rch.api_spend_asof? " (as of "+rch.api_spend_asof+")" : "") +
@@ -1925,7 +1926,7 @@ function render(){
       ${n.liveness==="ALIVE"?"":`<div class="sp" style="color:var(--gold)">${esc(n.liveness_basis||"")}</div>`}
     </div></div>`).join("");
   $("airnote").textContent =
-    "AIR SWEEP NODE: " + (air.status||"--") + " — " + (air.detail||"") +
+    "Air sweep node: " + (air.status||"--") + ", " + (air.detail||"") +
     (air.trials_done? ` | trials done ${fmtInt(air.trials_done)}` : "") +
     (air.best_sharpe!=null? ` | best Sharpe ${air.best_sharpe}` : "") +
     " | basis: " + (air.basis||"");
