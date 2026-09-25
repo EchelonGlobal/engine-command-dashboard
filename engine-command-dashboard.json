@@ -1,12 +1,12 @@
 {
-  "generated_at_pt": "2026-09-24T21:32:00-07:00",
+  "generated_at_pt": "2026-09-24T22:02:52-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-24T21:32:00-07:00",
+    "generated_at_pt": "2026-09-24T22:02:52-07:00",
     "paper_trading_only": true,
     "settled_total": 330,
-    "open_total": 15,
+    "open_total": 16,
     "pnl_usd_total": 624.9016,
     "pnl_usd_era1_dollar_stakes": 2.0548,
     "pnl_usd_era100_dollar_stakes": 622.8468,
@@ -437,6 +437,14 @@
         "price": 0.32,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T04:07:40.103925+00:00"
+      },
+      {
+        "bot_id": "oscars-favorite",
+        "question": "Will Film D win Best Picture at the 99th Academy Awards?",
+        "side": "YES",
+        "price": 0.5,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-25T04:57:38.230467+00:00"
       }
     ],
     "research": {
