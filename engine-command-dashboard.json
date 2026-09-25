@@ -1,12 +1,12 @@
 {
-  "generated_at_pt": "2026-09-25T14:02:59-07:00",
+  "generated_at_pt": "2026-09-25T14:32:52-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T14:02:59-07:00",
+    "generated_at_pt": "2026-09-25T14:32:51-07:00",
     "paper_trading_only": true,
     "settled_total": 353,
-    "open_total": 15,
+    "open_total": 17,
     "pnl_usd_total": 1942.3821,
     "paper_pnl_vs_bankroll_pct": 107.89,
     "pnl_usd_era1_dollar_stakes": 2.0548,
@@ -79,7 +79,7 @@
           "eta": "Oct 2"
         },
         "max_working_capital_usd": 627.12,
-        "open_cost_usd": 0
+        "open_cost_usd": 229.8
       },
       "btc-momentum": {
         "settled": 21,
@@ -161,7 +161,7 @@
           "eta": "Oct 2"
         },
         "max_working_capital_usd": 447.24,
-        "open_cost_usd": 0
+        "open_cost_usd": 219.06
       },
       "eth-momentum": {
         "settled": 26,
@@ -236,10 +236,10 @@
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 200.0,
+      "league_open_cost_usd": 648.86,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 139.75,
+      "avg_position_cost_usd": 140.54,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
@@ -474,6 +474,22 @@
         "price": null,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T14:06:43.853597+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 25, 5:30PM-5:45PM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 229.8,
+        "seal_ts": "2026-09-25T21:16:58.823903+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 25, 5:30PM-5:45PM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 219.06,
+        "seal_ts": "2026-09-25T21:17:00.337658+00:00"
       }
     ],
     "research": {
@@ -973,9 +989,9 @@
         {
           "id": "t20",
           "label": "T20 published lane round 13 (48 combos, free data: T20-01 comomentum overlay 8 + T20-02 BAC 2 + T20-03 salience ST 4 [VW blocked w/o shares] + T20-04 sentiment overlay 10 [BLOCKED: BW feed unreachable] + T20-05 vol-PercentRank STR 4 + T20-06 country momentum 4 + T20-07 ATR pullback 8 + T20-08 Varadi sector timing 8)",
-          "status": "crashed",
+          "status": "running",
           "queued_at": "2026-09-25T15:45:44.430545+00:00",
-          "launched_at": "2026-09-25T20:08Z"
+          "launched_at": "2026-09-25T21:03Z"
         }
       ],
       "stages_queued": 0,
@@ -1584,9 +1600,9 @@
       {
         "id": "t20",
         "label": "T20 published lane round 13 (48 combos, free data: T20-01 comomentum overlay 8 + T20-02 BAC 2 + T20-03 salience ST 4 [VW blocked w/o shares] + T20-04 sentiment overlay 10 [BLOCKED: BW feed unreachable] + T20-05 vol-PercentRank STR 4 + T20-06 country momentum 4 + T20-07 ATR pullback 8 + T20-08 Varadi sector timing 8)",
-        "status": "crashed",
+        "status": "running",
         "queued_at": "2026-09-25T15:45:44.430545+00:00",
-        "launched_at": "2026-09-25T20:08Z"
+        "launched_at": "2026-09-25T21:03Z"
       }
     ],
     "stages_queued": 0,
