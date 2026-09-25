@@ -3,185 +3,301 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ENGINE COMMAND // Quant Engine HUD</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<title>Engine Command — Quant Operations HUD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cyan:#00e5ff; --green:#7cffb2; --red:#ff2d55; --amber:#ffb300;
-  --mut:#8a93a6; --bg:#020610; --panel:rgba(0,40,60,.35); --line:rgba(0,229,255,.35);
+  --abyss:#04060c;
+  --hull:#0a101c;
+  --arc:#46e6ff;
+  --arc-dim:#1b6f8f;
+  --gold:#f2a93b;
+  --gold-hot:#ffd97a;
+  --blood:#ff5a5a;
+  --mint:#41f2a0;
+  --bone:#eef3fb;
+  --ghost:rgba(238,243,251,.68);
+  --faint:rgba(238,243,251,.42);
+  --line:rgba(70,230,255,.14);
+  --glass:rgba(13,20,34,.55);
+  --ez:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--bg);color:#d9f6ff;font-family:'Share Tech Mono',monospace;min-height:100%}
-body{overflow-x:hidden;padding:18px}
-/* drifting grid */
-#grid{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(rgba(0,229,255,.06) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(0,229,255,.06) 1px,transparent 1px);
-  background-size:44px 44px;animation:drift 22s linear infinite;}
-@keyframes drift{to{transform:translate(44px,44px)}}
-/* scanlines */
-#scan{position:fixed;inset:0;z-index:50;pointer-events:none;
-  background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);
-  mix-blend-mode:multiply;}
-#vig{position:fixed;inset:0;z-index:49;pointer-events:none;
-  background:radial-gradient(ellipse at center,transparent 55%,rgba(0,10,25,.75) 100%);}
-#wrap{position:relative;z-index:10;max-width:1180px;margin:0 auto}
-/* boot overlay */
-#boot{position:fixed;inset:0;background:#01040a;z-index:100;display:flex;align-items:center;justify-content:center;
-  transition:opacity .6s;}
-#boot.done{opacity:0;pointer-events:none}
-#boot .term{font-size:14px;line-height:2;color:var(--cyan);text-shadow:0 0 12px rgba(0,229,255,.7);min-width:min(520px,86vw)}
-#boot .term .ok{color:var(--green)}
-/* header */
-header{display:flex;align-items:center;gap:18px;border:1px solid var(--line);background:var(--panel);
-  padding:14px 18px;margin-bottom:14px;clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px));
-  backdrop-filter:blur(2px)}
-h1{font-family:Orbitron;font-size:clamp(20px,4vw,34px);letter-spacing:.14em;color:var(--cyan);
-  text-shadow:0 0 18px rgba(0,229,255,.8)}
-.sub{color:var(--mut);font-size:12px;letter-spacing:.2em}
-/* arc reactor */
-#reactor{width:74px;height:74px;flex:0 0 74px;position:relative}
-#reactor svg{width:100%;height:100%;filter:drop-shadow(0 0 10px rgba(0,229,255,.9))}
-#reactor .spin{transform-origin:37px 37px;animation:spin 7s linear infinite}
+html{scroll-behavior:smooth}
+body{
+  background:var(--abyss);
+  color:var(--bone);
+  font-family:"Space Grotesk",system-ui,sans-serif;
+  font-size:15px;line-height:1.55;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+/* ambient background */
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden;
+  background:
+    radial-gradient(900px 500px at 12% -5%, rgba(70,230,255,.07), transparent 60%),
+    radial-gradient(800px 500px at 88% 108%, rgba(242,169,59,.06), transparent 60%),
+    radial-gradient(1200px 800px at 50% 50%, rgba(10,16,28,.5), transparent 70%),
+    var(--abyss);}
+.bg::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(70,230,255,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(70,230,255,.045) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 30%, #000 30%, transparent 75%);
+          mask-image:radial-gradient(ellipse 90% 70% at 50% 30%, #000 30%, transparent 75%);}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;will-change:transform}
+.orb.a{width:420px;height:420px;left:-120px;top:-100px;background:rgba(27,111,143,.35);animation:drift1 26s ease-in-out infinite alternate}
+.orb.b{width:360px;height:360px;right:-100px;bottom:-80px;background:rgba(242,169,59,.16);animation:drift2 32s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(120px,90px) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-110px,-70px) scale(1.1)}}
+
+#wrap{max-width:1200px;margin:0 auto;padding:28px 22px 60px;position:relative;z-index:1}
+.glass{background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 18px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);}
+
+/* command bar */
+.cmdbar{display:flex;align-items:center;gap:20px;padding:18px 24px;margin-bottom:26px;position:relative;overflow:hidden}
+.cmdbar::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--arc),var(--gold),transparent);opacity:.7}
+.reactor{width:64px;height:64px;flex:none;position:relative}
+.reactor svg{width:100%;height:100%;overflow:visible}
+.reactor .core{animation:breathe 3.2s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes breathe{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+.reactor .spin{animation:spin 14s linear infinite;transform-origin:center;transform-box:fill-box}
+.reactor .spin2{animation:spinrev 22s linear infinite;transform-origin:center;transform-box:fill-box}
 @keyframes spin{to{transform:rotate(360deg)}}
-#hdr-right{margin-left:auto;text-align:right}
-#clock{font-family:Orbitron;font-size:22px;color:var(--cyan)}
-#dataasof{font-size:12px;color:var(--mut);margin-top:4px}
-#live{display:inline-block;margin-top:6px;font-size:11px;letter-spacing:.25em;padding:4px 10px;border:1px solid var(--green);
-  color:var(--green);animation:pulse 2s ease-in-out infinite}
-#live.off{border-color:var(--amber);color:var(--amber)}
-@keyframes pulse{50%{opacity:.45}}
-/* stat tiles */
-#tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
-.tile{border:1px solid var(--line);background:var(--panel);padding:12px 14px;position:relative;overflow:hidden}
-.tile::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent)}
-.tile .k{font-size:10px;letter-spacing:.22em;color:var(--mut)}
-.tile .v{font-family:Orbitron;font-size:26px;margin-top:6px;color:var(--cyan);text-shadow:0 0 14px rgba(0,229,255,.6)}
-.tile .v.neg{color:var(--red);text-shadow:0 0 14px rgba(255,45,85,.6)}
-.tile .v.pos{color:var(--green);text-shadow:0 0 14px rgba(124,255,178,.6)}
-.tile .v.warn{color:var(--amber)}
-/* panels */
-.panel{border:1px solid var(--line);background:var(--panel);margin-bottom:14px;padding:16px;
-  clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px))}
-.panel h2{font-family:Orbitron;font-size:15px;letter-spacing:.22em;color:var(--cyan);margin-bottom:12px;
-  border-bottom:1px solid rgba(0,229,255,.2);padding-bottom:8px}
-.panel h2 .tag{color:var(--mut);font-size:10px;letter-spacing:.15em}
+@keyframes spinrev{to{transform:rotate(-360deg)}}
+.reactor .halo{position:absolute;inset:-14px;border-radius:50%;
+  background:radial-gradient(circle,rgba(70,230,255,.28),transparent 65%);animation:breathe 3.2s ease-in-out infinite;z-index:-1}
+.titleblock h1{font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.02em;line-height:1.05}
+.titleblock h1 .thin{font-weight:400;color:var(--ghost)}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.14em;color:var(--arc);margin-top:6px}
+.hdr-right{margin-left:auto;text-align:right;font-family:"JetBrains Mono",monospace}
+#clock{font-size:22px;font-weight:600;letter-spacing:.04em}
+#dataasof{font-size:11.5px;color:var(--faint);margin-top:2px}
+#live{display:inline-block;margin-top:8px;font-size:11px;letter-spacing:.18em;padding:5px 12px 5px 10px;border-radius:99px;
+  border:1px solid rgba(65,242,160,.4);color:var(--mint);background:rgba(65,242,160,.08)}
+#live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint);
+  margin-right:8px;vertical-align:1px;animation:pulse 2s ease-in-out infinite}
+#live.off{border-color:rgba(242,169,59,.45);color:var(--gold);background:rgba(242,169,59,.07)}
+#live.off::before{background:var(--gold);animation:none}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(65,242,160,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(65,242,160,0)}}
+
+/* tiles */
+#tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin-bottom:34px}
+.tile{padding:14px 16px;border-radius:14px;position:relative;overflow:hidden;transition:transform .45s var(--ez),border-color .45s var(--ez),box-shadow .45s var(--ez)}
+.tile:hover{transform:translateY(-3px);border-color:rgba(70,230,255,.35);box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 24px rgba(70,230,255,.08)}
+.tile .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;color:var(--faint);margin-bottom:6px}
+.tile .v{font-family:"JetBrains Mono",monospace;font-size:21px;font-weight:600}
+.tile .v.pos{color:var(--mint)}.tile .v.neg{color:var(--blood)}.tile .v.warn{color:var(--gold)}
+
+/* sections */
+.panel{padding:24px;margin-bottom:26px;position:relative}
+.panel > h2{font-size:17px;font-weight:600;letter-spacing:.01em;display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.panel > h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.panel > h2 .tag{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;color:var(--faint);font-weight:400}
+.fnote{font-size:12.5px;color:var(--faint);margin-top:14px;line-height:1.6}
+
 /* bot cards */
-#bots{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
-.bot{border:1px solid rgba(0,229,255,.25);padding:10px 12px;background:rgba(0,20,35,.4)}
-.bot .bid{font-family:Orbitron;font-size:13px;color:var(--cyan);letter-spacing:.08em}
-.bot .row{display:flex;justify-content:space-between;font-size:12px;margin-top:6px;color:#c7d0e0}
-.bot .pnl-pos{color:var(--green)} .bot .pnl-neg{color:var(--red)}
-.kill-ALIVE{color:var(--green)} .kill-KILLED{color:var(--red)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(292px,1fr));gap:14px}
+.bot{padding:18px 20px;border-radius:16px;position:relative;overflow:hidden;transition:transform .45s var(--ez),box-shadow .45s var(--ez)}
+.bot:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.5),0 0 28px rgba(70,230,255,.07)}
+.bot::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--arc),transparent);opacity:.85}
+.bot .bid{font-weight:600;font-size:16.5px;letter-spacing:-.01em;margin-bottom:12px;padding-right:70px}
+.bot .status{position:absolute;top:16px;right:16px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;
+  padding:4px 10px;border-radius:99px;border:1px solid rgba(65,242,160,.4);color:var(--mint);background:rgba(65,242,160,.07)}
+.bot .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:5px 0;font-size:13.5px}
+.bot .row + .row{border-top:1px solid rgba(238,243,251,.06)}
+.bot .row > span:first-child{color:var(--faint);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;flex:none}
+.bot .row > span:last-child{font-family:"JetBrains Mono",monospace;font-size:13px;text-align:right}
+.bot .pnl-pos{color:var(--mint)}.bot .pnl-neg{color:var(--blood)}
+.bot .win{color:var(--mint)}.bot .loss{color:var(--blood)}
+.bot .gate{margin-top:10px;padding:9px 12px;border-radius:10px;font-family:"JetBrains Mono",monospace;font-size:11.5px;
+  color:var(--gold-hot);background:rgba(242,169,59,.08);border:1px solid rgba(242,169,59,.28);line-height:1.7}
+.bot .gate b{color:var(--gold)}
+.energy{position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(105deg,transparent 40%,rgba(70,230,255,.09) 50%,transparent 60%);
+  background-size:250% 100%;transition:opacity .3s}
+.bot:hover .energy{opacity:1;animation:sweep 1.4s var(--ez)}
+@keyframes sweep{from{background-position:120% 0}to{background-position:-120% 0}}
+
+/* hangar */
+.hangar{border-color:rgba(255,90,90,.18)}
+.hangar-toggle{width:100%;display:flex;align-items:center;gap:14px;background:none;border:0;color:var(--bone);
+  font-family:"Space Grotesk",sans-serif;cursor:pointer;padding:6px 2px;text-align:left}
+.hangar-toggle .ht-title{font-size:17px;font-weight:600}
+.hangar-toggle .ht-count{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--blood);
+  border:1px solid rgba(255,90,90,.35);background:rgba(255,90,90,.07);padding:4px 12px;border-radius:99px}
+.hangar-toggle .ht-hint{font-size:12.5px;color:var(--faint)}
+.hangar-toggle .ht-chev{margin-left:auto;color:var(--faint);font-size:18px;transition:transform .5s var(--ez)}
+.hangar.open .hangar-toggle .ht-chev{transform:rotate(180deg);color:var(--blood)}
+.hangar-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ez)}
+.hangar.open .hangar-body{grid-template-rows:1fr}
+.hangar-inner{overflow:hidden;min-height:0}
+#hangar-grid{padding-top:16px}
+#hangar-grid .bot{opacity:.62}
+#hangar-grid .bot::before{background:linear-gradient(90deg,transparent,var(--blood),transparent);opacity:.6}
+#hangar-grid .bot .status{border-color:rgba(255,90,90,.4);color:var(--blood);background:rgba(255,90,90,.07)}
+#hangar-grid .bot:hover{opacity:.9}
+
 /* tables */
-table{width:100%;border-collapse:collapse;font-size:12px}
-th{color:var(--mut);text-align:left;letter-spacing:.12em;font-weight:normal;padding:6px 8px;border-bottom:1px solid var(--line);font-size:10px}
-td{padding:7px 8px;border-bottom:1px solid rgba(0,229,255,.08);color:#c7d0e0;vertical-align:top}
-tr:last-child td{border-bottom:none}
-.win{color:var(--green)} .loss{color:var(--red)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;color:var(--faint);text-align:left;
+  padding:10px 12px;border-bottom:1px solid var(--line);font-weight:500;white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid rgba(238,243,251,.05);font-family:"JetBrains Mono",monospace;font-size:12.5px;vertical-align:top}
+tr:last-child td{border-bottom:0}
+tbody tr{transition:background .25s}
+tbody tr:hover{background:rgba(70,230,255,.04)}
+td.win,.win{color:var(--mint)}td.loss,.loss{color:var(--blood)}
+.empty{padding:22px;text-align:center;color:var(--faint);font-size:13.5px}
+
 /* funnel */
-#funnelbar{display:flex;height:34px;margin:8px 0;border:1px solid var(--line);overflow:hidden}
-#funnelbar div{height:100%}
-.fnote{font-size:11px;color:var(--mut);margin-top:8px}
+#funnelbar{display:flex;height:26px;border-radius:8px;overflow:hidden;gap:3px;margin-bottom:12px}
+#funnelbar div{border-radius:4px;transition:width .9s var(--ez)}
+#funnelstats{font-size:13px;color:var(--ghost);line-height:1.8;font-family:"JetBrains Mono",monospace;font-size:12px}
+
 /* nodes */
-.node{display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(0,229,255,.25);padding:12px;margin-bottom:8px;background:rgba(0,20,35,.4)}
-.dot{width:10px;height:10px;border-radius:50%;margin-top:4px;flex:0 0 10px}
-.dot.ALIVE{background:var(--green);box-shadow:0 0 10px var(--green)}
-.dot.UNREACHABLE{background:var(--red);box-shadow:0 0 10px var(--red)}
-.dot.PROVISIONING{background:var(--amber);box-shadow:0 0 10px var(--amber);animation:pulse 1.5s infinite}
-.node .nm{font-family:Orbitron;font-size:13px;color:var(--cyan)}
-.node .sp{font-size:11px;color:var(--mut)}
-.node .rl{font-size:12px;color:#c7d0e0;margin-top:4px}
-footer{text-align:center;color:var(--mut);font-size:11px;letter-spacing:.15em;padding:18px 0 8px}
-footer b{color:var(--cyan)}
-.empty{color:var(--mut);font-size:12px;padding:8px 0}
-@media(max-width:640px){.tile .v{font-size:20px}}
+#nodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.node{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:rgba(238,243,251,.03);border:1px solid rgba(238,243,251,.07)}
+.node .dot{width:10px;height:10px;border-radius:50%;margin-top:5px;flex:none}
+.node .dot.ALIVE{background:var(--mint);box-shadow:0 0 10px var(--mint);animation:pulse 2.4s ease-in-out infinite}
+.node .dot.PROVISIONING{background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.node .dot.UNREACHABLE,.node .dot.DEAD{background:var(--blood);box-shadow:0 0 10px var(--blood)}
+.node .nm{font-weight:600;font-size:14px}
+.node .sp,.node .rl{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--faint);margin-top:2px}
+
+/* entrance */
+.rise{opacity:0;transform:translateY(16px);animation:rise .8s var(--ez) forwards;animation-delay:var(--d,0s)}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* boot */
+#boot{position:fixed;inset:0;z-index:50;background:var(--abyss);display:flex;align-items:center;justify-content:center;
+  transition:opacity .6s var(--ez);pointer-events:none}
+#boot.done{opacity:0}
+#boot .term{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--arc);line-height:2;min-width:min(420px,86vw)}
+#boot .term .ok{color:var(--mint)}
+
+/* footer */
+footer{margin-top:10px;text-align:center;font-size:12px;color:var(--faint);line-height:2}
+footer b{color:var(--gold)}
+
+::selection{background:rgba(70,230,255,.3)}
+:focus-visible{outline:2px solid var(--arc);outline-offset:3px;border-radius:6px}
+
+@media (max-width:640px){
+  #wrap{padding:18px 14px 48px}
+  .cmdbar{flex-wrap:wrap;gap:14px}
+  .hdr-right{margin-left:0;text-align:left;width:100%;display:flex;gap:18px;align-items:center}
+  #live{margin-top:0}
+  .panel{padding:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .rise{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
-<div id="grid"></div><div id="scan"></div><div id="vig"></div>
-<div id="boot"><div class="term" id="boot-term"></div></div>
+<div class="bg" aria-hidden="true"><div class="orb a"></div><div class="orb b"></div></div>
+<div id="boot" aria-hidden="true"><div class="term" id="boot-term"></div></div>
 
 <div id="wrap">
-  <header>
-    <div id="reactor">
+  <header class="cmdbar glass rise" style="--d:.05s">
+    <div class="reactor" aria-hidden="true">
+      <div class="halo"></div>
       <svg viewBox="0 0 74 74">
         <g class="spin">
-          <circle cx="37" cy="37" r="34" fill="none" stroke="#00e5ff" stroke-width="2" stroke-dasharray="40 18"/>
-          <circle cx="37" cy="37" r="27" fill="none" stroke="#00e5ff" stroke-width="1" stroke-dasharray="10 8" opacity=".7"/>
+          <circle cx="37" cy="37" r="34" fill="none" stroke="#46e6ff" stroke-width="2" stroke-dasharray="40 18"/>
+          <circle cx="37" cy="37" r="27" fill="none" stroke="#46e6ff" stroke-width="1" stroke-dasharray="10 8" opacity=".7"/>
         </g>
-        <circle cx="37" cy="37" r="20" fill="none" stroke="#00e5ff" stroke-width="3"/>
-        <circle cx="37" cy="37" r="11" fill="rgba(0,229,255,.25)" stroke="#d9f6ff" stroke-width="2"/>
-        <circle cx="37" cy="37" r="5" fill="#d9f6ff"/>
+        <g class="spin2">
+          <circle cx="37" cy="37" r="30.5" fill="none" stroke="#f2a93b" stroke-width="1" stroke-dasharray="4 14" opacity=".55"/>
+        </g>
+        <circle cx="37" cy="37" r="20" fill="none" stroke="#46e6ff" stroke-width="3"/>
+        <circle class="core" cx="37" cy="37" r="11" fill="rgba(70,230,255,.25)" stroke="#d9f6ff" stroke-width="2"/>
+        <circle class="core" cx="37" cy="37" r="5" fill="#eafcff"/>
       </svg>
     </div>
-    <div>
-      <h1>ENGINE COMMAND</h1>
-      <div class="sub">QUANT ENGINE // LIVE OPERATIONS HUD</div>
+    <div class="titleblock">
+      <h1>Engine <span class="thin">Command</span></h1>
+      <div class="kicker">QUANT ENGINE // LIVE OPERATIONS HUD</div>
     </div>
-    <div id="hdr-right">
+    <div class="hdr-right">
       <div id="clock">--:--:--</div>
       <div id="dataasof">DATA AS OF --</div>
       <div><span id="live">LIVE</span></div>
     </div>
   </header>
 
-  <div id="tiles"></div>
+  <div id="tiles" class="rise" style="--d:.12s"></div>
 
-  <div class="panel">
-    <h2>FORWARD FLEET <span class="tag">// PAPER ONLY - $100 UNITS</span></h2>
-    <div id="bots"></div>
-  </div>
+  <section class="panel glass rise" style="--d:.18s" aria-label="Forward fleet">
+    <h2>Forward fleet <span class="tag">paper only · no real capital</span></h2>
+    <div id="bots" class="cards"></div>
+  </section>
 
-  <div class="panel">
-    <h2>OPENING BELL TOURNAMENT <span class="tag">// PAPER 0DTE - RACE TO 45 TRADES</span></h2>
-    <div id="bell"></div>
+  <section class="panel glass rise" style="--d:.24s" aria-label="Opening bell tournament">
+    <h2>Opening bell <span class="tag">paper 0DTE · race to 45 trades</span></h2>
+    <div id="bell" class="cards"></div>
     <div class="fnote" id="bellnote"></div>
-  </div>
+  </section>
 
-  <div class="panel">
-    <h2>STRATEGY COMBINATIONS <span class="tag">// BACKTEST SWEEP</span></h2>
+  <section class="panel glass rise" style="--d:.3s" aria-label="Strategy combinations">
+    <h2>Sweep <span class="tag">backtest combinations</span></h2>
     <div id="funnelbar"></div>
-    <div id="funnelstats" style="font-size:12px;color:#c7d0e0"></div>
+    <div id="funnelstats"></div>
     <div class="fnote" id="sweepnote"></div>
-  </div>
+  </section>
 
-  <div class="panel">
-    <h2>RESEARCH LOOP <span class="tag">// CONTINUOUS DISCOVERY</span></h2>
+  <section class="panel glass rise" style="--d:.36s" aria-label="Research loop">
+    <h2>Research <span class="tag">continuous discovery</span></h2>
     <div id="research"></div>
     <div class="fnote" id="researchnote"></div>
-  </div>
+  </section>
 
-  <div class="panel">
-    <h2>ENGINE NODES <span class="tag">// 22 CORES TOTAL</span></h2>
+  <section class="panel glass rise" style="--d:.42s" aria-label="Engine nodes">
+    <h2>Nodes <span class="tag">compute fleet</span></h2>
     <div id="nodes"></div>
     <div class="fnote" id="airnote"></div>
-  </div>
+  </section>
 
-  <div class="panel">
-    <h2>RESULTS <span class="tag">// RECENT SETTLEMENTS</span></h2>
+  <section class="panel glass rise" style="--d:.48s" aria-label="Recent settlements">
+    <h2>Results <span class="tag">recent settlements</span></h2>
     <div id="recent"></div>
-  </div>
+  </section>
 
-  <div class="panel">
-    <h2>OPEN POSITIONS</h2>
+  <section class="panel glass rise" style="--d:.54s" aria-label="Open positions">
+    <h2>Open positions</h2>
     <div id="open"></div>
-  </div>
+  </section>
 
-  <footer>PAPER TRADING ONLY - <b>NO REAL CAPITAL</b> // ALL FIGURES COMPUTED FROM ENGINE FILES<br>
+  <section class="panel glass hangar rise" id="hangar" style="--d:.6s" aria-label="Decommissioned bots">
+    <button class="hangar-toggle" id="hangar-toggle" aria-expanded="false" aria-controls="hangar-grid">
+      <span class="ht-title">Decommissioned hangar</span>
+      <span class="ht-count" id="hangar-count"></span>
+      <span class="ht-hint">killed bots, parked out of the way</span>
+      <span class="ht-chev">▾</span>
+    </button>
+    <div class="hangar-body"><div class="hangar-inner"><div id="hangar-grid" class="cards"></div></div></div>
+  </section>
+
+  <footer class="rise" style="--d:.66s">PAPER TRADING ONLY — <b>NO REAL CAPITAL</b><br>
   <span id="foot-note"></span></footer>
 </div>
 
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-24T21:32:00-07:00",
+  "generated_at_pt": "2026-09-24T22:02:52-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-24T21:32:00-07:00",
+    "generated_at_pt": "2026-09-24T22:02:52-07:00",
     "paper_trading_only": true,
     "settled_total": 330,
-    "open_total": 15,
+    "open_total": 16,
     "pnl_usd_total": 624.9016,
     "pnl_usd_era1_dollar_stakes": 2.0548,
     "pnl_usd_era100_dollar_stakes": 622.8468,
@@ -612,6 +728,14 @@ footer b{color:var(--cyan)}
         "price": 0.32,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T04:07:40.103925+00:00"
+      },
+      {
+        "bot_id": "oscars-favorite",
+        "question": "Will Film D win Best Picture at the 99th Academy Awards?",
+        "side": "YES",
+        "price": 0.5,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-25T04:57:38.230467+00:00"
       }
     ],
     "research": {
@@ -1664,37 +1788,49 @@ footer b{color:var(--cyan)}
 }
 
 </script>
-
 <script>
 let DATA = null;
 try { DATA = JSON.parse(document.getElementById('engine-snapshot').textContent); } catch(e){}
-if (!DATA || DATA._placeholder) DATA = null;
 
-function fmtUSD(x){ if(x==null||isNaN(x)) return "--";
-  const s = x<0?"-$":"$"; return s + Math.abs(x).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); }
-function fmtInt(x){ if(x==null) return "--"; return Number(x).toLocaleString('en-US'); }
-function asof(iso){ if(!iso) return "DATA AS OF --";
-  try{ const d=new Date(iso);
-    return "DATA AS OF "+d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:true,timeZone:'America/Los_Angeles'})+" PT";
-  }catch(e){ return "DATA AS OF --"; } }
+const $ = id => document.getElementById(id);
+const fmtUSD = n => (n==null||isNaN(n)) ? "--" : (n<0?"-$":"$") + Math.abs(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtInt = n => (n==null||isNaN(n)) ? "--" : Number(n).toLocaleString();
+const esc = s => String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+function botCard(id, b, killed){
+  const pc = b.pnl_usd<0 ? "pnl-neg" : "pnl-pos";
+  const gate = b.go_gate
+    ? `<div class="gate"><b>${esc(b.go_gate.label)}</b> · ${esc(b.go_gate.progress)} · verdict ${esc(b.go_gate.verdict_by)}${b.go_gate.eta?` · ETA ~${esc(b.go_gate.eta)}`:""}</div>` : "";
+  return `<div class="bot"><div class="energy"></div>
+    <div class="bid">${esc(id)}</div>
+    <div class="status">${killed ? "KILLED" : "LIVE"}</div>
+    <div class="row"><span>settled</span><span>${esc(b.settled_of_20||b.settled)}</span></div>
+    <div class="row"><span>W / L</span><span><span class="win">${b.wins}</span> / <span class="loss">${b.losses}</span></span></div>
+    <div class="row"><span>P&amp;L</span><span class="${pc}">${fmtUSD(b.pnl_usd)}</span></div>
+    <div class="row"><span>expect / $1</span><span>${b.expectancy_per_1usd}</span></div>
+    ${gate}
+  </div>`;
+}
 
 function render(){
   if(!DATA) return;
-  document.getElementById('dataasof').textContent = asof(DATA.generated_at_pt);
-  document.getElementById('foot-note').textContent = DATA.label_basis || "";
-
   const fwd = DATA.forward || {};
   const bots = fwd.bots || {};
-  const botIds = Object.keys(bots).sort();
-  const pnl = fwd.pnl_usd_total;
-  const sw = DATA.sweep || {};
-  const ob = DATA.opening_bell || {};
-  const air = DATA.air_node || {};
-  const rch = DATA.research || {};
+  const ids = Object.keys(bots).sort();
+  const liveIds = ids.filter(id => bots[id].kill_rule !== "KILLED");
+  const deadIds = ids.filter(id => bots[id].kill_rule === "KILLED");
+
+  // header meta
+  $("foot-note").textContent = DATA.label_basis || "";
+  try{
+    $("dataasof").textContent = "DATA AS OF " + (DATA.generated_at_pt||"--").slice(0,16).replace("T"," ");
+  }catch(e){ $("dataasof").textContent = "DATA AS OF --"; }
 
   // tiles
+  const sw = DATA.sweep || {}, ob = DATA.opening_bell || {}, air = DATA.air_node || {}, rch = DATA.research || {};
+  const pnl = fwd.pnl_usd_total;
   const tiles = [
-    {k:"FORWARD BOTS", v: fwd.bots_active ?? botIds.length, c:""},
+    {k:"FORWARD BOTS", v: fwd.bots_active ?? ids.length, c:""},
     {k:"SETTLED", v: fwd.settled_total ?? "--", c:""},
     {k:"OPEN", v: fwd.open_total ?? "--", c:""},
     {k:"PAPER P&L", v: fmtUSD(pnl), c: pnl<0?"neg":(pnl>0?"pos":"")},
@@ -1703,87 +1839,83 @@ function render(){
     {k:"GRADUATES", v: sw.graduates ?? "--", c: (sw.graduates>0?"pos":"")},
     {k:"RESEARCH HYPS", v: rch.hypotheses_total ?? "--", c:""},
     {k:"VERDICTS", v: rch.verdicts_total ?? "--", c: (rch.verdicts_total>0?"pos":"")},
-    {k:"BELL SESSIONS", v: ob.sessions ?? "--", c: ob.status==="RACING"?"pos":(ob.status==="UNREACHABLE"?"neg":"")},
+    {k:"BELL SESSIONS", v: ob.sessions ?? "--", c: ob.status==="RACING"?"pos":(ob.status==="UNREACHABLE"?"warn":"")},
     {k:"AIR NODE", v: air.status || "--", c: air.status==="RUNNING"?"pos":(air.status==="PROVISIONING"?"warn":"")},
   ];
-  document.getElementById('tiles').innerHTML = tiles.map(t=>
-    `<div class="tile"><div class="k">${t.k}</div><div class="v ${t.c}">${t.v}</div></div>`).join("");
+  $("tiles").innerHTML = tiles.map(t=>
+    `<div class="tile glass"><div class="k">${t.k}</div><div class="v ${t.c}">${t.v}</div></div>`).join("");
 
-  // bots
-  const bel = document.getElementById('bots');
-  if(!botIds.length){ bel.innerHTML = '<div class="empty">No paper ledgers yet.</div>'; }
-  else bel.innerHTML = botIds.map(id=>{ const b=bots[id];
-    const pc = b.pnl_usd<0?"pnl-neg":"pnl-pos";
-    return `<div class="bot"><div class="bid">${id}</div>
-      <div class="row"><span>settled</span><span>${b.settled_of_20||b.settled}</span></div>
-      <div class="row"><span>W / L</span><span><span class="win">${b.wins}</span> / <span class="loss">${b.losses}</span></span></div>
-      <div class="row"><span>P&amp;L</span><span class="${pc}">${fmtUSD(b.pnl_usd)}</span></div>
-      <div class="row"><span>expect / $1</span><span>${b.expectancy_per_1usd}</span></div>
-      <div class="row"><span>kill rule</span><span class="kill-${b.kill_rule}">${b.kill_rule}</span></div>
-      ${b.go_gate?`<div class="row"><span>${b.go_gate.label}</span><span style="text-align:right">${b.go_gate.progress} &middot; verdict ${b.go_gate.verdict_by}${b.go_gate.eta?` &middot; ETA ~${b.go_gate.eta}`:""}</span></div>`:""}
-    </div>`;}).join("");
+  // fleet: live up top, killed parked in the hangar
+  const bel = $("bots");
+  bel.innerHTML = liveIds.length
+    ? liveIds.map(id => botCard(id, bots[id], false)).join("")
+    : '<div class="empty">No live bots right now.</div>';
+  const hg = $("hangar-grid");
+  hg.innerHTML = deadIds.map(id => botCard(id, bots[id], true)).join("");
+  $("hangar-count").textContent = deadIds.length + (deadIds.length===1?" unit":" units");
+  $("hangar").style.display = deadIds.length ? "" : "none";
 
-  // opening bell tournament
-  const bellEl = document.getElementById('bell');
-  const vids = Object.keys(ob.variants || {}).sort();
+  // opening bell
+  const bellEl = $("bell"), vids = Object.keys(ob.variants || {}).sort();
   if(ob.status === "UNREACHABLE"){
-    bellEl.innerHTML = '<div class="empty">Mac unreachable at build time - showing last known snapshot.</div>';
+    bellEl.innerHTML = '<div class="empty">Mac unreachable at build time — showing last known snapshot.</div>';
   } else if(!vids.length || ob.status === "AWAITING_FIRST_SESSION"){
-    bellEl.innerHTML = '<div class="empty">No opening-bell sessions yet - first tournament session Tue 2026-09-22 6:29 AM PT.</div>';
+    bellEl.innerHTML = '<div class="empty">No opening-bell sessions yet.</div>';
   } else {
     const target = ob.race_target_trades || 45;
     const leader = vids.reduce((a,b)=> (ob.variants[b].net_pnl_usd > ob.variants[a].net_pnl_usd ? b : a), vids[0]);
     bellEl.innerHTML = vids.map(id=>{ const v = ob.variants[id];
       const pc = v.net_pnl_usd<0?"pnl-neg":(v.net_pnl_usd>0?"pnl-pos":"");
       const prog = Math.min(100, 100*v.trades/target);
-      const crown = id===leader && v.trades>0 ? ' <span style="color:var(--amber)">&#9733;</span>' : '';
-      return `<div class="bot"><div class="bid">${v.id} ${v.name}${crown}</div>
-        <div class="row"><span>rule</span><span style="text-align:right;max-width:60%">${v.rule}</span></div>
+      const crown = id===leader && v.trades>0 ? ' <span style="color:var(--gold)">★</span>' : '';
+      return `<div class="bot"><div class="energy"></div><div class="bid">${esc(v.id)} ${esc(v.name)}${crown}</div>
+        <div class="row"><span>rule</span><span style="max-width:62%">${esc(v.rule)}</span></div>
         <div class="row"><span>trades</span><span>${v.trades} / ${target}</span></div>
-        <div style="height:6px;background:rgba(0,229,255,.12);margin-top:6px"><div style="height:100%;width:${prog}%;background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.7)"></div></div>
+        <div style="height:6px;background:rgba(70,230,255,.12);border-radius:4px;margin:8px 0 2px;overflow:hidden">
+          <div style="height:100%;width:${prog}%;border-radius:4px;background:linear-gradient(90deg,var(--arc-dim),var(--arc));box-shadow:0 0 10px rgba(70,230,255,.6);transition:width .9s cubic-bezier(.16,1,.3,1)"></div></div>
         <div class="row"><span>W / L</span><span><span class="win">${v.wins}</span> / <span class="loss">${v.losses}</span></span></div>
         <div class="row"><span>paper P&amp;L</span><span class="${pc}">${fmtUSD(v.net_pnl_usd)}</span></div>
       </div>`;}).join("");
   }
-  document.getElementById('bellnote').textContent = ob.basis || (ob.error || "");
+  $("bellnote").textContent = ob.basis || (ob.error || "");
 
   // funnel
   const fn = sw.funnel || {};
-  const stages = [["tested","#00e5ff"],["cost_gate","#39ff88"],["dsr","#7cffb2"],
-                  ["walkforward","#ffb300"],["mc","#ff9d00"],["kelly","#ff6b00"],
-                  ["honesty","#ff2d55"],["graduated","#ffffff"]];
+  const stages = [["tested","#46e6ff"],["cost_gate","#41f2a0"],["dsr","#7cffb2"],
+                  ["walkforward","#f2a93b"],["mc","#ff9d5c"],["kelly","#ff7a45"],
+                  ["honesty","#ff5a5a"],["graduated","#eef3fb"]];
   const max = Math.max(1, fn.tested||0);
-  document.getElementById('funnelbar').innerHTML = stages.map(([k,c])=>{
+  $("funnelbar").innerHTML = stages.map(([k,c])=>{
     const w = Math.max(0.5, 100*Math.log10(1+(fn[k]||0))/Math.log10(1+max));
     return `<div title="${k}: ${fmtInt(fn[k])}" style="width:${w}%;background:${c};opacity:.85"></div>`;}).join("");
-  document.getElementById('funnelstats').innerHTML =
-    `tested <b style="color:var(--cyan)">${fmtInt(fn.tested)}</b> &rarr; cost gate ${fmtInt(fn.cost_gate)} &rarr; DSR ${fmtInt(fn.dsr)} &rarr; walk-fwd ${fmtInt(fn.walkforward)} &rarr; MC ${fmtInt(fn.mc)} &rarr; Kelly ${fmtInt(fn.kelly)} &rarr; honesty ${fmtInt(fn.honesty)} &rarr; <b>graduated ${fmtInt(fn.graduated)}</b>`;
-  document.getElementById('sweepnote').textContent =
+  $("funnelstats").innerHTML =
+    `tested <b style="color:var(--arc)">${fmtInt(fn.tested)}</b> → cost gate ${fmtInt(fn.cost_gate)} → DSR ${fmtInt(fn.dsr)} → walk-fwd ${fmtInt(fn.walkforward)} → MC ${fmtInt(fn.mc)} → Kelly ${fmtInt(fn.kelly)} → honesty ${fmtInt(fn.honesty)} → <b>graduated ${fmtInt(fn.graduated)}</b>`;
+  $("sweepnote").textContent =
     (sw.basis? sw.basis+"; ":"") + "Old T1-T6 long-only/SPY space exhausted (0 graduates). New-territory search runs on the Air node.";
 
-  // research loop
-  const rel2 = document.getElementById('research');
+  // research
+  const rel2 = $("research");
   const hyps = rch.hypotheses || [];
   const dlStages = (rch.stages||[]).filter(s=>String(s.id||"").startsWith("dl-"));
   if(!hyps.length && !dlStages.length){ rel2.innerHTML = '<div class="empty">No research activity yet.</div>'; }
   else{
     let h = "";
     if(hyps.length){
-      h += `<table><tr><th>HYPOTHESIS</th><th>TITLE</th><th>STATUS</th></tr>` +
-        hyps.map(x=>`<tr><td>${x.id}</td><td>${(x.title||"").slice(0,52)}</td>`+
-          `<td>${(x.tags||[]).join(" ")||"--"}</td></tr>`).join("") + `</table>`;
+      h += `<table><thead><tr><th>Hypothesis</th><th>Title</th><th>Status</th></tr></thead><tbody>` +
+        hyps.map(x=>`<tr><td>${esc(x.id)}</td><td>${esc((x.title||"").slice(0,52))}</td>`+
+          `<td>${esc((x.tags||[]).join(" ")||"--")}</td></tr>`).join("") + `</tbody></table>`;
     }
     if(dlStages.length){
-      h += `<div style="margin-top:8px;font-size:12px;color:#c7d0e0">DISCOVERY LANES IN FACTORY</div>` +
-        `<table><tr><th>LANE</th><th>STATUS</th><th>COMBOS</th><th>EXEC</th><th>SURVIVORS</th></tr>` +
-        dlStages.map(s=>`<tr><td>${s.id}</td><td>${s.status||"--"}</td>`+
+      h += `<div style="margin:14px 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--faint)">DISCOVERY LANES IN FACTORY</div>` +
+        `<table><thead><tr><th>Lane</th><th>Status</th><th>Combos</th><th>Exec</th><th>Survivors</th></tr></thead><tbody>` +
+        dlStages.map(s=>`<tr><td>${esc(s.id)}</td><td>${esc(s.status||"--")}</td>`+
           `<td>${s.combos_total??"--"}</td><td>${s.executed??"--"}</td>`+
-          `<td class="${(s.survivors||0)>0?'win':''}">${s.survivors??"--"}</td></tr>`).join("") + `</table>`;
+          `<td class="${(s.survivors||0)>0?'win':''}">${s.survivors??"--"}</td></tr>`).join("") + `</tbody></table>`;
     }
     rel2.innerHTML = h;
   }
   const loops = rch.loops || [];
-  document.getElementById('researchnote').textContent =
+  $("researchnote").textContent =
     "LOOPS " + (loops.length? loops.map(l=>`${l.id} ${l.enabled?"ON":"OFF"}`).join(" | ") : "--") +
     " | verdicts " + (rch.verdicts_total??"--") +
     " | research API spend $" + (rch.api_spent_usd??"--") + " / $" + (rch.api_ceiling_usd??"--") +
@@ -1791,38 +1923,50 @@ function render(){
     " | basis: " + (rch.basis||"");
 
   // nodes
-  document.getElementById('nodes').innerHTML = (DATA.nodes||[]).map(n=>
-    `<div class="node"><div class="dot ${n.liveness}"></div><div>
-      <div class="nm">${n.name} <span style="color:var(--mut);font-size:10px">${n.liveness}</span></div>
-      <div class="sp">${n.spec}</div><div class="rl">${n.role}</div>
-      ${n.liveness==="ALIVE"?"":`<div class="sp" style="color:var(--amber)">${n.liveness_basis||""}</div>`}
+  $("nodes").innerHTML = (DATA.nodes||[]).map(n=>
+    `<div class="node"><div class="dot ${esc(n.liveness)}"></div><div>
+      <div class="nm">${esc(n.name)} <span style="color:var(--faint);font-size:10px;font-family:'JetBrains Mono',monospace">${esc(n.liveness)}</span></div>
+      <div class="sp">${esc(n.spec)}</div><div class="rl">${esc(n.role)}</div>
+      ${n.liveness==="ALIVE"?"":`<div class="sp" style="color:var(--gold)">${esc(n.liveness_basis||"")}</div>`}
     </div></div>`).join("");
-  document.getElementById('airnote').textContent =
-    "AIR SWEEP NODE: " + (air.status||"--") + " - " + (air.detail||"") +
+  $("airnote").textContent =
+    "AIR SWEEP NODE: " + (air.status||"--") + " — " + (air.detail||"") +
     (air.trials_done? ` | trials done ${fmtInt(air.trials_done)}` : "") +
     (air.best_sharpe!=null? ` | best Sharpe ${air.best_sharpe}` : "") +
     " | basis: " + (air.basis||"");
 
   // recent settlements
-  const rel = document.getElementById('recent');
-  const rs = fwd.recent_settled || [];
-  if(!rs.length) rel.innerHTML = '<div class="empty">No settlements yet.</div>';
-  else rel.innerHTML = `<table><tr><th>BOT</th><th>MARKET</th><th>SIDE</th><th>OUTCOME</th><th>P&amp;L</th><th>SETTLED</th></tr>` +
-    rs.map(t=>`<tr><td>${t.bot_id||""}</td><td>${(t.question||"").slice(0,42)}</td><td>${t.side||""}</td>
-      <td class="${t.outcome==='WIN'?'win':(t.outcome==='LOSS'?'loss':'')}">${t.outcome||""}</td>
-      <td class="${(t.pnl_usd||0)<0?'loss':'win'}">${fmtUSD(t.pnl_usd)}</td>
-      <td>${(t.settle_ts||"").slice(0,16).replace("T"," ")}</td></tr>`).join("") + `</table>`;
+  const rel = $("recent"), rs = fwd.recent_settled || [];
+  rel.innerHTML = !rs.length ? '<div class="empty">No settlements yet.</div>'
+    : `<table><thead><tr><th>Bot</th><th>Market</th><th>Side</th><th>Outcome</th><th>P&amp;L</th><th>Settled</th></tr></thead><tbody>` +
+      rs.map(t=>`<tr><td>${esc(t.bot_id||"")}</td><td>${esc((t.question||"").slice(0,42))}</td><td>${esc(t.side||"")}</td>
+        <td class="${t.outcome==='WIN'?'win':(t.outcome==='LOSS'?'loss':'')}">${esc(t.outcome||"")}</td>
+        <td class="${(t.pnl_usd||0)<0?'loss':'win'}">${fmtUSD(t.pnl_usd)}</td>
+        <td>${esc((t.settle_ts||"").slice(0,16).replace("T"," "))}</td></tr>`).join("") + `</tbody></table>`;
 
   // open positions
-  const oel = document.getElementById('open');
-  const op = fwd.open_positions || [];
-  if(!op.length) oel.innerHTML = '<div class="empty">No open positions.</div>';
-  else oel.innerHTML = `<table><tr><th>BOT</th><th>MARKET</th><th>SIDE</th><th>PRICE</th><th>STAKE</th><th>SEALED</th></tr>` +
-    op.map(t=>`<tr><td>${t.bot_id||""}</td><td>${(t.question||"").slice(0,42)}</td><td>${t.side||""}</td>
-      <td>${t.price??""}</td><td>$${t.stake_usd??""}</td>
-      <td>${(t.seal_ts||"").slice(0,16).replace("T"," ")}</td></tr>`).join("") + `</table>`;
+  const oel = $("open"), op = fwd.open_positions || [];
+  oel.innerHTML = !op.length ? '<div class="empty">No open positions.</div>'
+    : `<table><thead><tr><th>Bot</th><th>Market</th><th>Side</th><th>Price</th><th>Stake</th><th>Sealed</th></tr></thead><tbody>` +
+      op.map(t=>`<tr><td>${esc(t.bot_id||"")}</td><td>${esc((t.question||"").slice(0,42))}</td><td>${esc(t.side||"")}</td>
+        <td>${t.price??""}</td><td>$${t.stake_usd??""}</td>
+        <td>${esc((t.seal_ts||"").slice(0,16).replace("T"," "))}</td></tr>`).join("") + `</tbody></table>`;
 }
 
+// hangar toggle
+$("hangar-toggle").addEventListener("click", ()=>{
+  const h = $("hangar"), open = h.classList.toggle("open");
+  $("hangar-toggle").setAttribute("aria-expanded", open ? "true" : "false");
+});
+
+// clock
+function tick(){
+  const d = new Date();
+  $("clock").textContent = d.toLocaleTimeString("en-US",{hour12:false});
+}
+setInterval(tick, 1000); tick();
+
+// live poll
 async function poll(){
   try{
     const r = await fetch('engine-command-dashboard.json',{cache:'no-store'});
@@ -1831,37 +1975,34 @@ async function poll(){
     if(j && j.generated_at_pt && (!DATA || j.generated_at_pt !== DATA.generated_at_pt)){
       DATA = j; render();
     }
-    document.getElementById('live').textContent = "LIVE";
-    document.getElementById('live').classList.remove('off');
+    $("live").textContent = "LIVE"; $("live").classList.remove("off");
   }catch(e){
-    const el = document.getElementById('live');
-    el.textContent = "SNAPSHOT"; el.classList.add('off');
+    const el = $("live"); el.textContent = "SNAPSHOT"; el.classList.add("off");
   }
 }
+setInterval(poll, 60000);
 
 // boot sequence
 (function(){
-  const term = document.getElementById('boot-term');
-  const lines = ["ENGINE COMMAND v1.0","initializing tactical HUD ...",
-    "linking forward fleet <span class='ok'>OK</span>","linking sweep archive <span class='ok'>OK</span>",
-    "linking research loop <span class='ok'>OK</span>",
-    "linking engine nodes <span class='ok'>OK</span>","rendering holographic panels ..."];
-  let i=0;
-  function next(){
-    if(i<lines.length){ term.innerHTML += lines[i++] + "<br>"; setTimeout(next, 260); }
-    else setTimeout(()=>document.getElementById('boot').classList.add('done'), 500);
-  }
-  next();
+  const term = $("boot-term");
+  const lines = ["ENGINE COMMAND v2.0",
+    "glass HUD <span class='ok'>ONLINE</span>",
+    "linking forward fleet <span class='ok'>OK</span>",
+    "linking sweep archive <span class='ok'>OK</span>",
+    "linking research loop <span class='ok'>OK</span>"];
+  let i = 0;
+  const iv = setInterval(()=>{
+    if(i < lines.length){ term.innerHTML += lines[i] + "<br>"; i++; }
+    else{
+      clearInterval(iv);
+      setTimeout(()=>{ $("boot").classList.add("done");
+        setTimeout(()=>$("boot").remove(), 700); }, 350);
+    }
+  }, 130);
 })();
 
-// clock
-setInterval(()=>{
-  document.getElementById('clock').textContent =
-    new Date().toLocaleTimeString('en-US',{hour12:false,timeZone:'America/Los_Angeles'});
-},1000);
-
 render();
-if(DATA) setInterval(poll, 60000);
+poll();
 </script>
 </body>
 </html>
