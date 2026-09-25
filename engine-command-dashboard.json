@@ -1,15 +1,15 @@
 {
-  "generated_at_pt": "2026-09-25T02:32:49-07:00",
+  "generated_at_pt": "2026-09-25T03:02:50-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T02:32:49-07:00",
+    "generated_at_pt": "2026-09-25T03:02:50-07:00",
     "paper_trading_only": true,
-    "settled_total": 334,
-    "open_total": 16,
-    "pnl_usd_total": 1084.718,
+    "settled_total": 335,
+    "open_total": 17,
+    "pnl_usd_total": 872.248,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 1082.6632,
+    "pnl_usd_era100_dollar_stakes": 870.1932,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up": {
@@ -55,19 +55,19 @@
         "settled_of_20": "10/20"
       },
       "btc-momentum-sized2": {
-        "settled": 33,
+        "settled": 34,
         "wins": 17,
-        "losses": 16,
-        "pnl_usd": 623.3075,
-        "norm_sum": 1.0284551972515228,
+        "losses": 17,
+        "pnl_usd": 410.8375,
+        "norm_sum": 0.02845519725152279,
         "era1_pnl": 0.0,
-        "era100_pnl": 623.3075,
-        "expectancy_per_1usd": 0.0312,
+        "era100_pnl": 410.8375,
+        "expectancy_per_1usd": 0.0008,
         "kill_rule": "ALIVE",
-        "settled_of_20": "33/20",
+        "settled_of_20": "34/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "33/150",
+          "progress": "34/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 2"
         }
@@ -208,6 +208,17 @@
     "recent_settled": [
       {
         "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 25, 5:30AM-5:45AM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.485,
+        "stake_usd": 212.47,
+        "outcome": "LOSS",
+        "pnl_usd": -212.47,
+        "settle_ts": "2026-09-25T10:01:55.897179+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
         "question": "Bitcoin Up or Down - September 25, 4:00AM-4:15AM ET",
         "side": "YES",
         "side_detail": "DOWN",
@@ -304,17 +315,6 @@
         "outcome": "WIN",
         "pnl_usd": 221.0982,
         "settle_ts": "2026-09-24T23:46:56.806990+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-apex-t0up",
-        "question": "Bitcoin Up or Down - September 24, 7:15PM-7:30PM ET",
-        "side": "YES",
-        "side_detail": "UP",
-        "price": 0.495,
-        "stake_usd": 4.95,
-        "outcome": "WIN",
-        "pnl_usd": 5.05,
-        "settle_ts": "2026-09-24T23:32:29.273423+00:00"
       }
     ],
     "open_positions": [
@@ -440,11 +440,19 @@
       },
       {
         "bot_id": "btc-momentum-sized2",
-        "question": "Bitcoin Up or Down - September 25, 5:30AM-5:45AM ET",
+        "question": "Bitcoin Up or Down - September 25, 6:00AM-6:15AM ET",
         "side": "YES",
-        "price": 0.485,
+        "price": 0.505,
         "stake_usd": 212.47,
-        "seal_ts": "2026-09-25T09:16:56.777042+00:00"
+        "seal_ts": "2026-09-25T09:46:56.156539+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 25, 6:00AM-6:15AM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 219.24,
+        "seal_ts": "2026-09-25T09:46:57.645526+00:00"
       }
     ],
     "research": {
