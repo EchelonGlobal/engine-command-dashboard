@@ -1,15 +1,15 @@
 {
-  "generated_at_pt": "2026-09-25T06:32:52-07:00",
+  "generated_at_pt": "2026-09-25T07:02:51-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T06:32:52-07:00",
+    "generated_at_pt": "2026-09-25T07:02:51-07:00",
     "paper_trading_only": true,
-    "settled_total": 339,
-    "open_total": 16,
-    "pnl_usd_total": 1297.1403,
+    "settled_total": 340,
+    "open_total": 15,
+    "pnl_usd_total": 1516.3803,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 1295.0855,
+    "pnl_usd_era100_dollar_stakes": 1514.3255,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up": {
@@ -127,19 +127,19 @@
         "settled_of_20": "18/20"
       },
       "eth-momentum-sized2": {
-        "settled": 35,
-        "wins": 20,
+        "settled": 36,
+        "wins": 21,
         "losses": 15,
-        "pnl_usd": 961.8926,
-        "norm_sum": 4.923592679981019,
+        "pnl_usd": 1181.1326,
+        "norm_sum": 5.923592679981019,
         "era1_pnl": 0.0,
-        "era100_pnl": 961.8926,
-        "expectancy_per_1usd": 0.1407,
+        "era100_pnl": 1181.1326,
+        "expectancy_per_1usd": 0.1645,
         "kill_rule": "ALIVE",
-        "settled_of_20": "35/20",
+        "settled_of_20": "36/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "35/150",
+          "progress": "36/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 2"
         }
@@ -206,6 +206,17 @@
       }
     },
     "recent_settled": [
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 25, 9:15AM-9:30AM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.5,
+        "stake_usd": 219.24,
+        "outcome": "WIN",
+        "pnl_usd": 219.24,
+        "settle_ts": "2026-09-25T13:47:00.416456+00:00"
+      },
       {
         "bot_id": "eth-momentum-sized2",
         "question": "Ethereum Up or Down - September 25, 8:45AM-9:00AM ET",
@@ -304,17 +315,6 @@
         "outcome": "WIN",
         "pnl_usd": 250.8772,
         "settle_ts": "2026-09-25T05:17:38.271394+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 12:00AM-12:15AM ET",
-        "side": "YES",
-        "side_detail": "UP",
-        "price": 0.505,
-        "stake_usd": 215.02,
-        "outcome": "LOSS",
-        "pnl_usd": -215.02,
-        "settle_ts": "2026-09-25T04:31:57.767797+00:00"
       }
     ],
     "open_positions": [
@@ -437,14 +437,6 @@
         "price": 0.5,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T04:57:38.230467+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 9:15AM-9:30AM ET",
-        "side": "YES",
-        "price": 0.5,
-        "stake_usd": 219.24,
-        "seal_ts": "2026-09-25T13:02:06.936633+00:00"
       }
     ],
     "research": {
@@ -923,7 +915,7 @@
         "id": "V1",
         "name": "sniper",
         "rule": "control: upper third -> CALL, lower third + calm RV20 -> PUT",
-        "trades": 0,
+        "trades": 1,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -932,7 +924,7 @@
         "id": "V2",
         "name": "always-on",
         "rule": "V1 signal; middle third trades toward nearer range edge",
-        "trades": 1,
+        "trades": 2,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -941,7 +933,7 @@
         "id": "V3",
         "name": "extremes",
         "rule": "outer quarters only: pos>=0.75 CALL, pos<=0.25 PUT",
-        "trades": 0,
+        "trades": 1,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -950,7 +942,7 @@
         "id": "V4",
         "name": "patient",
         "rule": "identical to V1, entry delayed to 09:30:10 ET",
-        "trades": 0,
+        "trades": 1,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -965,9 +957,9 @@
         "net_pnl_usd": 0.0
       }
     },
-    "sessions": 3,
+    "sessions": 4,
     "first_date": "2026-09-22",
-    "last_date": "2026-09-24",
+    "last_date": "2026-09-25",
     "status": "RACING"
   },
   "sweep": {
