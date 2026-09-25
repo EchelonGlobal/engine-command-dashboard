@@ -1,15 +1,15 @@
 {
-  "generated_at_pt": "2026-09-24T22:02:52-07:00",
+  "generated_at_pt": "2026-09-24T22:32:50-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-24T22:02:52-07:00",
+    "generated_at_pt": "2026-09-24T22:32:50-07:00",
     "paper_trading_only": true,
-    "settled_total": 330,
-    "open_total": 16,
-    "pnl_usd_total": 624.9016,
+    "settled_total": 331,
+    "open_total": 15,
+    "pnl_usd_total": 875.7788,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 622.8468,
+    "pnl_usd_era100_dollar_stakes": 873.724,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up": {
@@ -169,16 +169,16 @@
         "settled_of_20": "124/20"
       },
       "nws-poly-weather": {
-        "settled": 2,
-        "wins": 0,
+        "settled": 3,
+        "wins": 1,
         "losses": 2,
-        "pnl_usd": -200.0,
-        "norm_sum": -2.0,
+        "pnl_usd": 50.8772,
+        "norm_sum": 0.508772,
         "era1_pnl": 0.0,
-        "era100_pnl": -200.0,
-        "expectancy_per_1usd": -1.0,
+        "era100_pnl": 50.8772,
+        "expectancy_per_1usd": 0.1696,
         "kill_rule": "ALIVE",
-        "settled_of_20": "2/20"
+        "settled_of_20": "3/20"
       },
       "s3-sumarb": {
         "settled": 17,
@@ -206,6 +206,17 @@
       }
     },
     "recent_settled": [
+      {
+        "bot_id": "nws-poly-weather",
+        "question": "Will the highest temperature in New York City be between 68-69\u00b0F on September 24?",
+        "side": "YES",
+        "side_detail": null,
+        "price": 0.285,
+        "stake_usd": 100.0,
+        "outcome": "WIN",
+        "pnl_usd": 250.8772,
+        "settle_ts": "2026-09-25T05:17:38.271394+00:00"
+      },
       {
         "bot_id": "eth-momentum-sized2",
         "question": "Ethereum Up or Down - September 25, 12:00AM-12:15AM ET",
@@ -304,17 +315,6 @@
         "outcome": "WIN",
         "pnl_usd": 210.8504,
         "settle_ts": "2026-09-24T19:02:20.068135+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-sized2",
-        "question": "Bitcoin Up or Down - September 24, 2:00PM-2:15PM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.495,
-        "stake_usd": 216.72,
-        "outcome": "LOSS",
-        "pnl_usd": -216.72,
-        "settle_ts": "2026-09-24T18:31:56.840215+00:00"
       }
     ],
     "open_positions": [
@@ -413,14 +413,6 @@
         "price": null,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-22T13:39:18.453640+00:00"
-      },
-      {
-        "bot_id": "nws-poly-weather",
-        "question": "Will the highest temperature in New York City be between 68-69\u00b0F on September 24?",
-        "side": "YES",
-        "price": 0.285,
-        "stake_usd": 100.0,
-        "seal_ts": "2026-09-24T04:07:40.138801+00:00"
       },
       {
         "bot_id": "t5-daily",
