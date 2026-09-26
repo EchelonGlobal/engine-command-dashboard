@@ -292,18 +292,18 @@ footer b{color:var(--gold)}
 
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-25T17:32:51-07:00",
+  "generated_at_pt": "2026-09-25T18:02:50-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T17:32:51-07:00",
+    "generated_at_pt": "2026-09-25T18:02:50-07:00",
     "paper_trading_only": true,
-    "settled_total": 358,
-    "open_total": 16,
-    "pnl_usd_total": 1501.9749,
-    "paper_pnl_vs_bankroll_pct": 83.43,
+    "settled_total": 359,
+    "open_total": 15,
+    "pnl_usd_total": 1282.8249,
+    "paper_pnl_vs_bankroll_pct": 71.25,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 1499.9201,
+    "pnl_usd_era100_dollar_stakes": 1280.7701,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up": {
@@ -437,24 +437,24 @@ footer b{color:var(--gold)}
         "open_cost_usd": 0
       },
       "eth-momentum-sized2": {
-        "settled": 43,
+        "settled": 44,
         "wins": 24,
-        "losses": 19,
-        "pnl_usd": 957.5139,
-        "norm_sum": 4.9648090436427434,
+        "losses": 20,
+        "pnl_usd": 738.3639,
+        "norm_sum": 3.9648090436427434,
         "era1_pnl": 0.0,
-        "era100_pnl": 957.5139,
-        "expectancy_per_1usd": 0.1155,
+        "era100_pnl": 738.3639,
+        "expectancy_per_1usd": 0.0901,
         "kill_rule": "ALIVE",
-        "settled_of_20": "43/20",
+        "settled_of_20": "44/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "43/150",
+          "progress": "44/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 2"
         },
         "max_working_capital_usd": 447.24,
-        "open_cost_usd": 219.15
+        "open_cost_usd": 0
       },
       "eth-momentum": {
         "settled": 26,
@@ -529,13 +529,24 @@ footer b{color:var(--gold)}
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 419.15,
+      "league_open_cost_usd": 200.0,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
       "avg_position_cost_usd": 141.02,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 25, 8:45PM-9:00PM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.495,
+        "stake_usd": 219.15,
+        "outcome": "LOSS",
+        "pnl_usd": -219.15,
+        "settle_ts": "2026-09-26T01:02:04.202055+00:00"
+      },
       {
         "bot_id": "eth-momentum-apex-t0up",
         "question": "Ethereum Up or Down - September 25, 7:00PM-7:15PM ET",
@@ -634,17 +645,6 @@ footer b{color:var(--gold)}
         "outcome": "WIN",
         "pnl_usd": 220.9145,
         "settle_ts": "2026-09-25T17:46:57.869081+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-apex-t0up",
-        "question": "Bitcoin Up or Down - September 25, 1:15PM-1:30PM ET",
-        "side": "YES",
-        "side_detail": "UP",
-        "price": 0.505,
-        "stake_usd": 20.5,
-        "outcome": "LOSS",
-        "pnl_usd": -20.5,
-        "settle_ts": "2026-09-25T17:33:51.771608+00:00"
       }
     ],
     "open_positions": [
@@ -767,14 +767,6 @@ footer b{color:var(--gold)}
         "price": null,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T14:06:43.853597+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 8:45PM-9:00PM ET",
-        "side": "YES",
-        "price": 0.495,
-        "stake_usd": 219.15,
-        "seal_ts": "2026-09-26T00:32:02.202856+00:00"
       }
     ],
     "research": {
