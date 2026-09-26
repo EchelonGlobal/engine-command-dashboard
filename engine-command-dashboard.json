@@ -1,12 +1,12 @@
 {
-  "generated_at_pt": "2026-09-25T21:02:51-07:00",
+  "generated_at_pt": "2026-09-25T21:32:51-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T21:02:51-07:00",
+    "generated_at_pt": "2026-09-25T21:32:51-07:00",
     "paper_trading_only": true,
     "settled_total": 362,
-    "open_total": 15,
+    "open_total": 16,
     "pnl_usd_total": 1736.5654,
     "paper_pnl_vs_bankroll_pct": 96.46,
     "pnl_usd_era1_dollar_stakes": 2.0548,
@@ -203,7 +203,7 @@
         "kill_rule": "ALIVE",
         "settled_of_20": "3/20",
         "max_working_capital_usd": 200.0,
-        "open_cost_usd": 100.0
+        "open_cost_usd": 200.0
       },
       "s3-sumarb": {
         "settled": 17,
@@ -236,10 +236,10 @@
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 200.0,
+      "league_open_cost_usd": 300.0,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 141.16,
+      "avg_position_cost_usd": 140.98,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
@@ -474,6 +474,14 @@
         "price": null,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T14:06:43.853597+00:00"
+      },
+      {
+        "bot_id": "nws-poly-weather",
+        "question": "Will the highest temperature in New York City be between 62-63\u00b0F on September 26?",
+        "side": "YES",
+        "price": 0.36,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-26T04:08:07.951012+00:00"
       }
     ],
     "research": {
