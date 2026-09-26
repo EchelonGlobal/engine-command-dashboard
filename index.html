@@ -292,11 +292,11 @@ footer b{color:var(--gold)}
 
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-25T23:32:50-07:00",
+  "generated_at_pt": "2026-09-26T00:02:52-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T23:32:50-07:00",
+    "generated_at_pt": "2026-09-26T00:02:52-07:00",
     "paper_trading_only": true,
     "settled_total": 363,
     "open_total": 15,
@@ -1288,7 +1288,7 @@ footer b{color:var(--gold)}
         {
           "id": "t22",
           "label": "T22 Tier-B EPU-beta sort + EPU-level timing overlay (10 combos: 6 timing + 4 epubeta; Brogaard-Detzel 2015; shard F-72F00ABB)",
-          "status": "running",
+          "status": "complete",
           "queued_at": "2026-09-26T06:17:17.218234+00:00",
           "launched_at": "2026-09-26T06:23Z",
           "combos_total": 10,
@@ -1299,16 +1299,24 @@ footer b{color:var(--gold)}
         {
           "id": "t23",
           "label": "T23 Tier-A same-calendar-month seasonality + trailing-12m momentum benchmark (64 combos; Keloharju-Linnainmaa-Nyberg 2016; shard F-8564975B)",
-          "status": "queued",
+          "status": "complete",
           "queued_at": "2026-09-26T06:21:26.621954+00:00",
-          "launched_at": null
+          "launched_at": "2026-09-26T06:39Z",
+          "combos_total": 64,
+          "executed": 64,
+          "survivors": 48,
+          "done": null
         },
         {
           "id": "t24",
           "label": "T24 Tier-B SPY timing overlay: first-month-of-quarter sign rule (8 combos; Guo 2023; shard F-EA35DCDC)",
-          "status": "queued",
+          "status": "running",
           "queued_at": "2026-09-26T06:17:01.330282+00:00",
-          "launched_at": null
+          "launched_at": "2026-09-26T06:53Z",
+          "combos_total": 8,
+          "executed": 8,
+          "survivors": 8,
+          "done": null
         },
         {
           "id": "t25",
@@ -1318,8 +1326,8 @@ footer b{color:var(--gold)}
           "launched_at": null
         }
       ],
-      "stages_queued": 3,
-      "stages_complete": 21,
+      "stages_queued": 1,
+      "stages_complete": 23,
       "dl_survivors": 7,
       "loops": [
         {
@@ -1946,7 +1954,7 @@ footer b{color:var(--gold)}
       {
         "id": "t22",
         "label": "T22 Tier-B EPU-beta sort + EPU-level timing overlay (10 combos: 6 timing + 4 epubeta; Brogaard-Detzel 2015; shard F-72F00ABB)",
-        "status": "running",
+        "status": "complete",
         "queued_at": "2026-09-26T06:17:17.218234+00:00",
         "launched_at": "2026-09-26T06:23Z",
         "combos_total": 10,
@@ -1957,16 +1965,24 @@ footer b{color:var(--gold)}
       {
         "id": "t23",
         "label": "T23 Tier-A same-calendar-month seasonality + trailing-12m momentum benchmark (64 combos; Keloharju-Linnainmaa-Nyberg 2016; shard F-8564975B)",
-        "status": "queued",
+        "status": "complete",
         "queued_at": "2026-09-26T06:21:26.621954+00:00",
-        "launched_at": null
+        "launched_at": "2026-09-26T06:39Z",
+        "combos_total": 64,
+        "executed": 64,
+        "survivors": 48,
+        "done": null
       },
       {
         "id": "t24",
         "label": "T24 Tier-B SPY timing overlay: first-month-of-quarter sign rule (8 combos; Guo 2023; shard F-EA35DCDC)",
-        "status": "queued",
+        "status": "running",
         "queued_at": "2026-09-26T06:17:01.330282+00:00",
-        "launched_at": null
+        "launched_at": "2026-09-26T06:53Z",
+        "combos_total": 8,
+        "executed": 8,
+        "survivors": 8,
+        "done": null
       },
       {
         "id": "t25",
@@ -1976,8 +1992,8 @@ footer b{color:var(--gold)}
         "launched_at": null
       }
     ],
-    "stages_queued": 3,
-    "stages_complete": 21,
+    "stages_queued": 1,
+    "stages_complete": 23,
     "dl_survivors": 7,
     "loops": [
       {
