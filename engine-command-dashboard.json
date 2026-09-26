@@ -1,12 +1,12 @@
 {
-  "generated_at_pt": "2026-09-26T03:02:52-07:00",
+  "generated_at_pt": "2026-09-26T03:32:51-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-26T03:02:51-07:00",
+    "generated_at_pt": "2026-09-26T03:32:51-07:00",
     "paper_trading_only": true,
     "settled_total": 372,
-    "open_total": 15,
+    "open_total": 16,
     "pnl_usd_total": 1094.9054,
     "paper_pnl_vs_bankroll_pct": 60.82,
     "pnl_usd_era1_dollar_stakes": 2.0548,
@@ -217,7 +217,7 @@
           "eta": "Oct 3"
         },
         "max_working_capital_usd": 447.24,
-        "open_cost_usd": 0
+        "open_cost_usd": 214.6
       },
       "eth-momentum": {
         "settled": 26,
@@ -292,10 +292,10 @@
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 200.0,
+      "league_open_cost_usd": 414.6,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 138.29,
+      "avg_position_cost_usd": 138.61,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
@@ -530,6 +530,14 @@
         "price": 0.36,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-26T04:08:07.951012+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 26, 6:30AM-6:45AM ET",
+        "side": "YES",
+        "price": 0.505,
+        "stake_usd": 214.6,
+        "seal_ts": "2026-09-26T10:16:57.315550+00:00"
       }
     ],
     "research": {
