@@ -292,11 +292,11 @@ footer b{color:var(--gold)}
 
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-26T12:02:49-07:00",
+  "generated_at_pt": "2026-09-26T12:32:49-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-26T12:02:49-07:00",
+    "generated_at_pt": "2026-09-26T12:32:49-07:00",
     "paper_trading_only": true,
     "settled_total": 373,
     "open_total": 15,
@@ -1489,16 +1489,16 @@ footer b{color:var(--gold)}
         "id": "V1",
         "name": "sniper",
         "rule": "control: upper third -> CALL, lower third + calm RV20 -> PUT",
-        "trades": 1,
+        "trades": 0,
         "wins": 0,
-        "losses": 1,
-        "net_pnl_usd": -21.95
+        "losses": 0,
+        "net_pnl_usd": 0.0
       },
       "V2": {
         "id": "V2",
         "name": "always-on",
         "rule": "V1 signal; middle third trades toward nearer range edge",
-        "trades": 1,
+        "trades": 0,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -1531,10 +1531,11 @@ footer b{color:var(--gold)}
         "net_pnl_usd": 0.0
       }
     },
-    "sessions": 4,
-    "first_date": "2026-09-22",
-    "last_date": "2026-09-25",
-    "status": "RACING"
+    "sessions": 0,
+    "first_date": null,
+    "last_date": null,
+    "status": "UNREACHABLE",
+    "error": "Mac aggregation failed at build time: Connection closed by UNKNOWN port 65535"
   },
   "sweep": {
     "label": "BACKTEST-DIAGNOSTIC",
@@ -2236,8 +2237,8 @@ footer b{color:var(--gold)}
       "name": "MacBook Air",
       "spec": "Apple M4, 10 cores, 24 GB (fanless)",
       "role": "Dedicated sweep node: new-territory search (shorts, multi-symbol, cross-sectional)",
-      "liveness": "ALIVE",
-      "liveness_basis": "ssh echo check at payload build time"
+      "liveness": "UNREACHABLE",
+      "liveness_basis": "ssh echo check failed at build time; proxy is flaky, not proof the machine is down"
     },
     {
       "id": "vm",
