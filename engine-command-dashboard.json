@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-09-26T07:32:51-07:00",
+  "generated_at_pt": "2026-09-26T08:02:51-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-26T07:32:51-07:00",
+    "generated_at_pt": "2026-09-26T08:02:51-07:00",
     "paper_trading_only": true,
     "settled_total": 373,
     "open_total": 15,
@@ -42,7 +42,7 @@
           "label": "Apex verdict",
           "progress": "3/20",
           "verdict_by": "2026-10-24",
-          "eta": "Oct 2"
+          "eta": "Oct 3"
         },
         "max_working_capital_usd": 20.5,
         "open_cost_usd": 0
@@ -644,35 +644,59 @@
           "id": "H-16",
           "title": "Long-short idiosyncratic-volatility spread",
           "tags": [
-            "PENDING",
-            "APPROVED",
-            "IN_FACTORY"
+            "DEAD"
           ]
         },
         {
           "id": "H-17",
           "title": "Sector ETF short-term cross-sectional reversal",
           "tags": [
-            "PENDING",
-            "APPROVED",
-            "IN_FACTORY"
+            "DEAD"
           ]
         },
         {
           "id": "H-18",
           "title": "Crypto cross-sectional momentum, N\u22654 panel",
+          "tags": []
+        },
+        {
+          "id": "H-19",
+          "title": "Long SPY overnight, flat intraday (the H-15 cost workaround)",
           "tags": [
-            "PENDING",
-            "APPROVED",
-            "IN_FACTORY"
+            "DEAD"
+          ]
+        },
+        {
+          "id": "H-20",
+          "title": "Idiosyncratic (FF1-residual) 12-1 cross-sectional momentum, long-short S&P 500",
+          "tags": [
+            "IN_REVIEW"
+          ]
+        },
+        {
+          "id": "H-21",
+          "title": "Short SPY intraday after extreme overnight gaps (the H-15 mirror)",
+          "tags": [
+            "DEAD"
           ]
         }
       ],
-      "hypotheses_total": 18,
-      "hypotheses_pending": 3,
-      "hypotheses_in_factory": 3,
-      "hypotheses_unparsed_annotations": [],
-      "verdicts_total": 29,
+      "hypotheses_total": 21,
+      "hypotheses_pending": 0,
+      "hypotheses_in_factory": 0,
+      "hypotheses_unparsed_annotations": [
+        {
+          "id": "H-18",
+          "annotation": "BLOCKED \u2014 data repair in progress",
+          "note": "unrecognized; NOT counted"
+        },
+        {
+          "id": "H-20",
+          "annotation": "IN_REVIEW \u2014 WEAK, agentic repair due next tick",
+          "note": "free-text annotation; status counted"
+        }
+      ],
+      "verdicts_total": 33,
       "verdicts": [
         {
           "id": "H-03 (dl-h03)",
@@ -818,6 +842,26 @@
           "id": "DL-H03-F12-S1-low_vol",
           "verdict": "+0.594",
           "stats": "+0.529"
+        },
+        {
+          "id": "cell(formation@tf/dir)",
+          "verdict": "n",
+          "stats": "eval"
+        },
+        {
+          "id": "DL-H16@monthly/LS",
+          "verdict": "8",
+          "stats": "8"
+        },
+        {
+          "id": "cell(formation@tf/dir)",
+          "verdict": "n",
+          "stats": "eval"
+        },
+        {
+          "id": "DL-H17@monthly/LS",
+          "verdict": "8",
+          "stats": "8"
         }
       ],
       "stages": [
@@ -1018,12 +1062,12 @@
         {
           "id": "dl-h18",
           "label": "Discovery-loop H-18: Crypto cross-sectional momentum, N\u22654 panel",
-          "status": "complete",
+          "status": "running",
           "queued_at": "2026-09-25T15:13:13.809001+00:00",
-          "launched_at": null,
-          "combos_total": 3,
-          "executed": 0,
-          "survivors": null,
+          "launched_at": "2026-09-26T14:55Z",
+          "combos_total": 6,
+          "executed": 3,
+          "survivors": 1,
           "done": true
         },
         {
@@ -1095,18 +1139,18 @@
         {
           "id": "t26",
           "label": "T26 published lane round 15 (16 combos, free data: T26-01 Quantitativo Factor 46 daily cross-sectional mean-reversion ratio: quantile{decile,quintile} x side{LS,LO} x universe{all,liquid} x exec_lag{2d,0d-control})",
-          "status": "running",
+          "status": "queued",
           "queued_at": "2026-09-26T13:45:44.994180+00:00",
           "launched_at": "2026-09-26T14:23Z",
-          "combos_total": null,
-          "executed": null,
-          "survivors": null,
-          "done": null
+          "combos_total": 16,
+          "executed": 16,
+          "survivors": 0,
+          "done": true
         }
       ],
-      "stages_queued": 0,
-      "stages_complete": 25,
-      "dl_survivors": 7,
+      "stages_queued": 1,
+      "stages_complete": 24,
+      "dl_survivors": 8,
       "loops": [
         {
           "id": "strategy-intake-sweep-am",
@@ -1326,35 +1370,59 @@
         "id": "H-16",
         "title": "Long-short idiosyncratic-volatility spread",
         "tags": [
-          "PENDING",
-          "APPROVED",
-          "IN_FACTORY"
+          "DEAD"
         ]
       },
       {
         "id": "H-17",
         "title": "Sector ETF short-term cross-sectional reversal",
         "tags": [
-          "PENDING",
-          "APPROVED",
-          "IN_FACTORY"
+          "DEAD"
         ]
       },
       {
         "id": "H-18",
         "title": "Crypto cross-sectional momentum, N\u22654 panel",
+        "tags": []
+      },
+      {
+        "id": "H-19",
+        "title": "Long SPY overnight, flat intraday (the H-15 cost workaround)",
         "tags": [
-          "PENDING",
-          "APPROVED",
-          "IN_FACTORY"
+          "DEAD"
+        ]
+      },
+      {
+        "id": "H-20",
+        "title": "Idiosyncratic (FF1-residual) 12-1 cross-sectional momentum, long-short S&P 500",
+        "tags": [
+          "IN_REVIEW"
+        ]
+      },
+      {
+        "id": "H-21",
+        "title": "Short SPY intraday after extreme overnight gaps (the H-15 mirror)",
+        "tags": [
+          "DEAD"
         ]
       }
     ],
-    "hypotheses_total": 18,
-    "hypotheses_pending": 3,
-    "hypotheses_in_factory": 3,
-    "hypotheses_unparsed_annotations": [],
-    "verdicts_total": 29,
+    "hypotheses_total": 21,
+    "hypotheses_pending": 0,
+    "hypotheses_in_factory": 0,
+    "hypotheses_unparsed_annotations": [
+      {
+        "id": "H-18",
+        "annotation": "BLOCKED \u2014 data repair in progress",
+        "note": "unrecognized; NOT counted"
+      },
+      {
+        "id": "H-20",
+        "annotation": "IN_REVIEW \u2014 WEAK, agentic repair due next tick",
+        "note": "free-text annotation; status counted"
+      }
+    ],
+    "verdicts_total": 33,
     "verdicts": [
       {
         "id": "H-03 (dl-h03)",
@@ -1500,6 +1568,26 @@
         "id": "DL-H03-F12-S1-low_vol",
         "verdict": "+0.594",
         "stats": "+0.529"
+      },
+      {
+        "id": "cell(formation@tf/dir)",
+        "verdict": "n",
+        "stats": "eval"
+      },
+      {
+        "id": "DL-H16@monthly/LS",
+        "verdict": "8",
+        "stats": "8"
+      },
+      {
+        "id": "cell(formation@tf/dir)",
+        "verdict": "n",
+        "stats": "eval"
+      },
+      {
+        "id": "DL-H17@monthly/LS",
+        "verdict": "8",
+        "stats": "8"
       }
     ],
     "stages": [
@@ -1700,12 +1788,12 @@
       {
         "id": "dl-h18",
         "label": "Discovery-loop H-18: Crypto cross-sectional momentum, N\u22654 panel",
-        "status": "complete",
+        "status": "running",
         "queued_at": "2026-09-25T15:13:13.809001+00:00",
-        "launched_at": null,
-        "combos_total": 3,
-        "executed": 0,
-        "survivors": null,
+        "launched_at": "2026-09-26T14:55Z",
+        "combos_total": 6,
+        "executed": 3,
+        "survivors": 1,
         "done": true
       },
       {
@@ -1777,18 +1865,18 @@
       {
         "id": "t26",
         "label": "T26 published lane round 15 (16 combos, free data: T26-01 Quantitativo Factor 46 daily cross-sectional mean-reversion ratio: quantile{decile,quintile} x side{LS,LO} x universe{all,liquid} x exec_lag{2d,0d-control})",
-        "status": "running",
+        "status": "complete",
         "queued_at": "2026-09-26T13:45:44.994180+00:00",
         "launched_at": "2026-09-26T14:23Z",
-        "combos_total": null,
-        "executed": null,
-        "survivors": null,
-        "done": null
+        "combos_total": 16,
+        "executed": 16,
+        "survivors": 0,
+        "done": true
       }
     ],
     "stages_queued": 0,
     "stages_complete": 25,
-    "dl_survivors": 7,
+    "dl_survivors": 8,
     "loops": [
       {
         "id": "strategy-intake-sweep-am",
