@@ -1,12 +1,12 @@
 {
-  "generated_at_pt": "2026-09-26T00:02:52-07:00",
+  "generated_at_pt": "2026-09-26T00:32:50-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-26T00:02:52-07:00",
+    "generated_at_pt": "2026-09-26T00:32:50-07:00",
     "paper_trading_only": true,
     "settled_total": 363,
-    "open_total": 15,
+    "open_total": 19,
     "pnl_usd_total": 1636.5654,
     "paper_pnl_vs_bankroll_pct": 90.9,
     "pnl_usd_era1_dollar_stakes": 2.0548,
@@ -76,7 +76,7 @@
           "label": "GO gate",
           "progress": "43/150",
           "verdict_by": "2026-10-06",
-          "eta": "Oct 2"
+          "eta": "Oct 3"
         },
         "max_working_capital_usd": 627.12,
         "open_cost_usd": 0
@@ -113,7 +113,7 @@
           "eta": "Oct 4"
         },
         "max_working_capital_usd": 29.12,
-        "open_cost_usd": 0
+        "open_cost_usd": 20.62
       },
       "eth-momentum-flat": {
         "settled": 22,
@@ -161,7 +161,7 @@
           "eta": "Oct 2"
         },
         "max_working_capital_usd": 447.24,
-        "open_cost_usd": 0
+        "open_cost_usd": 223.45
       },
       "eth-momentum": {
         "settled": 26,
@@ -236,10 +236,10 @@
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 200.0,
+      "league_open_cost_usd": 444.07,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 140.98,
+      "avg_position_cost_usd": 140.81,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
@@ -474,6 +474,38 @@
         "price": 0.36,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-26T04:08:07.951012+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 26, 3:30AM-3:45AM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 223.45,
+        "seal_ts": "2026-09-26T07:16:58.487512+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2-ratchet",
+        "question": "Ethereum Up or Down - September 26, 3:30AM-3:45AM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 49.5,
+        "seal_ts": "2026-09-26T07:17:00.756375+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-apex-t0up",
+        "question": "Ethereum Up or Down - September 26, 3:30AM-3:45AM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 20.62,
+        "seal_ts": "2026-09-26T07:17:27.768275+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-apex-t0up-ratchet",
+        "question": "Ethereum Up or Down - September 26, 3:30AM-3:45AM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 4.95,
+        "seal_ts": "2026-09-26T07:17:30.724212+00:00"
       }
     ],
     "research": {
@@ -1017,7 +1049,7 @@
         {
           "id": "t24",
           "label": "T24 Tier-B SPY timing overlay: first-month-of-quarter sign rule (8 combos; Guo 2023; shard F-EA35DCDC)",
-          "status": "running",
+          "status": "complete",
           "queued_at": "2026-09-26T06:17:01.330282+00:00",
           "launched_at": "2026-09-26T06:53Z",
           "combos_total": 8,
@@ -1028,13 +1060,17 @@
         {
           "id": "t25",
           "label": "T25 Tier-A multi-horizon MA trend composite + trailing-12m momentum benchmark (96 combos; Han-Zhou-Zhu 2016; shard F-CFDA85C7)",
-          "status": "queued",
+          "status": "complete",
           "queued_at": "2026-09-26T06:21:26.621954+00:00",
-          "launched_at": null
+          "launched_at": "2026-09-26T07:08Z",
+          "combos_total": 96,
+          "executed": 96,
+          "survivors": 96,
+          "done": null
         }
       ],
-      "stages_queued": 1,
-      "stages_complete": 23,
+      "stages_queued": 0,
+      "stages_complete": 25,
       "dl_survivors": 7,
       "loops": [
         {
@@ -1064,7 +1100,7 @@
       "api_remaining_usd": 69.8365,
       "api_spend_asof": "2026-09-20"
     },
-    "bots_active": 17
+    "bots_active": 19
   },
   "opening_bell": {
     "basis": "COMPUTED from opening-bell-paper/days/*/scoreboard.json on the MacBook Air at build time; fills are Webull PAPER (broker-simulated), P&L net of MODELED $0.65/side",
@@ -1683,7 +1719,7 @@
       {
         "id": "t24",
         "label": "T24 Tier-B SPY timing overlay: first-month-of-quarter sign rule (8 combos; Guo 2023; shard F-EA35DCDC)",
-        "status": "running",
+        "status": "complete",
         "queued_at": "2026-09-26T06:17:01.330282+00:00",
         "launched_at": "2026-09-26T06:53Z",
         "combos_total": 8,
@@ -1694,13 +1730,17 @@
       {
         "id": "t25",
         "label": "T25 Tier-A multi-horizon MA trend composite + trailing-12m momentum benchmark (96 combos; Han-Zhou-Zhu 2016; shard F-CFDA85C7)",
-        "status": "queued",
+        "status": "complete",
         "queued_at": "2026-09-26T06:21:26.621954+00:00",
-        "launched_at": null
+        "launched_at": "2026-09-26T07:08Z",
+        "combos_total": 96,
+        "executed": 96,
+        "survivors": 96,
+        "done": null
       }
     ],
-    "stages_queued": 1,
-    "stages_complete": 23,
+    "stages_queued": 0,
+    "stages_complete": 25,
     "dl_survivors": 7,
     "loops": [
       {
