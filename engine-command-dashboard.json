@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-09-26T04:02:50-07:00",
+  "generated_at_pt": "2026-09-26T04:32:50-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-26T04:02:50-07:00",
+    "generated_at_pt": "2026-09-26T04:32:50-07:00",
     "paper_trading_only": true,
     "settled_total": 373,
     "open_total": 15,
@@ -214,7 +214,7 @@
           "label": "GO gate",
           "progress": "49/150",
           "verdict_by": "2026-10-06",
-          "eta": "Oct 2"
+          "eta": "Oct 3"
         },
         "max_working_capital_usd": 447.24,
         "open_cost_usd": 0
