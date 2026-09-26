@@ -1,16 +1,16 @@
 {
-  "generated_at_pt": "2026-09-26T02:32:50-07:00",
+  "generated_at_pt": "2026-09-26T03:02:52-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-26T02:32:50-07:00",
+    "generated_at_pt": "2026-09-26T03:02:51-07:00",
     "paper_trading_only": true,
-    "settled_total": 371,
-    "open_total": 16,
-    "pnl_usd_total": 1044.4054,
-    "paper_pnl_vs_bankroll_pct": 58.01,
+    "settled_total": 372,
+    "open_total": 15,
+    "pnl_usd_total": 1094.9054,
+    "paper_pnl_vs_bankroll_pct": 60.82,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 1042.3506,
+    "pnl_usd_era100_dollar_stakes": 1092.8506,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up-ratchet": {
@@ -186,18 +186,18 @@
         "open_cost_usd": 0
       },
       "eth-momentum-sized2-ratchet": {
-        "settled": 1,
-        "wins": 0,
+        "settled": 2,
+        "wins": 1,
         "losses": 1,
-        "pnl_usd": -49.5,
-        "norm_sum": -1.0,
+        "pnl_usd": 1.0,
+        "norm_sum": 0.02020202020202011,
         "era1_pnl": 0.0,
-        "era100_pnl": -49.5,
-        "expectancy_per_1usd": -1.0,
+        "era100_pnl": 1.0,
+        "expectancy_per_1usd": 0.0101,
         "kill_rule": "ALIVE",
-        "settled_of_20": "1/20",
+        "settled_of_20": "2/20",
         "max_working_capital_usd": 49.5,
-        "open_cost_usd": 49.5
+        "open_cost_usd": 0
       },
       "eth-momentum-sized2": {
         "settled": 48,
@@ -214,7 +214,7 @@
           "label": "GO gate",
           "progress": "48/150",
           "verdict_by": "2026-10-06",
-          "eta": "Oct 2"
+          "eta": "Oct 3"
         },
         "max_working_capital_usd": 447.24,
         "open_cost_usd": 0
@@ -292,13 +292,24 @@
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 249.5,
+      "league_open_cost_usd": 200.0,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
       "avg_position_cost_usd": 138.29,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
+      {
+        "bot_id": "eth-momentum-sized2-ratchet",
+        "question": "Ethereum Up or Down - September 26, 5:30AM-5:45AM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.495,
+        "stake_usd": 49.5,
+        "outcome": "WIN",
+        "pnl_usd": 50.5,
+        "settle_ts": "2026-09-26T10:02:01.030833+00:00"
+      },
       {
         "bot_id": "btc-momentum-apex-t0up-ratchet",
         "question": "Bitcoin Up or Down - September 26, 5:00AM-5:15AM ET",
@@ -397,17 +408,6 @@
         "outcome": "LOSS",
         "pnl_usd": -100.0,
         "settle_ts": "2026-09-26T05:27:27.445095+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 11:30PM-11:45PM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.495,
-        "stake_usd": 218.98,
-        "outcome": "WIN",
-        "pnl_usd": 223.4038,
-        "settle_ts": "2026-09-26T03:47:01.985892+00:00"
       }
     ],
     "open_positions": [
@@ -530,14 +530,6 @@
         "price": 0.36,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-26T04:08:07.951012+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2-ratchet",
-        "question": "Ethereum Up or Down - September 26, 5:30AM-5:45AM ET",
-        "side": "YES",
-        "price": 0.495,
-        "stake_usd": 49.5,
-        "seal_ts": "2026-09-26T09:17:19.651463+00:00"
       }
     ],
     "research": {
