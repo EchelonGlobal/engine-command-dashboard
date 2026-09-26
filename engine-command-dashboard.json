@@ -1,16 +1,16 @@
 {
-  "generated_at_pt": "2026-09-25T20:32:51-07:00",
+  "generated_at_pt": "2026-09-25T21:02:51-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-25T20:32:51-07:00",
+    "generated_at_pt": "2026-09-25T21:02:51-07:00",
     "paper_trading_only": true,
-    "settled_total": 361,
-    "open_total": 16,
-    "pnl_usd_total": 1513.1616,
-    "paper_pnl_vs_bankroll_pct": 84.05,
+    "settled_total": 362,
+    "open_total": 15,
+    "pnl_usd_total": 1736.5654,
+    "paper_pnl_vs_bankroll_pct": 96.46,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 1511.1068,
+    "pnl_usd_era100_dollar_stakes": 1734.5106,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up": {
@@ -144,24 +144,24 @@
         "open_cost_usd": 0
       },
       "eth-momentum-sized2": {
-        "settled": 45,
-        "wins": 25,
+        "settled": 46,
+        "wins": 26,
         "losses": 20,
-        "pnl_usd": 948.881,
-        "norm_sum": 4.9450069297534665,
+        "pnl_usd": 1172.2848,
+        "norm_sum": 5.965208774670811,
         "era1_pnl": 0.0,
-        "era100_pnl": 948.881,
-        "expectancy_per_1usd": 0.1099,
+        "era100_pnl": 1172.2848,
+        "expectancy_per_1usd": 0.1297,
         "kill_rule": "ALIVE",
-        "settled_of_20": "45/20",
+        "settled_of_20": "46/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "45/150",
+          "progress": "46/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 2"
         },
         "max_working_capital_usd": 447.24,
-        "open_cost_usd": 218.98
+        "open_cost_usd": 0
       },
       "eth-momentum": {
         "settled": 26,
@@ -236,13 +236,24 @@
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 418.98,
+      "league_open_cost_usd": 200.0,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
       "avg_position_cost_usd": 141.16,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 25, 11:30PM-11:45PM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.495,
+        "stake_usd": 218.98,
+        "outcome": "WIN",
+        "pnl_usd": 223.4038,
+        "settle_ts": "2026-09-26T03:47:01.985892+00:00"
+      },
       {
         "bot_id": "eth-momentum-sized2",
         "question": "Ethereum Up or Down - September 25, 10:00PM-10:15PM ET",
@@ -341,17 +352,6 @@
         "outcome": "WIN",
         "pnl_usd": 220.917,
         "settle_ts": "2026-09-25T19:02:05.908432+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 1:45PM-2:00PM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.495,
-        "stake_usd": 214.68,
-        "outcome": "WIN",
-        "pnl_usd": 219.017,
-        "settle_ts": "2026-09-25T18:17:01.376524+00:00"
       }
     ],
     "open_positions": [
@@ -474,14 +474,6 @@
         "price": null,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-25T14:06:43.853597+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 25, 11:30PM-11:45PM ET",
-        "side": "YES",
-        "price": 0.495,
-        "stake_usd": 218.98,
-        "seal_ts": "2026-09-26T03:16:59.654984+00:00"
       }
     ],
     "research": {
