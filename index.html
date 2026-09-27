@@ -100,6 +100,28 @@ td .sub{display:block;font-weight:400;font-size:12px;color:var(--soft);margin-to
 #hangar-toggle .h{margin-left:auto;font-size:13px;color:var(--faint)}
 #hangar .hangar-body{display:none}
 #hangar.open .hangar-body{display:block}
+
+/* fleet scorecards: phone-first bot cards + P&L reconciliation */
+.recon{margin-top:12px;border:1px solid var(--hairline);background:var(--raised);padding:12px 14px;font-size:13.5px;line-height:1.6}
+.recon .r1{font-weight:700}
+.recon .r2{margin-top:2px}
+.recon .r3{margin-top:8px;font-size:12px;color:var(--soft)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:12px}
+.card{background:var(--raised);border:1px solid var(--hairline);padding:14px 14px 12px}
+.card .cid{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;font-weight:700;word-break:break-all}
+.card .stline{font-size:12px;font-weight:700;color:var(--go);margin-top:3px}
+.card.dead .stline{color:var(--kill)}
+.card .pnl{font-size:27px;font-weight:800;letter-spacing:-.015em;margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.card .wl{font-size:13.5px;color:var(--soft)}
+.card .wl b{color:var(--ink);font-variant-numeric:tabular-nums}
+.card .meta2{font-size:12.5px;color:var(--soft);margin-top:6px;font-variant-numeric:tabular-nums}
+.card .gate{margin-top:10px;padding-top:8px;border-top:1px solid var(--hairline);font-size:12.5px;color:var(--soft)}
+.card .gate .bar{max-width:none;margin:6px 0}
+.card .gate b{color:var(--ink);font-variant-numeric:tabular-nums}
+.card .gate .none{color:var(--faint)}
+details.killed{margin-top:12px}
+details.killed summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--soft);padding:6px 0}
+@media (min-width:641px){ details.killed.mobile-only{display:none} }
 footer{margin-top:44px;padding-top:12px;border-top:1px solid var(--hairline);font-size:13px;color:var(--soft)}
 footer b{color:var(--ink)}
 
@@ -108,6 +130,8 @@ footer b{color:var(--ink)}
   .mast-right{text-align:left}
   table{min-width:560px}
   .frow{grid-template-columns:92px 1fr 70px}
+  #fleet-section,#hangar{display:none}
+  .cards{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion: reduce){
   *{animation:none!important;transition:none!important}
@@ -129,13 +153,23 @@ footer b{color:var(--ink)}
   <hr class="rule-thick">
   <div class="tape" id="tape" aria-label="Headline numbers"></div>
 
+  <section id="scorecards" aria-label="Fleet scorecards">
+    <div class="sechead"><h2>Fleet scorecards</h2><p>Every live bot: P&amp;L, win rate, graduation progress.</p></div>
+    <div class="recon" id="recon"></div>
+    <div class="cards" id="cards"></div>
+    <details class="killed mobile-only" id="killed-details">
+      <summary id="killed-summary"></summary>
+      <div class="cards" id="deadcards"></div>
+    </details>
+  </section>
+
   <section aria-label="Strategy lanes">
     <div class="sechead"><h2>Strategy lanes</h2><p>Every bot running, one row each.</p></div>
     <div class="tscroll"><div id="lanes"></div></div>
     <p class="fnote" id="lanesnote"></p>
   </section>
 
-  <section aria-label="Forward fleet">
+  <section id="fleet-section" aria-label="Forward fleet">
     <div class="sechead"><h2>Forward fleet</h2><p>Paper only. No real capital.</p></div>
     <div class="tscroll"><div id="bots"></div></div>
   </section>
@@ -187,11 +221,11 @@ footer b{color:var(--ink)}
 </div>
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-26T18:02:48-07:00",
+  "generated_at_pt": "2026-09-26T18:20:42-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-26T18:02:48-07:00",
+    "generated_at_pt": "2026-09-26T18:20:42-07:00",
     "paper_trading_only": true,
     "settled_total": 378,
     "open_total": 15,
@@ -1341,9 +1375,16 @@ footer b{color:var(--ink)}
           "executed": 16,
           "survivors": 0,
           "done": true
+        },
+        {
+          "id": "t27",
+          "label": "T27 published lane round 16 (21 combos, free data: T27-01 Guo-Wachter 2026 NBER WP35753 correlation-neglect quarter timing: trans{author,P1,P2,P3,P4} x dir{contrarian,momentum} x side{LS,LF} + T27-02 BH benchmark)",
+          "status": "queued",
+          "queued_at": "2026-09-27T01:19:02.973602+00:00",
+          "launched_at": null
         }
       ],
-      "stages_queued": 0,
+      "stages_queued": 1,
       "stages_complete": 26,
       "dl_survivors": 8,
       "loops": [
@@ -1384,8 +1425,8 @@ footer b{color:var(--ink)}
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-26 18:01 PDT",
-        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: see log",
+        "last_activity": "2026-09-26 18:17 PDT",
+        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
       {
@@ -1394,7 +1435,7 @@ footer b{color:var(--ink)}
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-26 18:01 PDT",
+        "last_activity": "2026-09-26 18:11 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -1434,8 +1475,8 @@ footer b{color:var(--ink)}
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-26 17:53 PDT",
-        "detail": "last scan verdict: healthy \u00b7 261 findings",
+        "last_activity": "2026-09-26 18:08 PDT",
+        "detail": "last scan verdict: healthy \u00b7 6570 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -2138,9 +2179,16 @@ footer b{color:var(--ink)}
         "executed": 16,
         "survivors": 0,
         "done": true
+      },
+      {
+        "id": "t27",
+        "label": "T27 published lane round 16 (21 combos, free data: T27-01 Guo-Wachter 2026 NBER WP35753 correlation-neglect quarter timing: trans{author,P1,P2,P3,P4} x dir{contrarian,momentum} x side{LS,LF} + T27-02 BH benchmark)",
+        "status": "queued",
+        "queued_at": "2026-09-27T01:19:02.973602+00:00",
+        "launched_at": null
       }
     ],
-    "stages_queued": 0,
+    "stages_queued": 1,
     "stages_complete": 26,
     "dl_survivors": 8,
     "loops": [
@@ -2275,6 +2323,47 @@ function render(){
       deadIds.map(id => fleetRow(id, bots[id])).join("") + `</tbody></table>` : "";
   $("hangar-count").textContent = deadIds.length + (deadIds.length===1?" unit":" units");
   $("hangar").style.display = deadIds.length ? "" : "none";
+
+  // scorecards: phone-first bot cards + P&L reconciliation, all computed from the payload
+  function cardHTML(id, b, dead){
+    const pc = b.pnl_usd<0 ? "neg" : (b.pnl_usd>0 ? "pos" : "");
+    const st = b.settled || 0;
+    const wr = (st && ((b.wins||0)+(b.losses||0))) ? (100*(b.wins||0)/st).toFixed(1)+"%" : "--";
+    let gate;
+    if(b.go_gate){
+      const parts = String(b.go_gate.progress||"0/0").split("/");
+      const done = parseInt(parts[0])||0, tgt = parseInt(parts[1])||0;
+      const prog = tgt ? Math.min(100, 100*done/tgt) : 0;
+      gate = `<div class="bar"><i class="${tgt&&done>=tgt?"hot":""}" style="width:${prog}%"></i></div>` +
+        `<div>${esc(b.go_gate.label)}: <b>${done}/${tgt}</b> settled, verdict ${esc(b.go_gate.verdict_by)}` +
+        (b.go_gate.eta ? `, pace ETA about ${esc(b.go_gate.eta)}` : "") + `</div>`;
+    } else {
+      gate = `<span class="none">No graduation gate registered.</span>`;
+    }
+    return `<div class="card${dead?" dead":""}"><div class="cid">${esc(id)}</div>` +
+      `<div class="stline">${dead?"Killed":"Paper running"}</div>` +
+      `<div class="pnl ${pc}">${fmtUSD(b.pnl_usd)}</div>` +
+      `<div class="wl"><b>${b.wins ?? "--"}W</b> / <b class="neg">${b.losses ?? "--"}L</b> &middot; <b>${wr}</b> win</div>` +
+      `<div class="meta2">${st} settled &middot; expect ${b.expectancy_per_1usd ?? "--"} per $1</div>` +
+      `<div class="gate">${gate}</div></div>`;
+  }
+  const byPnl = arr => arr.slice().sort((a,c)=> (bots[c].pnl_usd||0) - (bots[a].pnl_usd||0));
+  $("cards").innerHTML = byPnl(liveIds).map(id => cardHTML(id, bots[id], false)).join("");
+  const liveSum = liveIds.reduce((s,id)=> s + (bots[id].pnl_usd||0), 0);
+  const deadSum = deadIds.reduce((s,id)=> s + (bots[id].pnl_usd||0), 0);
+  const era1 = fwd.pnl_usd_era1_dollar_stakes || 0, era100 = fwd.pnl_usd_era100_dollar_stakes || 0;
+  const pcTot = pnl<0?"neg":(pnl>0?"pos":"");
+  $("recon").innerHTML =
+    `<div class="r1">Paper P&amp;L <b class="${pcTot}">${fmtUSD(pnl)}</b> = era $1 stakes ${fmtUSD(era1)} + era $100 stakes ${fmtUSD(era100)}</div>` +
+    `<div class="r2">Live bots ${fmtUSD(liveSum)} + killed ${fmtUSD(deadSum)} = <b>${fmtUSD(liveSum+deadSum)}</b></div>` +
+    `<div class="r3">Settled trades only; ${fwd.open_total ?? "--"} open positions not yet counted. ${esc(fwd.stake_change_note || "")}</div>`;
+  if(deadIds.length){
+    $("killed-summary").textContent = `Killed bots (${deadIds.length}), parked out of the way`;
+    $("deadcards").innerHTML = byPnl(deadIds).map(id => cardHTML(id, bots[id], true)).join("");
+    $("killed-details").style.display = "";
+  } else {
+    $("killed-details").style.display = "none";
+  }
 
   // strategy lanes: every bot running, one row each
   const lanesEl = $("lanes"), laneRows = ((DATA.lanes||{}).lanes)||[];
