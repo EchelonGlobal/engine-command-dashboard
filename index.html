@@ -221,14 +221,14 @@ footer b{color:var(--ink)}
 </div>
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-27T07:02:49-07:00",
+  "generated_at_pt": "2026-09-27T07:32:50-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-27T07:02:49-07:00",
+    "generated_at_pt": "2026-09-27T07:32:50-07:00",
     "paper_trading_only": true,
     "settled_total": 382,
-    "open_total": 15,
+    "open_total": 16,
     "pnl_usd_total": 1181.2357,
     "paper_pnl_vs_bankroll_pct": 65.61,
     "pnl_usd_era1_dollar_stakes": 2.0548,
@@ -309,7 +309,7 @@ footer b{color:var(--ink)}
         "kill_rule": "ALIVE",
         "settled_of_20": "1/20",
         "max_working_capital_usd": 49.5,
-        "open_cost_usd": 0
+        "open_cost_usd": 49.5
       },
       "btc-momentum-sized2": {
         "settled": 45,
@@ -326,7 +326,7 @@ footer b{color:var(--ink)}
           "label": "GO gate",
           "progress": "45/150",
           "verdict_by": "2026-10-06",
-          "eta": "Oct 6"
+          "eta": "Oct 7"
         },
         "max_working_capital_usd": 627.12,
         "open_cost_usd": 0
@@ -514,10 +514,10 @@ footer b{color:var(--ink)}
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 200.0,
+      "league_open_cost_usd": 249.5,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 138.66,
+      "avg_position_cost_usd": 138.29,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
@@ -752,6 +752,14 @@ footer b{color:var(--ink)}
         "price": 0.37,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-27T04:07:32.083761+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2-ratchet",
+        "question": "Bitcoin Up or Down - September 27, 10:45AM-11:00AM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 49.5,
+        "seal_ts": "2026-09-27T14:32:06.871583+00:00"
       }
     ],
     "research": {
@@ -1390,13 +1398,17 @@ footer b{color:var(--ink)}
         {
           "id": "t28",
           "label": "T28 published lane round 17 (88 combos, free data: T28-01 echo momentum 12 + T28-02 ATH nearness 8 + T28-03 downside beta 8 + T28-04 tail-risk beta 8 + T28-05 jump reversal 8 + T28-06 announcement-day beta 8 [daily] + T28-07 co-skewness 8 + T28-08 GPR beta/timing 12 + T28-09 vol-managed market 8 + T28-10 turn-of-the-month 8)",
-          "status": "running",
+          "status": "complete",
           "queued_at": "2026-09-27T13:55:00+00:00",
-          "launched_at": "2026-09-27T13:53Z"
+          "launched_at": "2026-09-27T13:53Z",
+          "combos_total": 88,
+          "executed": 88,
+          "survivors": 46,
+          "done": true
         }
       ],
       "stages_queued": 0,
-      "stages_complete": 27,
+      "stages_complete": 28,
       "dl_survivors": 8,
       "loops": [
         {
@@ -1436,7 +1448,7 @@ footer b{color:var(--ink)}
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 07:02 PDT",
+        "last_activity": "2026-09-27 07:32 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -1446,7 +1458,7 @@ footer b{color:var(--ink)}
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 07:00 PDT",
+        "last_activity": "2026-09-27 07:31 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -1486,8 +1498,8 @@ footer b{color:var(--ink)}
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 06:53 PDT",
-        "detail": "last scan verdict: healthy \u00b7 306 findings",
+        "last_activity": "2026-09-27 07:23 PDT",
+        "detail": "last scan verdict: healthy \u00b7 334 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -2205,13 +2217,17 @@ footer b{color:var(--ink)}
       {
         "id": "t28",
         "label": "T28 published lane round 17 (88 combos, free data: T28-01 echo momentum 12 + T28-02 ATH nearness 8 + T28-03 downside beta 8 + T28-04 tail-risk beta 8 + T28-05 jump reversal 8 + T28-06 announcement-day beta 8 [daily] + T28-07 co-skewness 8 + T28-08 GPR beta/timing 12 + T28-09 vol-managed market 8 + T28-10 turn-of-the-month 8)",
-        "status": "running",
+        "status": "complete",
         "queued_at": "2026-09-27T13:55:00+00:00",
-        "launched_at": "2026-09-27T13:53Z"
+        "launched_at": "2026-09-27T13:53Z",
+        "combos_total": 88,
+        "executed": 88,
+        "survivors": 46,
+        "done": true
       }
     ],
     "stages_queued": 0,
-    "stages_complete": 27,
+    "stages_complete": 28,
     "dl_survivors": 8,
     "loops": [
       {
