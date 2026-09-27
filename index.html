@@ -100,6 +100,16 @@ body{
 .panel > h2{font-size:17px;font-weight:600;letter-spacing:.01em;display:flex;align-items:center;gap:12px;margin-bottom:18px}
 .panel > h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
 .panel > h2 .tag{font-size:12.5px;letter-spacing:.02em;color:var(--faint);font-weight:400}
+.lane-badge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;
+  padding:3px 10px;border-radius:20px;border:1px solid;white-space:nowrap}
+.lane-badge.run{color:var(--mint);border-color:rgba(65,242,160,.4);background:rgba(65,242,160,.07)}
+.lane-badge.review{color:var(--gold);border-color:rgba(242,169,59,.4);background:rgba(242,169,59,.07)}
+.lane-badge.research{color:var(--arc);border-color:rgba(70,230,255,.4);background:rgba(70,230,255,.07)}
+.lane-badge.staged{color:var(--faint);border-color:rgba(140,150,170,.35);background:rgba(140,150,170,.07)}
+.lane-badge.killed{color:var(--blood);border-color:rgba(255,90,90,.4);background:rgba(255,90,90,.07)}
+.lane-badge.muted{color:var(--faint);border-color:rgba(140,150,170,.35);background:rgba(140,150,170,.05)}
+#lanes table td:first-child{font-weight:600}
+#lanes .blurb{display:block;font-weight:400;font-size:11px;color:var(--faint);margin-top:2px}
 .fnote{font-size:12.5px;color:var(--faint);margin-top:14px;line-height:1.6}
 
 /* bot cards */
@@ -241,6 +251,12 @@ footer b{color:var(--gold)}
     <div id="bots" class="cards"></div>
   </section>
 
+  <section class="panel glass rise" style="--d:.21s" aria-label="Strategy lanes">
+    <h2>Strategy lanes <span class="tag">every bot running, one row each</span></h2>
+    <div id="lanes"></div>
+    <div class="fnote" id="lanesnote"></div>
+  </section>
+
   <section class="panel glass rise" style="--d:.24s" aria-label="Opening bell tournament">
     <h2>Opening bell <span class="tag">Paper 0DTE, race to 45 trades</span></h2>
     <div id="bell" class="cards"></div>
@@ -292,11 +308,11 @@ footer b{color:var(--gold)}
 
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-26T17:32:50-07:00",
+  "generated_at_pt": "2026-09-26T17:34:10-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-26T17:32:50-07:00",
+    "generated_at_pt": "2026-09-26T17:34:10-07:00",
     "paper_trading_only": true,
     "settled_total": 378,
     "open_total": 15,
@@ -1481,6 +1497,71 @@ footer b{color:var(--gold)}
     },
     "bots_active": 21
   },
+  "lanes": {
+    "lanes": [
+      {
+        "id": "momentum-fleet",
+        "name": "Momentum fleet",
+        "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
+        "status": "PAPER RUNNING",
+        "tone": "run",
+        "last_activity": "2026-09-26 17:32 PDT",
+        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
+        "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
+      },
+      {
+        "id": "negrisk-forward",
+        "name": "NegRisk forward",
+        "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
+        "status": "PAPER RUNNING",
+        "tone": "run",
+        "last_activity": "2026-09-26 17:32 PDT",
+        "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
+        "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
+      },
+      {
+        "id": "weather-sniper",
+        "name": "Weather sniper",
+        "blurb": "Polymarket weather markets, paper",
+        "status": "PAPER RUNNING",
+        "tone": "run",
+        "last_activity": "2026-09-26 06:57 PDT",
+        "detail": "31 paper signals logged \u00b7 old-model track \u00b7 v3 staged, unauthorized \u00b7 last KNYC-2026-09-26-kalshi-KXHIGHNY-26SEP26-B64.5",
+        "basis": "weather/paper-pnl-ledger.jsonl"
+      },
+      {
+        "id": "px1",
+        "name": "PX-1 mismatch",
+        "blurb": "Kalshi vs sportsbook parlay edge test",
+        "status": "IN REVIEW",
+        "tone": "review",
+        "last_activity": "2026-09-26 17:18 PDT",
+        "detail": "v5 repair complete + independently verified \u00b7 4th Claude review running \u00b7 NOT SEALED \u00b7 no cron \u00b7 paper only",
+        "basis": "edge-tests/parlay-xplatform/V5-REPAIR-REPORT.md"
+      },
+      {
+        "id": "almanac",
+        "name": "Almanac NFL",
+        "blurb": "Weekly one-ticket NFL parlay engine",
+        "status": "RESEARCH",
+        "tone": "research",
+        "last_activity": "2026-09-26 17:11 PDT",
+        "detail": "V1 OOS 2023\u201325: ticket A \u221218.6%/wk, ticket B \u221228.5%/wk \u00b7 probabilities miscalibrated \u00b7 repair next, paper only",
+        "basis": "almanac/ALMANAC-V1-REPORT.md"
+      },
+      {
+        "id": "pattern-engine",
+        "name": "Pattern engine",
+        "blurb": "Kalshi/Polymarket market-structure scan",
+        "status": "RUNNING",
+        "tone": "run",
+        "last_activity": "2026-09-26 17:23 PDT",
+        "detail": "last scan verdict: healthy \u00b7 299 findings",
+        "basis": "pattern-engine/logs/scan_*_summary.json"
+      }
+    ],
+    "basis": "COMPUTED per-lane from workspace files at build time; nothing invented"
+  },
   "opening_bell": {
     "basis": "COMPUTED from opening-bell-paper/days/*/scoreboard.json on the MacBook Air at build time; fills are Webull PAPER (broker-simulated), P&L net of MODELED $0.65/side",
     "race_target_trades": 45,
@@ -2319,6 +2400,16 @@ function render(){
   hg.innerHTML = deadIds.map(id => botCard(id, bots[id], true)).join("");
   $("hangar-count").textContent = deadIds.length + (deadIds.length===1?" unit":" units");
   $("hangar").style.display = deadIds.length ? "" : "none";
+
+  // strategy lanes: every bot running, one row each
+  const lanesEl = $("lanes"), laneRows = ((DATA.lanes||{}).lanes)||[];
+  lanesEl.innerHTML = !laneRows.length ? '<div class="empty">No lanes reporting.</div>'
+    : `<table><thead><tr><th>Lane</th><th>Status</th><th>Last activity</th><th>Detail</th></tr></thead><tbody>` +
+      laneRows.map(l=>`<tr><td>${esc(l.name||l.id||"")}<span class="blurb">${esc(l.blurb||"")}</span></td>` +
+        `<td><span class="lane-badge ${esc(l.tone||"muted")}">${esc(l.status||"--")}</span></td>` +
+        `<td>${esc(l.last_activity||"--")}</td>` +
+        `<td>${esc(l.detail||"")}</td></tr>`).join("") + `</tbody></table>`;
+  $("lanesnote").textContent = (DATA.lanes||{}).basis || "";
 
   // opening bell
   const bellEl = $("bell"), vids = Object.keys(ob.variants || {}).sort();
