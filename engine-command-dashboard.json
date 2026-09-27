@@ -1,12 +1,12 @@
 {
-  "generated_at_pt": "2026-09-27T07:32:50-07:00",
+  "generated_at_pt": "2026-09-27T08:02:50-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-27T07:32:50-07:00",
+    "generated_at_pt": "2026-09-27T08:02:50-07:00",
     "paper_trading_only": true,
     "settled_total": 382,
-    "open_total": 16,
+    "open_total": 17,
     "pnl_usd_total": 1181.2357,
     "paper_pnl_vs_bankroll_pct": 65.61,
     "pnl_usd_era1_dollar_stakes": 2.0548,
@@ -107,7 +107,7 @@
           "eta": "Oct 7"
         },
         "max_working_capital_usd": 627.12,
-        "open_cost_usd": 0
+        "open_cost_usd": 220.61
       },
       "btc-momentum": {
         "settled": 21,
@@ -292,10 +292,10 @@
     },
     "funding": {
       "league_min_cash_usd": 1218.0,
-      "league_open_cost_usd": 249.5,
+      "league_open_cost_usd": 470.11,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 138.29,
+      "avg_position_cost_usd": 138.63,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
@@ -538,6 +538,14 @@
         "price": 0.495,
         "stake_usd": 49.5,
         "seal_ts": "2026-09-27T14:32:06.871583+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 27, 11:15AM-11:30AM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 220.61,
+        "seal_ts": "2026-09-27T15:01:55.485505+00:00"
       }
     ],
     "research": {
@@ -680,7 +688,7 @@
           "id": "H-20",
           "title": "Idiosyncratic (FF1-residual) 12-1 cross-sectional momentum, long-short S&P 500",
           "tags": [
-            "IN_REVIEW"
+            "DEAD"
           ]
         },
         {
@@ -689,18 +697,35 @@
           "tags": [
             "DEAD"
           ]
-        }
-      ],
-      "hypotheses_total": 21,
-      "hypotheses_pending": 0,
-      "hypotheses_in_factory": 0,
-      "hypotheses_unparsed_annotations": [
+        },
         {
-          "id": "H-20",
-          "annotation": "IN_REVIEW \u2014 WEAK, agentic repair due next tick",
-          "note": "free-text annotation; status counted"
+          "id": "H-22",
+          "title": "FOMC announcement-day drift, index-level (Savor & Wilson 2014)",
+          "tags": [
+            "PENDING"
+          ]
+        },
+        {
+          "id": "H-23",
+          "title": "January tax-loss reversal of prior-year losers",
+          "tags": [
+            "PENDING"
+          ]
+        },
+        {
+          "id": "H-24",
+          "title": "Intraday momentum on SPY: first-30-min \u2192 last-30-min (Gao, Han, Li & Zhou 2018)",
+          "tags": [
+            "PENDING",
+            "APPROVED",
+            "IN_FACTORY"
+          ]
         }
       ],
+      "hypotheses_total": 24,
+      "hypotheses_pending": 3,
+      "hypotheses_in_factory": 1,
+      "hypotheses_unparsed_annotations": [],
       "verdicts_total": 35,
       "verdicts": [
         {
@@ -1183,10 +1208,42 @@
           "executed": 88,
           "survivors": 46,
           "done": true
+        },
+        {
+          "id": "dl-h24",
+          "label": "Discovery-loop H-24: Intraday momentum on SPY: first-30-min \u2192 last-30-min (Gao, Han, Li & Zhou 2018)",
+          "status": "complete",
+          "queued_at": "2026-09-27T14:47:48.993757+00:00",
+          "launched_at": null,
+          "combos_total": 2,
+          "executed": 0,
+          "survivors": null,
+          "done": true
+        },
+        {
+          "id": "t22-gauntlet",
+          "label": "Foundry gauntlet: deterministic re-run -> DSR -> walk-forward -> Monte Carlo -> Kelly/ruin -> honesty -> kill ledger -> preregs (T22, 10 survivors)",
+          "status": "queued",
+          "queued_at": "2026-09-27T14:55:38.740090+00:00",
+          "launched_at": null
+        },
+        {
+          "id": "t24-gauntlet",
+          "label": "Foundry gauntlet: deterministic re-run -> DSR -> walk-forward -> Monte Carlo -> Kelly/ruin -> honesty -> kill ledger -> preregs (T24, 8 survivors)",
+          "status": "queued",
+          "queued_at": "2026-09-27T14:55:43.817762+00:00",
+          "launched_at": null
+        },
+        {
+          "id": "t25-gauntlet",
+          "label": "Foundry gauntlet: deterministic re-run -> DSR -> walk-forward -> Monte Carlo -> Kelly/ruin -> honesty -> kill ledger -> preregs (T25, 25 survivors)",
+          "status": "queued",
+          "queued_at": "2026-09-27T14:55:43.843009+00:00",
+          "launched_at": null
         }
       ],
-      "stages_queued": 0,
-      "stages_complete": 28,
+      "stages_queued": 3,
+      "stages_complete": 29,
       "dl_survivors": 8,
       "loops": [
         {
@@ -1226,7 +1283,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 07:32 PDT",
+        "last_activity": "2026-09-27 08:02 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -1236,7 +1293,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 07:31 PDT",
+        "last_activity": "2026-09-27 08:00 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -1276,8 +1333,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 07:23 PDT",
-        "detail": "last scan verdict: healthy \u00b7 334 findings",
+        "last_activity": "2026-09-27 07:53 PDT",
+        "detail": "last scan verdict: healthy \u00b7 77 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -1499,7 +1556,7 @@
         "id": "H-20",
         "title": "Idiosyncratic (FF1-residual) 12-1 cross-sectional momentum, long-short S&P 500",
         "tags": [
-          "IN_REVIEW"
+          "DEAD"
         ]
       },
       {
@@ -1508,18 +1565,35 @@
         "tags": [
           "DEAD"
         ]
-      }
-    ],
-    "hypotheses_total": 21,
-    "hypotheses_pending": 0,
-    "hypotheses_in_factory": 0,
-    "hypotheses_unparsed_annotations": [
+      },
       {
-        "id": "H-20",
-        "annotation": "IN_REVIEW \u2014 WEAK, agentic repair due next tick",
-        "note": "free-text annotation; status counted"
+        "id": "H-22",
+        "title": "FOMC announcement-day drift, index-level (Savor & Wilson 2014)",
+        "tags": [
+          "PENDING"
+        ]
+      },
+      {
+        "id": "H-23",
+        "title": "January tax-loss reversal of prior-year losers",
+        "tags": [
+          "PENDING"
+        ]
+      },
+      {
+        "id": "H-24",
+        "title": "Intraday momentum on SPY: first-30-min \u2192 last-30-min (Gao, Han, Li & Zhou 2018)",
+        "tags": [
+          "PENDING",
+          "APPROVED",
+          "IN_FACTORY"
+        ]
       }
     ],
+    "hypotheses_total": 24,
+    "hypotheses_pending": 3,
+    "hypotheses_in_factory": 1,
+    "hypotheses_unparsed_annotations": [],
     "verdicts_total": 35,
     "verdicts": [
       {
@@ -2002,10 +2076,42 @@
         "executed": 88,
         "survivors": 46,
         "done": true
+      },
+      {
+        "id": "dl-h24",
+        "label": "Discovery-loop H-24: Intraday momentum on SPY: first-30-min \u2192 last-30-min (Gao, Han, Li & Zhou 2018)",
+        "status": "complete",
+        "queued_at": "2026-09-27T14:47:48.993757+00:00",
+        "launched_at": null,
+        "combos_total": 2,
+        "executed": 0,
+        "survivors": null,
+        "done": true
+      },
+      {
+        "id": "t22-gauntlet",
+        "label": "Foundry gauntlet: deterministic re-run -> DSR -> walk-forward -> Monte Carlo -> Kelly/ruin -> honesty -> kill ledger -> preregs (T22, 10 survivors)",
+        "status": "queued",
+        "queued_at": "2026-09-27T14:55:38.740090+00:00",
+        "launched_at": null
+      },
+      {
+        "id": "t24-gauntlet",
+        "label": "Foundry gauntlet: deterministic re-run -> DSR -> walk-forward -> Monte Carlo -> Kelly/ruin -> honesty -> kill ledger -> preregs (T24, 8 survivors)",
+        "status": "queued",
+        "queued_at": "2026-09-27T14:55:43.817762+00:00",
+        "launched_at": null
+      },
+      {
+        "id": "t25-gauntlet",
+        "label": "Foundry gauntlet: deterministic re-run -> DSR -> walk-forward -> Monte Carlo -> Kelly/ruin -> honesty -> kill ledger -> preregs (T25, 25 survivors)",
+        "status": "queued",
+        "queued_at": "2026-09-27T14:55:43.843009+00:00",
+        "launched_at": null
       }
     ],
-    "stages_queued": 0,
-    "stages_complete": 28,
+    "stages_queued": 3,
+    "stages_complete": 29,
     "dl_survivors": 8,
     "loops": [
       {
