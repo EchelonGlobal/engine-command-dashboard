@@ -3,316 +3,195 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Engine Command — Quant Operations HUD</title>
+<title>Engine Command</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --abyss:#04060c;
-  --hull:#0a101c;
-  --arc:#46e6ff;
-  --arc-dim:#1b6f8f;
-  --gold:#f2a93b;
-  --gold-hot:#ffd97a;
-  --blood:#ff5a5a;
-  --mint:#41f2a0;
-  --bone:#eef3fb;
-  --ghost:rgba(238,243,251,.68);
-  --faint:rgba(238,243,251,.42);
-  --line:rgba(70,230,255,.14);
-  --glass:rgba(13,20,34,.55);
-  --ez:cubic-bezier(.16,1,.3,1);
+  --paper:#F6F4ED;
+  --raised:#FCFBF6;
+  --ink:#1C1712;
+  --soft:#5E564A;
+  --faint:#8B8172;
+  --hairline:#DCD4BE;
+  --wash:#ECE6D4;
+  --go:#0D5A3C;
+  --watch:#8A5E0B;
+  --kill:#A53124;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--abyss);
-  color:var(--bone);
-  font-family:"Space Grotesk",system-ui,sans-serif;
-  font-size:15px;line-height:1.55;
-  min-height:100vh;
-  -webkit-font-smoothing:antialiased;
+body{background:var(--paper);color:var(--ink);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+#wrap{max-width:1160px;margin:0 auto;padding:26px 20px 64px}
+
+/* masthead: the one bold element is the nameplate rule */
+.masthead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.wordmark{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1}
+.wordmark .thin{font-weight:400}
+.dateline{margin-top:8px;font-size:13.5px;color:var(--soft)}
+.dateline.flash{color:var(--go)}
+.mast-right{text-align:right}
+#clock{font-size:26px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+#live{font-size:13px;font-weight:700;color:var(--go);margin-top:2px}
+#live.off{color:var(--watch)}
+.rule-thick{border:0;border-top:3px solid var(--ink);margin:14px 0 0}
+
+/* tape: one band of headline numbers, pit-board style */
+.tape{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--hairline);border-bottom:1px solid var(--hairline)}
+.stat{background:var(--raised);padding:12px 16px 10px;min-width:0}
+.stat:last-child{grid-column:span 2}
+@media (max-width:900px){
+  .tape{display:flex;overflow-x:auto}
+  .stat{flex:1 0 auto;min-width:108px}
 }
-/* ambient background */
-.bg{position:fixed;inset:0;z-index:-2;overflow:hidden;
-  background:
-    radial-gradient(900px 500px at 12% -5%, rgba(70,230,255,.07), transparent 60%),
-    radial-gradient(800px 500px at 88% 108%, rgba(242,169,59,.06), transparent 60%),
-    radial-gradient(1200px 800px at 50% 50%, rgba(10,16,28,.5), transparent 70%),
-    var(--abyss);}
-.bg::before{content:"";position:absolute;inset:0;
-  background-image:linear-gradient(rgba(70,230,255,.045) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(70,230,255,.045) 1px,transparent 1px);
-  background-size:44px 44px;
-  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 30%, #000 30%, transparent 75%);
-          mask-image:radial-gradient(ellipse 90% 70% at 50% 30%, #000 30%, transparent 75%);}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;will-change:transform}
-.orb.a{width:420px;height:420px;left:-120px;top:-100px;background:rgba(27,111,143,.35);animation:drift1 26s ease-in-out infinite alternate}
-.orb.b{width:360px;height:360px;right:-100px;bottom:-80px;background:rgba(242,169,59,.16);animation:drift2 32s ease-in-out infinite alternate}
-@keyframes drift1{to{transform:translate(120px,90px) scale(1.15)}}
-@keyframes drift2{to{transform:translate(-110px,-70px) scale(1.1)}}
-
-#wrap{max-width:1200px;margin:0 auto;padding:28px 22px 60px;position:relative;z-index:1}
-.glass{background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid var(--line);border-radius:18px;
-  box-shadow:0 18px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);}
-
-/* command bar */
-.cmdbar{display:flex;align-items:center;gap:20px;padding:18px 24px;margin-bottom:26px;position:relative;overflow:hidden}
-.cmdbar::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--arc),var(--gold),transparent);opacity:.7}
-.reactor{width:64px;height:64px;flex:none;position:relative}
-.reactor svg{width:100%;height:100%;overflow:visible}
-.reactor .core{animation:breathe 3.2s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
-@keyframes breathe{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
-.reactor .spin{animation:spin 14s linear infinite;transform-origin:center;transform-box:fill-box}
-.reactor .spin2{animation:spinrev 22s linear infinite;transform-origin:center;transform-box:fill-box}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes spinrev{to{transform:rotate(-360deg)}}
-.reactor .halo{position:absolute;inset:-14px;border-radius:50%;
-  background:radial-gradient(circle,rgba(70,230,255,.28),transparent 65%);animation:breathe 3.2s ease-in-out infinite;z-index:-1}
-.titleblock h1{font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.02em;line-height:1.05}
-.titleblock h1 .thin{font-weight:400;color:var(--ghost)}
-.kicker{font-size:12.5px;letter-spacing:.03em;color:var(--ghost);margin-top:6px}
-.hdr-right{margin-left:auto;text-align:right;font-family:"JetBrains Mono",monospace}
-#clock{font-size:22px;font-weight:600;letter-spacing:.04em}
-#dataasof{font-size:11.5px;color:var(--faint);margin-top:2px}
-#live{display:inline-block;margin-top:8px;font-size:11px;letter-spacing:.18em;padding:5px 12px 5px 10px;border-radius:99px;
-  border:1px solid rgba(65,242,160,.4);color:var(--mint);background:rgba(65,242,160,.08)}
-#live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint);
-  margin-right:8px;vertical-align:1px;animation:pulse 2s ease-in-out infinite}
-#live.off{border-color:rgba(242,169,59,.45);color:var(--gold);background:rgba(242,169,59,.07)}
-#live.off::before{background:var(--gold);animation:none}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(65,242,160,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(65,242,160,0)}}
-
-/* tiles */
-#tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin-bottom:34px}
-.tile{padding:14px 16px;border-radius:14px;position:relative;overflow:hidden;transition:transform .45s var(--ez),border-color .45s var(--ez),box-shadow .45s var(--ez)}
-.tile:hover{transform:translateY(-3px);border-color:rgba(70,230,255,.35);box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 24px rgba(70,230,255,.08)}
-.tile .k{font-size:11.5px;letter-spacing:.05em;color:var(--faint);margin-bottom:6px}
-.tile .v{font-family:"JetBrains Mono",monospace;font-size:21px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tile .v.long{font-size:15px;letter-spacing:.02em}
-.tile .v.pos{color:var(--mint)}.tile .v.neg{color:var(--blood)}.tile .v.warn{color:var(--gold)}
+.stat .n{font-size:23px;font-weight:800;letter-spacing:-.015em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.stat .n.small{font-size:15px;padding-top:6px;display:block}
+.stat .l{font-size:12px;color:var(--soft);margin-top:1px;white-space:nowrap}
+.pos{color:var(--go)} .neg{color:var(--kill)} .wrn{color:var(--watch)}
 
 /* sections */
-.panel{padding:24px;margin-bottom:26px;position:relative}
-.panel > h2{font-size:17px;font-weight:600;letter-spacing:.01em;display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.panel > h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
-.panel > h2 .tag{font-size:12.5px;letter-spacing:.02em;color:var(--faint);font-weight:400}
-.lane-badge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;
-  padding:3px 10px;border-radius:20px;border:1px solid;white-space:nowrap}
-.lane-badge.run{color:var(--mint);border-color:rgba(65,242,160,.4);background:rgba(65,242,160,.07)}
-.lane-badge.review{color:var(--gold);border-color:rgba(242,169,59,.4);background:rgba(242,169,59,.07)}
-.lane-badge.research{color:var(--arc);border-color:rgba(70,230,255,.4);background:rgba(70,230,255,.07)}
-.lane-badge.staged{color:var(--faint);border-color:rgba(140,150,170,.35);background:rgba(140,150,170,.07)}
-.lane-badge.killed{color:var(--blood);border-color:rgba(255,90,90,.4);background:rgba(255,90,90,.07)}
-.lane-badge.muted{color:var(--faint);border-color:rgba(140,150,170,.35);background:rgba(140,150,170,.05)}
-#lanes table td:first-child{font-weight:600}
-#lanes .blurb{display:block;font-weight:400;font-size:11px;color:var(--faint);margin-top:2px}
-.fnote{font-size:12.5px;color:var(--faint);margin-top:14px;line-height:1.6}
+section{margin-top:36px}
+.sechead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding-bottom:8px;border-bottom:2px solid var(--ink);margin-bottom:4px}
+.sechead h2{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.sechead p{font-size:13px;color:var(--soft)}
+.tscroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--soft);
+  padding:10px 12px 6px;border-bottom:1px solid var(--hairline);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--hairline);vertical-align:top}
+tbody tr:nth-child(even) td{background:rgba(28,23,18,.028)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .sub{display:block;font-weight:400;font-size:12px;color:var(--soft);margin-top:2px}
+.st{font-weight:700;white-space:nowrap}
+.st.go{color:var(--go)} .st.watch{color:var(--watch)} .st.kill{color:var(--kill)} .st.idle{color:var(--soft)}
+.fnote{font-size:12.5px;color:var(--soft);margin-top:12px;line-height:1.6;max-width:90ch}
+.empty{padding:18px 4px;color:var(--soft);font-size:13.5px}
 
-/* bot cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(292px,1fr));gap:14px}
-.bot{padding:18px 20px;border-radius:16px;position:relative;overflow:hidden;transition:transform .45s var(--ez),box-shadow .45s var(--ez)}
-.bot:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.5),0 0 28px rgba(70,230,255,.07)}
-.bot::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--arc),transparent);opacity:.85}
-.bot .bid{font-weight:600;font-size:16.5px;letter-spacing:-.01em;margin-bottom:12px;padding-right:70px}
-.bot .status{position:absolute;top:16px;right:16px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;
-  padding:4px 10px;border-radius:99px;border:1px solid rgba(65,242,160,.4);color:var(--mint);background:rgba(65,242,160,.07)}
-.bot .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:5px 0;font-size:13.5px}
-.bot .row + .row{border-top:1px solid rgba(238,243,251,.06)}
-.bot .row > span:first-child{color:var(--faint);font-size:12px;letter-spacing:.02em;flex:none}
-.bot .row > span:last-child{font-family:"JetBrains Mono",monospace;font-size:13px;text-align:right}
-.bot .pnl-pos{color:var(--mint)}.bot .pnl-neg{color:var(--blood)}
-.bot .win{color:var(--mint)}.bot .loss{color:var(--blood)}
-.bot .gate{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:12.5px;
-  color:var(--gold-hot);background:rgba(242,169,59,.08);border:1px solid rgba(242,169,59,.28);line-height:1.7}
-.bot .gate b{color:var(--gold);font-weight:600}
-.bot .gate .g2{color:var(--ghost);font-size:12px}
-.energy{position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(105deg,transparent 40%,rgba(70,230,255,.09) 50%,transparent 60%);
-  background-size:250% 100%;transition:opacity .3s}
-.bot:hover .energy{opacity:1;animation:sweep 1.4s var(--ez)}
-@keyframes sweep{from{background-position:120% 0}to{background-position:-120% 0}}
+/* opening bell rows */
+.bellrow{padding:12px 4px;border-bottom:1px solid var(--hairline)}
+.bellrow .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.bellrow .nm{font-weight:700}
+.bellrow .rule{font-size:12.5px;color:var(--soft);margin-top:2px}
+.bar{height:5px;background:var(--wash);border-radius:3px;overflow:hidden;margin:8px 0 6px;max-width:420px}
+.bar i{display:block;height:100%;background:var(--ink)}
+.bar i.hot{background:var(--go)}
+.bellrow .meta{display:flex;gap:18px;font-size:13px;color:var(--soft);flex-wrap:wrap}
+.bellrow .meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* sweep funnel: flat bars, log scale */
+.funnel{margin-top:8px}
+.frow{display:grid;grid-template-columns:110px 1fr 90px;gap:10px;align-items:center;padding:5px 0;font-size:13px}
+.frow .fl{color:var(--soft)}
+.frow .fb{height:9px;background:var(--wash);border-radius:2px;overflow:hidden}
+.frow .fb i{display:block;height:100%;background:var(--soft)}
+.frow:last-child .fb i{background:var(--go)}
+.frow .fc{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 
 /* hangar */
-.hangar{border-color:rgba(255,90,90,.18)}
-.hangar-toggle{width:100%;display:flex;align-items:center;gap:14px;background:none;border:0;color:var(--bone);
-  font-family:"Space Grotesk",sans-serif;cursor:pointer;padding:6px 2px;text-align:left}
-.hangar-toggle .ht-title{font-size:17px;font-weight:600}
-.hangar-toggle .ht-count{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--blood);
-  border:1px solid rgba(255,90,90,.35);background:rgba(255,90,90,.07);padding:4px 12px;border-radius:99px}
-.hangar-toggle .ht-hint{font-size:12.5px;color:var(--faint)}
-.hangar-toggle .ht-chev{margin-left:auto;color:var(--faint);font-size:18px;transition:transform .5s var(--ez)}
-.hangar.open .hangar-toggle .ht-chev{transform:rotate(180deg);color:var(--blood)}
-.hangar-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ez)}
-.hangar.open .hangar-body{grid-template-rows:1fr}
-.hangar-inner{overflow:hidden;min-height:0}
-#hangar-grid{padding-top:16px}
-#hangar-grid .bot{opacity:.62}
-#hangar-grid .bot::before{background:linear-gradient(90deg,transparent,var(--blood),transparent);opacity:.6}
-#hangar-grid .bot .status{border-color:rgba(255,90,90,.4);color:var(--blood);background:rgba(255,90,90,.07)}
-#hangar-grid .bot:hover{opacity:.9}
-
-/* tables */
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{font-size:11.5px;letter-spacing:.03em;color:var(--faint);text-align:left;
-  padding:10px 12px;border-bottom:1px solid var(--line);font-weight:500;white-space:nowrap}
-td{padding:10px 12px;border-bottom:1px solid rgba(238,243,251,.05);font-family:"JetBrains Mono",monospace;font-size:12.5px;vertical-align:top}
-tr:last-child td{border-bottom:0}
-tbody tr{transition:background .25s}
-tbody tr:hover{background:rgba(70,230,255,.04)}
-td.win,.win{color:var(--mint)}td.loss,.loss{color:var(--blood)}
-.empty{padding:22px;text-align:center;color:var(--faint);font-size:13.5px}
-
-/* funnel */
-#funnelbar{display:flex;height:26px;border-radius:8px;overflow:hidden;gap:3px;margin-bottom:12px}
-#funnelbar div{border-radius:4px;transition:width .9s var(--ez)}
-#funnelstats{font-size:13px;color:var(--ghost);line-height:1.8;font-family:"JetBrains Mono",monospace;font-size:12px}
-
-/* nodes */
-#nodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.node{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:rgba(238,243,251,.03);border:1px solid rgba(238,243,251,.07)}
-.node .dot{width:10px;height:10px;border-radius:50%;margin-top:5px;flex:none}
-.node .dot.ALIVE{background:var(--mint);box-shadow:0 0 10px var(--mint);animation:pulse 2.4s ease-in-out infinite}
-.node .dot.PROVISIONING{background:var(--gold);box-shadow:0 0 10px var(--gold)}
-.node .dot.UNREACHABLE,.node .dot.DEAD{background:var(--blood);box-shadow:0 0 10px var(--blood)}
-.node .nm{font-weight:600;font-size:14px}
-.node .sp,.node .rl{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--faint);margin-top:2px}
-
-/* entrance */
-.rise{opacity:0;transform:translateY(16px);animation:rise .8s var(--ez) forwards;animation-delay:var(--d,0s)}
-@keyframes rise{to{opacity:1;transform:none}}
-
-/* boot */
-#boot{position:fixed;inset:0;z-index:50;background:var(--abyss);display:flex;align-items:center;justify-content:center;
-  transition:opacity .6s var(--ez);pointer-events:none}
-#boot.done{opacity:0}
-#boot .term{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--arc);line-height:2;min-width:min(420px,86vw)}
-#boot .term .ok{color:var(--mint)}
-
-/* footer */
-footer{margin-top:10px;text-align:center;font-size:12px;color:var(--faint);line-height:2}
-footer b{color:var(--gold)}
-
-::selection{background:rgba(70,230,255,.3)}
-:focus-visible{outline:2px solid var(--arc);outline-offset:3px;border-radius:6px}
+#hangar-toggle{width:100%;background:none;border:0;cursor:pointer;text-align:left;
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding-bottom:8px;border-bottom:2px solid var(--ink);font-family:inherit;color:inherit;font-size:15px}
+#hangar-toggle .t{font-size:19px;font-weight:800;letter-spacing:-.01em}
+#hangar-toggle .c{font-size:13px;color:var(--soft)}
+#hangar-toggle .h{margin-left:auto;font-size:13px;color:var(--faint)}
+#hangar .hangar-body{display:none}
+#hangar.open .hangar-body{display:block}
+footer{margin-top:44px;padding-top:12px;border-top:1px solid var(--hairline);font-size:13px;color:var(--soft)}
+footer b{color:var(--ink)}
 
 @media (max-width:640px){
   #wrap{padding:18px 14px 48px}
-  .cmdbar{flex-wrap:wrap;gap:14px}
-  .hdr-right{margin-left:0;text-align:left;width:100%;display:flex;gap:18px;align-items:center}
-  #live{margin-top:0}
-  .panel{padding:18px}
+  .mast-right{text-align:left}
+  table{min-width:560px}
+  .frow{grid-template-columns:92px 1fr 70px}
 }
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
-  .rise{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
 }
 </style>
 </head>
 <body>
-<div class="bg" aria-hidden="true"><div class="orb a"></div><div class="orb b"></div></div>
-<div id="boot" aria-hidden="true"><div class="term" id="boot-term"></div></div>
-
 <div id="wrap">
-  <header class="cmdbar glass rise" style="--d:.05s">
-    <div class="reactor" aria-hidden="true">
-      <div class="halo"></div>
-      <svg viewBox="0 0 74 74">
-        <g class="spin">
-          <circle cx="37" cy="37" r="34" fill="none" stroke="#46e6ff" stroke-width="2" stroke-dasharray="40 18"/>
-          <circle cx="37" cy="37" r="27" fill="none" stroke="#46e6ff" stroke-width="1" stroke-dasharray="10 8" opacity=".7"/>
-        </g>
-        <g class="spin2">
-          <circle cx="37" cy="37" r="30.5" fill="none" stroke="#f2a93b" stroke-width="1" stroke-dasharray="4 14" opacity=".55"/>
-        </g>
-        <circle cx="37" cy="37" r="20" fill="none" stroke="#46e6ff" stroke-width="3"/>
-        <circle class="core" cx="37" cy="37" r="11" fill="rgba(70,230,255,.25)" stroke="#d9f6ff" stroke-width="2"/>
-        <circle class="core" cx="37" cy="37" r="5" fill="#eafcff"/>
-      </svg>
+  <header class="masthead">
+    <div>
+      <div class="wordmark">Engine <span class="thin">Command</span></div>
+      <div class="dateline" id="dateline">--</div>
     </div>
-    <div class="titleblock">
-      <h1>Engine <span class="thin">Command</span></h1>
-      <div class="kicker">Quant engine, live operations</div>
-    </div>
-    <div class="hdr-right">
+    <div class="mast-right">
       <div id="clock">--:--:--</div>
-      <div id="dataasof">DATA AS OF --</div>
-      <div><span id="live">LIVE</span></div>
+      <div id="live">Live</div>
     </div>
   </header>
+  <hr class="rule-thick">
+  <div class="tape" id="tape" aria-label="Headline numbers"></div>
 
-  <div id="tiles" class="rise" style="--d:.12s"></div>
-
-  <section class="panel glass rise" style="--d:.18s" aria-label="Forward fleet">
-    <h2>Forward fleet <span class="tag">Paper only, no real capital</span></h2>
-    <div id="bots" class="cards"></div>
+  <section aria-label="Strategy lanes">
+    <div class="sechead"><h2>Strategy lanes</h2><p>Every bot running, one row each.</p></div>
+    <div class="tscroll"><div id="lanes"></div></div>
+    <p class="fnote" id="lanesnote"></p>
   </section>
 
-  <section class="panel glass rise" style="--d:.21s" aria-label="Strategy lanes">
-    <h2>Strategy lanes <span class="tag">every bot running, one row each</span></h2>
-    <div id="lanes"></div>
-    <div class="fnote" id="lanesnote"></div>
+  <section aria-label="Forward fleet">
+    <div class="sechead"><h2>Forward fleet</h2><p>Paper only. No real capital.</p></div>
+    <div class="tscroll"><div id="bots"></div></div>
   </section>
 
-  <section class="panel glass rise" style="--d:.24s" aria-label="Opening bell tournament">
-    <h2>Opening bell <span class="tag">Paper 0DTE, race to 45 trades</span></h2>
-    <div id="bell" class="cards"></div>
-    <div class="fnote" id="bellnote"></div>
+  <section aria-label="Opening bell">
+    <div class="sechead"><h2>Opening bell</h2><p>Paper 0DTE, race to 45 trades.</p></div>
+    <div id="bell"></div>
+    <p class="fnote" id="bellnote"></p>
   </section>
 
-  <section class="panel glass rise" style="--d:.3s" aria-label="Strategy combinations">
-    <h2>Sweep <span class="tag">backtest combinations</span></h2>
-    <div id="funnelbar"></div>
-    <div id="funnelstats"></div>
-    <div class="fnote" id="sweepnote"></div>
+  <section aria-label="Sweep">
+    <div class="sechead"><h2>Sweep</h2><p>Backtest combinations.</p></div>
+    <div class="funnel" id="funnelbar"></div>
+    <p class="fnote" id="sweepnote"></p>
   </section>
 
-  <section class="panel glass rise" style="--d:.36s" aria-label="Research loop">
-    <h2>Research <span class="tag">continuous discovery</span></h2>
-    <div id="research"></div>
-    <div class="fnote" id="researchnote"></div>
+  <section aria-label="Research">
+    <div class="sechead"><h2>Research</h2><p>Continuous discovery.</p></div>
+    <div class="tscroll"><div id="research"></div></div>
+    <p class="fnote" id="researchnote"></p>
   </section>
 
-  <section class="panel glass rise" style="--d:.42s" aria-label="Engine nodes">
-    <h2>Nodes <span class="tag">compute fleet</span></h2>
-    <div id="nodes"></div>
-    <div class="fnote" id="airnote"></div>
+  <section aria-label="Nodes">
+    <div class="sechead"><h2>Nodes</h2><p>Compute fleet.</p></div>
+    <div class="tscroll"><div id="nodes"></div></div>
+    <p class="fnote" id="airnote"></p>
   </section>
 
-  <section class="panel glass rise" style="--d:.48s" aria-label="Recent settlements">
-    <h2>Results <span class="tag">recent settlements</span></h2>
-    <div id="recent"></div>
+  <section aria-label="Results">
+    <div class="sechead"><h2>Results</h2><p>Recent settlements.</p></div>
+    <div class="tscroll"><div id="recent"></div></div>
   </section>
 
-  <section class="panel glass rise" style="--d:.54s" aria-label="Open positions">
-    <h2>Open positions</h2>
-    <div id="open"></div>
+  <section aria-label="Open positions">
+    <div class="sechead"><h2>Open positions</h2></div>
+    <div class="tscroll"><div id="open"></div></div>
   </section>
 
-  <section class="panel glass hangar rise" id="hangar" style="--d:.6s" aria-label="Decommissioned bots">
-    <button class="hangar-toggle" id="hangar-toggle" aria-expanded="false" aria-controls="hangar-grid">
-      <span class="ht-title">Decommissioned hangar</span>
-      <span class="ht-count" id="hangar-count"></span>
-      <span class="ht-hint">killed bots, parked out of the way</span>
-      <span class="ht-chev">▾</span>
+  <section id="hangar" aria-label="Decommissioned bots">
+    <button id="hangar-toggle" aria-expanded="false">
+      <span class="t">Decommissioned hangar</span>
+      <span class="c" id="hangar-count"></span>
+      <span class="h">Killed bots, parked out of the way. Select to open.</span>
     </button>
-    <div class="hangar-body"><div class="hangar-inner"><div id="hangar-grid" class="cards"></div></div></div>
+    <div class="hangar-body"><div class="tscroll"><div id="hangar-grid"></div></div></div>
   </section>
 
-  <footer class="rise" style="--d:.66s">PAPER TRADING ONLY — <b>NO REAL CAPITAL</b><br>
-  <span id="foot-note"></span></footer>
+  <footer>Paper trading only. <b>No real capital.</b><br><span id="foot-note"></span></footer>
 </div>
-
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-26T17:34:10-07:00",
+  "generated_at_pt": "2026-09-26T17:42:09-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-26T17:34:10-07:00",
+    "generated_at_pt": "2026-09-26T17:42:09-07:00",
     "paper_trading_only": true,
     "settled_total": 378,
     "open_total": 15,
@@ -1515,7 +1394,7 @@ footer b{color:var(--gold)}
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-26 17:32 PDT",
+        "last_activity": "2026-09-26 17:40 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -2340,21 +2219,19 @@ const $ = id => document.getElementById(id);
 const fmtUSD = n => (n==null||isNaN(n)) ? "--" : (n<0?"-$":"$") + Math.abs(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
 const fmtInt = n => (n==null||isNaN(n)) ? "--" : Number(n).toLocaleString();
 const esc = s => String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const TONE = {run:"go", review:"watch", research:"idle", staged:"idle", killed:"kill", muted:"idle"};
 
-function botCard(id, b, killed){
-  const pc = b.pnl_usd<0 ? "pnl-neg" : "pnl-pos";
-  const settled = (b.go_gate && b.go_gate.progress) ? b.go_gate.progress : (b.settled_of_20||b.settled);
+function fleetRow(id, b){
+  const pc = b.pnl_usd<0 ? "neg" : (b.pnl_usd>0 ? "pos" : "");
+  const settled = (b.go_gate && b.go_gate.progress) ? b.go_gate.progress : (b.settled_of_20 ?? b.settled ?? "--");
   const gate = b.go_gate
-    ? `<div class="gate"><div><b>${esc(b.go_gate.label)}</b> ${esc(b.go_gate.progress)} settled</div><div class="g2">verdict ${esc(b.go_gate.verdict_by)}${b.go_gate.eta?`, pace ETA ~${esc(b.go_gate.eta)}`:""}</div></div>` : "";
-  return `<div class="bot"><div class="energy"></div>
-    <div class="bid">${esc(id)}</div>
-    <div class="status">${killed ? "KILLED" : "LIVE"}</div>
-    <div class="row"><span>Settled</span><span>${esc(settled)}</span></div>
-    <div class="row"><span>W/L</span><span><span class="win">${b.wins}</span> / <span class="loss">${b.losses}</span></span></div>
-    <div class="row"><span>P&amp;L</span><span class="${pc}">${fmtUSD(b.pnl_usd)}</span></div>
-    <div class="row"><span>Expect / $1</span><span>${b.expectancy_per_1usd}</span></div>
-    ${gate}
-  </div>`;
+    ? esc(b.go_gate.label) + `<span class="sub">${esc(b.go_gate.progress)} settled, verdict ${esc(b.go_gate.verdict_by)}${b.go_gate.eta ? `, pace ETA about ${esc(b.go_gate.eta)}` : ""}</span>`
+    : '<span class="sub">--</span>';
+  return `<tr><td><b>${esc(id)}</b></td><td class="num">${esc(settled)}</td>` +
+    `<td class="num"><span class="pos">${b.wins ?? "--"}</span> / <span class="neg">${b.losses ?? "--"}</span></td>` +
+    `<td class="num ${pc}">${fmtUSD(b.pnl_usd)}</td>` +
+    `<td class="num">${b.expectancy_per_1usd ?? "--"}</td>` +
+    `<td>${gate}</td></tr>`;
 }
 
 function render(){
@@ -2365,17 +2242,14 @@ function render(){
   const liveIds = ids.filter(id => bots[id].kill_rule !== "KILLED");
   const deadIds = ids.filter(id => bots[id].kill_rule === "KILLED");
 
-  // header meta
   $("foot-note").textContent = DATA.label_basis || "";
-  try{
-    $("dataasof").textContent = "DATA AS OF " + (DATA.generated_at_pt||"--").slice(0,16).replace("T"," ");
-  }catch(e){ $("dataasof").textContent = "DATA AS OF --"; }
+  $("dateline").textContent = "Data as of " + (DATA.generated_at_pt || "--").slice(0,16).replace("T"," ");
 
-  // tiles
+  // tape: one band of headline numbers
   const sw = DATA.sweep || {}, ob = DATA.opening_bell || {}, air = DATA.air_node || {}, rch = DATA.research || {};
   const pnl = fwd.pnl_usd_total;
   const tiles = [
-    {k:"Forward bots", v: fwd.bots_active ?? ids.length, c:""},
+    {k:"Live bots", v: liveIds.length, c:""},
     {k:"Settled", v: fwd.settled_total ?? "--", c:""},
     {k:"Open", v: fwd.open_total ?? "--", c:""},
     {k:"Paper P&L", v: fmtUSD(pnl), c: pnl<0?"neg":(pnl>0?"pos":"")},
@@ -2384,20 +2258,21 @@ function render(){
     {k:"Graduates", v: sw.graduates ?? "--", c: (sw.graduates>0?"pos":"")},
     {k:"Hypotheses", v: rch.hypotheses_total ?? "--", c:""},
     {k:"Verdicts", v: rch.verdicts_total ?? "--", c: (rch.verdicts_total>0?"pos":"")},
-    {k:"Bell sessions", v: ob.sessions ?? "--", c: ob.status==="RACING"?"pos":(ob.status==="UNREACHABLE"?"warn":"")},
-    {k:"Air node", v: air.status || "--", c: air.status==="RUNNING"?"pos":(air.status==="PROVISIONING"?"warn":"")},
+    {k:"Bell sessions", v: ob.sessions ?? "--", c: ob.status==="RACING"?"pos":(ob.status==="UNREACHABLE"?"wrn":"")},
+    {k:"Air node", v: air.status || "--", c: air.status==="RUNNING"?"pos":(air.status==="PROVISIONING"?"wrn":"")},
   ];
-  $("tiles").innerHTML = tiles.map(t=>{
-    const long = String(t.v).length > 9 ? " long" : "";
-    return `<div class="tile glass" title="${esc(String(t.v))}"><div class="k">${t.k}</div><div class="v${t.c?` ${t.c}`:""}${long}">${t.v}</div></div>`;}).join("");
+  $("tape").innerHTML = tiles.map(t=>{
+    const small = String(t.v).length > 9 ? " small" : "";
+    return `<div class="stat" title="${esc(String(t.v))}"><div class="n${t.c?` ${t.c}`:""}${small}">${t.v}</div><div class="l">${t.k}</div></div>`;}).join("");
 
-  // fleet: live up top, killed parked in the hangar
-  const bel = $("bots");
-  bel.innerHTML = liveIds.length
-    ? liveIds.map(id => botCard(id, bots[id], false)).join("")
+  // fleet: live ledger table, killed parked in the hangar
+  $("bots").innerHTML = liveIds.length
+    ? `<table><thead><tr><th>Bot</th><th class="num">Settled</th><th class="num">W/L</th><th class="num">P&amp;L</th><th class="num">Expect per $1</th><th>Gate</th></tr></thead><tbody>` +
+      liveIds.map(id => fleetRow(id, bots[id])).join("") + `</tbody></table>`
     : '<div class="empty">No live bots right now.</div>';
-  const hg = $("hangar-grid");
-  hg.innerHTML = deadIds.map(id => botCard(id, bots[id], true)).join("");
+  $("hangar-grid").innerHTML = deadIds.length
+    ? `<table><thead><tr><th>Bot</th><th class="num">Settled</th><th class="num">W/L</th><th class="num">P&amp;L</th><th class="num">Expect per $1</th><th>Gate</th></tr></thead><tbody>` +
+      deadIds.map(id => fleetRow(id, bots[id])).join("") + `</tbody></table>` : "";
   $("hangar-count").textContent = deadIds.length + (deadIds.length===1?" unit":" units");
   $("hangar").style.display = deadIds.length ? "" : "none";
 
@@ -2405,47 +2280,42 @@ function render(){
   const lanesEl = $("lanes"), laneRows = ((DATA.lanes||{}).lanes)||[];
   lanesEl.innerHTML = !laneRows.length ? '<div class="empty">No lanes reporting.</div>'
     : `<table><thead><tr><th>Lane</th><th>Status</th><th>Last activity</th><th>Detail</th></tr></thead><tbody>` +
-      laneRows.map(l=>`<tr><td>${esc(l.name||l.id||"")}<span class="blurb">${esc(l.blurb||"")}</span></td>` +
-        `<td><span class="lane-badge ${esc(l.tone||"muted")}">${esc(l.status||"--")}</span></td>` +
-        `<td>${esc(l.last_activity||"--")}</td>` +
+      laneRows.map(l=>`<tr><td><b>${esc(l.name||l.id||"")}</b><span class="sub">${esc(l.blurb||"")}</span></td>` +
+        `<td><span class="st ${TONE[l.tone]||"idle"}">${esc(l.status||"--")}</span></td>` +
+        `<td class="mono" style="white-space:nowrap">${esc(l.last_activity||"--")}</td>` +
         `<td>${esc(l.detail||"")}</td></tr>`).join("") + `</tbody></table>`;
   $("lanesnote").textContent = (DATA.lanes||{}).basis || "";
 
   // opening bell
   const bellEl = $("bell"), vids = Object.keys(ob.variants || {}).sort();
   if(ob.status === "UNREACHABLE"){
-    bellEl.innerHTML = '<div class="empty">Mac unreachable at build time — showing last known snapshot.</div>';
+    bellEl.innerHTML = '<div class="empty">Mac unreachable at build time, showing last known snapshot.</div>';
   } else if(!vids.length || ob.status === "AWAITING_FIRST_SESSION"){
     bellEl.innerHTML = '<div class="empty">No opening-bell sessions yet.</div>';
   } else {
     const target = ob.race_target_trades || 45;
     const leader = vids.reduce((a,b)=> (ob.variants[b].net_pnl_usd > ob.variants[a].net_pnl_usd ? b : a), vids[0]);
     bellEl.innerHTML = vids.map(id=>{ const v = ob.variants[id];
-      const pc = v.net_pnl_usd<0?"pnl-neg":(v.net_pnl_usd>0?"pnl-pos":"");
+      const pc = v.net_pnl_usd<0?"neg":(v.net_pnl_usd>0?"pos":"");
       const prog = Math.min(100, 100*v.trades/target);
-      const crown = id===leader && v.trades>0 ? ' <span style="color:var(--gold)">★</span>' : '';
-      return `<div class="bot"><div class="energy"></div><div class="bid">${esc(v.id)} ${esc(v.name)}${crown}</div>
-        <div class="row"><span>Rule</span><span style="max-width:62%">${esc(v.rule)}</span></div>
-        <div class="row"><span>Trades</span><span>${v.trades} / ${target}</span></div>
-        <div style="height:6px;background:rgba(70,230,255,.12);border-radius:4px;margin:8px 0 2px;overflow:hidden">
-          <div style="height:100%;width:${prog}%;border-radius:4px;background:linear-gradient(90deg,var(--arc-dim),var(--arc));box-shadow:0 0 10px rgba(70,230,255,.6);transition:width .9s cubic-bezier(.16,1,.3,1)"></div></div>
-        <div class="row"><span>W/L</span><span><span class="win">${v.wins}</span> / <span class="loss">${v.losses}</span></span></div>
-        <div class="row"><span>Paper P&amp;L</span><span class="${pc}">${fmtUSD(v.net_pnl_usd)}</span></div>
-      </div>`;}).join("");
+      const isLead = id===leader && v.trades>0;
+      return `<div class="bellrow"><div class="top"><span class="nm">${esc(v.id)} ${esc(v.name)}${isLead?' <span class="st go">leads</span>':""}</span>` +
+        `<span class="num"><b>${v.trades} / ${target}</b> trades</span></div>` +
+        `<div class="rule">${esc(v.rule)}</div>` +
+        `<div class="bar"><i class="${isLead?"hot":""}" style="width:${prog}%"></i></div>` +
+        `<div class="meta"><span>W/L <b><span class="pos">${v.wins ?? "--"}</span> / <span class="neg">${v.losses ?? "--"}</span></b></span>` +
+        `<span>Paper P&amp;L <b class="${pc}">${fmtUSD(v.net_pnl_usd)}</b></span></div></div>`;}).join("");
   }
   $("bellnote").textContent = ob.basis || (ob.error || "");
 
-  // funnel
+  // funnel: flat bars, log scale
   const fn = sw.funnel || {};
-  const stages = [["tested","#46e6ff"],["cost_gate","#41f2a0"],["dsr","#7cffb2"],
-                  ["walkforward","#f2a93b"],["mc","#ff9d5c"],["kelly","#ff7a45"],
-                  ["honesty","#ff5a5a"],["graduated","#eef3fb"]];
+  const stages = [["Tested","tested"],["Cost gate","cost_gate"],["DSR","dsr"],["Walk-fwd","walkforward"],
+                  ["MC","mc"],["Kelly","kelly"],["Honesty","honesty"],["Graduated","graduated"]];
   const max = Math.max(1, fn.tested||0);
-  $("funnelbar").innerHTML = stages.map(([k,c])=>{
+  $("funnelbar").innerHTML = stages.map(([label,k])=>{
     const w = Math.max(0.5, 100*Math.log10(1+(fn[k]||0))/Math.log10(1+max));
-    return `<div title="${k}: ${fmtInt(fn[k])}" style="width:${w}%;background:${c};opacity:.85"></div>`;}).join("");
-  $("funnelstats").innerHTML =
-    `tested <b style="color:var(--arc)">${fmtInt(fn.tested)}</b>, cost gate ${fmtInt(fn.cost_gate)}, DSR ${fmtInt(fn.dsr)}, walk-fwd ${fmtInt(fn.walkforward)}, MC ${fmtInt(fn.mc)}, Kelly ${fmtInt(fn.kelly)}, honesty ${fmtInt(fn.honesty)}, <b>graduated ${fmtInt(fn.graduated)}</b>`;
+    return `<div class="frow"><span class="fl">${label}</span><span class="fb"><i style="width:${w}%"></i></span><span class="fc">${fmtInt(fn[k])}</span></div>`;}).join("");
   $("sweepnote").textContent =
     (sw.basis? sw.basis+"; ":"") + "Old T1-T6 long-only/SPY space exhausted (0 graduates). New-territory search runs on the Air node.";
 
@@ -2458,15 +2328,15 @@ function render(){
     let h = "";
     if(hyps.length){
       h += `<table><thead><tr><th>Hypothesis</th><th>Title</th><th>Status</th></tr></thead><tbody>` +
-        hyps.map(x=>`<tr><td>${esc(x.id)}</td><td>${esc((x.title||"").slice(0,52))}</td>`+
+        hyps.map(x=>`<tr><td class="mono">${esc(x.id)}</td><td>${esc((x.title||"").slice(0,52))}</td>`+
           `<td>${esc((x.tags||[]).join(" ")||"--")}</td></tr>`).join("") + `</tbody></table>`;
     }
     if(dlStages.length){
-      h += `<div style="margin:14px 0 6px;font-size:12px;letter-spacing:.03em;color:var(--faint)">Discovery lanes in factory</div>` +
-        `<table><thead><tr><th>Lane</th><th>Status</th><th>Combos</th><th>Exec</th><th>Survivors</th></tr></thead><tbody>` +
-        dlStages.map(s=>`<tr><td>${esc(s.id)}</td><td>${esc(s.status||"--")}</td>`+
-          `<td>${s.combos_total??"--"}</td><td>${s.executed??"--"}</td>`+
-          `<td class="${(s.survivors||0)>0?'win':''}">${s.survivors??"--"}</td></tr>`).join("") + `</tbody></table>`;
+      h += `<div style="margin:14px 0 6px;font-size:12.5px;color:var(--soft)">Discovery lanes in factory</div>` +
+        `<table><thead><tr><th>Lane</th><th>Status</th><th class="num">Combos</th><th class="num">Exec</th><th class="num">Survivors</th></tr></thead><tbody>` +
+        dlStages.map(s=>`<tr><td class="mono">${esc(s.id)}</td><td>${esc(s.status||"--")}</td>`+
+          `<td class="num">${s.combos_total??"--"}</td><td class="num">${s.executed??"--"}</td>`+
+          `<td class="num ${(s.survivors||0)>0?'pos':''}">${s.survivors??"--"}</td></tr>`).join("") + `</tbody></table>`;
     }
     rel2.innerHTML = h;
   }
@@ -2479,12 +2349,14 @@ function render(){
     " | basis: " + (rch.basis||"");
 
   // nodes
-  $("nodes").innerHTML = (DATA.nodes||[]).map(n=>
-    `<div class="node"><div class="dot ${esc(n.liveness)}"></div><div>
-      <div class="nm">${esc(n.name)} <span style="color:var(--faint);font-size:10px;font-family:'JetBrains Mono',monospace">${esc(n.liveness)}</span></div>
-      <div class="sp">${esc(n.spec)}</div><div class="rl">${esc(n.role)}</div>
-      ${n.liveness==="ALIVE"?"":`<div class="sp" style="color:var(--gold)">${esc(n.liveness_basis||"")}</div>`}
-    </div></div>`).join("");
+  $("nodes").innerHTML = (DATA.nodes||[]).length
+    ? `<table><thead><tr><th>Node</th><th>Status</th><th>Spec</th><th>Role</th></tr></thead><tbody>` +
+      (DATA.nodes||[]).map(n=>
+        `<tr><td><b>${esc(n.name)}</b></td>` +
+        `<td><span class="st ${n.liveness==="ALIVE"?"go":"watch"}">${esc(n.liveness)}</span>` +
+        (n.liveness==="ALIVE"?"":`<span class="sub">${esc(n.liveness_basis||"")}</span>`) + `</td>` +
+        `<td>${esc(n.spec)}</td><td>${esc(n.role)}</td></tr>`).join("") + `</tbody></table>`
+    : '<div class="empty">No nodes reporting.</div>';
   $("airnote").textContent =
     "Air sweep node: " + (air.status||"--") + ", " + (air.detail||"") +
     (air.trials_done? ` | trials done ${fmtInt(air.trials_done)}` : "") +
@@ -2494,19 +2366,19 @@ function render(){
   // recent settlements
   const rel = $("recent"), rs = fwd.recent_settled || [];
   rel.innerHTML = !rs.length ? '<div class="empty">No settlements yet.</div>'
-    : `<table><thead><tr><th>Bot</th><th>Market</th><th>Side</th><th>Outcome</th><th>P&amp;L</th><th>Settled</th></tr></thead><tbody>` +
-      rs.map(t=>`<tr><td>${esc(t.bot_id||"")}</td><td>${esc((t.question||"").slice(0,42))}</td><td>${esc(t.side||"")}</td>
-        <td class="${t.outcome==='WIN'?'win':(t.outcome==='LOSS'?'loss':'')}">${esc(t.outcome||"")}</td>
-        <td class="${(t.pnl_usd||0)<0?'loss':'win'}">${fmtUSD(t.pnl_usd)}</td>
-        <td>${esc((t.settle_ts||"").slice(0,16).replace("T"," "))}</td></tr>`).join("") + `</tbody></table>`;
+    : `<table><thead><tr><th>Bot</th><th>Market</th><th>Side</th><th>Outcome</th><th class="num">P&amp;L</th><th>Settled</th></tr></thead><tbody>` +
+      rs.map(t=>`<tr><td class="mono">${esc(t.bot_id||"")}</td><td>${esc((t.question||"").slice(0,42))}</td><td>${esc(t.side||"")}</td>` +
+        `<td class="${t.outcome==='WIN'?'pos':(t.outcome==='LOSS'?'neg':'')}">${esc(t.outcome||"")}</td>` +
+        `<td class="num ${(t.pnl_usd||0)<0?'neg':'pos'}">${fmtUSD(t.pnl_usd)}</td>` +
+        `<td class="mono" style="white-space:nowrap">${esc((t.settle_ts||"").slice(0,16).replace("T"," "))}</td></tr>`).join("") + `</tbody></table>`;
 
   // open positions
   const oel = $("open"), op = fwd.open_positions || [];
   oel.innerHTML = !op.length ? '<div class="empty">No open positions.</div>'
-    : `<table><thead><tr><th>Bot</th><th>Market</th><th>Side</th><th>Price</th><th>Stake</th><th>Sealed</th></tr></thead><tbody>` +
-      op.map(t=>`<tr><td>${esc(t.bot_id||"")}</td><td>${esc((t.question||"").slice(0,42))}</td><td>${esc(t.side||"")}</td>
-        <td>${t.price??""}</td><td>$${t.stake_usd??""}</td>
-        <td>${esc((t.seal_ts||"").slice(0,16).replace("T"," "))}</td></tr>`).join("") + `</tbody></table>`;
+    : `<table><thead><tr><th>Bot</th><th>Market</th><th>Side</th><th class="num">Price</th><th class="num">Stake</th><th>Sealed</th></tr></thead><tbody>` +
+      op.map(t=>`<tr><td class="mono">${esc(t.bot_id||"")}</td><td>${esc((t.question||"").slice(0,42))}</td><td>${esc(t.side||"")}</td>` +
+        `<td class="num">${t.price??""}</td><td class="num">$${t.stake_usd??""}</td>` +
+        `<td class="mono" style="white-space:nowrap">${esc((t.seal_ts||"").slice(0,16).replace("T"," "))}</td></tr>`).join("") + `</tbody></table>`;
 }
 
 // hangar toggle
@@ -2522,7 +2394,8 @@ function tick(){
 }
 setInterval(tick, 1000); tick();
 
-// live poll
+// live poll: refresh from the JSON sidecar, flash the dateline on new data
+const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 async function poll(){
   try{
     const r = await fetch('engine-command-dashboard.json',{cache:'no-store'});
@@ -2530,32 +2403,17 @@ async function poll(){
     const j = await r.json();
     if(j && j.generated_at_pt && (!DATA || j.generated_at_pt !== DATA.generated_at_pt)){
       DATA = j; render();
+      if(!reduceMotion){
+        const d = $("dateline");
+        d.classList.add("flash"); setTimeout(()=>d.classList.remove("flash"), 1500);
+      }
     }
-    $("live").textContent = "LIVE"; $("live").classList.remove("off");
+    const el = $("live"); el.textContent = "Live"; el.classList.remove("off");
   }catch(e){
-    const el = $("live"); el.textContent = "SNAPSHOT"; el.classList.add("off");
+    const el = $("live"); el.textContent = "Snapshot"; el.classList.add("off");
   }
 }
 setInterval(poll, 60000);
-
-// boot sequence
-(function(){
-  const term = $("boot-term");
-  const lines = ["ENGINE COMMAND v2.0",
-    "glass HUD <span class='ok'>ONLINE</span>",
-    "linking forward fleet <span class='ok'>OK</span>",
-    "linking sweep archive <span class='ok'>OK</span>",
-    "linking research loop <span class='ok'>OK</span>"];
-  let i = 0;
-  const iv = setInterval(()=>{
-    if(i < lines.length){ term.innerHTML += lines[i] + "<br>"; i++; }
-    else{
-      clearInterval(iv);
-      setTimeout(()=>{ $("boot").classList.add("done");
-        setTimeout(()=>$("boot").remove(), 700); }, 350);
-    }
-  }, 130);
-})();
 
 render();
 poll();
