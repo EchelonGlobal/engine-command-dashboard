@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-09-27T06:32:50-07:00",
+  "generated_at_pt": "2026-09-27T07:02:49-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-27T06:32:49-07:00",
+    "generated_at_pt": "2026-09-27T07:02:49-07:00",
     "paper_trading_only": true,
     "settled_total": 382,
     "open_total": 15,
@@ -1164,6 +1164,13 @@
           "executed": 21,
           "survivors": 11,
           "done": true
+        },
+        {
+          "id": "t28",
+          "label": "T28 published lane round 17 (88 combos, free data: T28-01 echo momentum 12 + T28-02 ATH nearness 8 + T28-03 downside beta 8 + T28-04 tail-risk beta 8 + T28-05 jump reversal 8 + T28-06 announcement-day beta 8 [daily] + T28-07 co-skewness 8 + T28-08 GPR beta/timing 12 + T28-09 vol-managed market 8 + T28-10 turn-of-the-month 8)",
+          "status": "running",
+          "queued_at": "2026-09-27T13:55:00+00:00",
+          "launched_at": "2026-09-27T13:53Z"
         }
       ],
       "stages_queued": 0,
@@ -1207,7 +1214,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 06:32 PDT",
+        "last_activity": "2026-09-27 07:02 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -1217,7 +1224,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 06:30 PDT",
+        "last_activity": "2026-09-27 07:00 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -1227,7 +1234,7 @@
         "blurb": "Polymarket weather markets, paper",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-26 06:57 PDT",
+        "last_activity": "2026-09-27 06:56 PDT",
         "detail": "31 paper signals logged \u00b7 old-model track \u00b7 v3 staged, unauthorized \u00b7 last KNYC-2026-09-26-kalshi-KXHIGHNY-26SEP26-B64.5",
         "basis": "weather/paper-pnl-ledger.jsonl"
       },
@@ -1257,8 +1264,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 06:23 PDT",
-        "detail": "last scan verdict: healthy \u00b7 172 findings",
+        "last_activity": "2026-09-27 06:53 PDT",
+        "detail": "last scan verdict: healthy \u00b7 306 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -1972,6 +1979,13 @@
         "executed": 21,
         "survivors": 11,
         "done": true
+      },
+      {
+        "id": "t28",
+        "label": "T28 published lane round 17 (88 combos, free data: T28-01 echo momentum 12 + T28-02 ATH nearness 8 + T28-03 downside beta 8 + T28-04 tail-risk beta 8 + T28-05 jump reversal 8 + T28-06 announcement-day beta 8 [daily] + T28-07 co-skewness 8 + T28-08 GPR beta/timing 12 + T28-09 vol-managed market 8 + T28-10 turn-of-the-month 8)",
+        "status": "running",
+        "queued_at": "2026-09-27T13:55:00+00:00",
+        "launched_at": "2026-09-27T13:53Z"
       }
     ],
     "stages_queued": 0,
