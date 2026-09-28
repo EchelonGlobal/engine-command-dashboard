@@ -221,18 +221,18 @@ footer b{color:var(--ink)}
 </div>
 <script id="engine-snapshot" type="application/json">
 {
-  "generated_at_pt": "2026-09-27T17:02:50-07:00",
+  "generated_at_pt": "2026-09-27T17:32:48-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-27T17:02:50-07:00",
+    "generated_at_pt": "2026-09-27T17:32:48-07:00",
     "paper_trading_only": true,
-    "settled_total": 398,
-    "open_total": 18,
-    "pnl_usd_total": 2284.5551,
-    "paper_pnl_vs_bankroll_pct": 126.89,
+    "settled_total": 400,
+    "open_total": 17,
+    "pnl_usd_total": 2711.9814,
+    "paper_pnl_vs_bankroll_pct": 150.63,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 2282.5003,
+    "pnl_usd_era100_dollar_stakes": 2709.9266,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up-ratchet": {
@@ -309,27 +309,27 @@ footer b{color:var(--ink)}
         "kill_rule": "ALIVE",
         "settled_of_20": "5/20",
         "max_working_capital_usd": 600.06,
-        "open_cost_usd": 0
+        "open_cost_usd": 208.02
       },
       "btc-momentum-sized2": {
-        "settled": 48,
-        "wins": 25,
+        "settled": 49,
+        "wins": 26,
         "losses": 23,
-        "pnl_usd": 809.9626,
-        "norm_sum": 2.0300549331596924,
+        "pnl_usd": 1021.8814,
+        "norm_sum": 3.010252898007056,
         "era1_pnl": 0.0,
-        "era100_pnl": 809.9626,
-        "expectancy_per_1usd": 0.0423,
+        "era100_pnl": 1021.8814,
+        "expectancy_per_1usd": 0.0614,
         "kill_rule": "ALIVE",
-        "settled_of_20": "48/20",
+        "settled_of_20": "49/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "48/150",
+          "progress": "49/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 7"
         },
         "max_working_capital_usd": 627.12,
-        "open_cost_usd": 216.2
+        "open_cost_usd": 0
       },
       "btc-momentum": {
         "settled": 21,
@@ -408,18 +408,18 @@ footer b{color:var(--ink)}
         "open_cost_usd": 0
       },
       "eth-momentum-sized2-ratchet": {
-        "settled": 7,
-        "wins": 4,
+        "settled": 8,
+        "wins": 5,
         "losses": 3,
-        "pnl_usd": 354.592,
-        "norm_sum": 1.0408037833726578,
+        "pnl_usd": 570.0995,
+        "norm_sum": 2.061005923118918,
         "era1_pnl": 0.0,
-        "era100_pnl": 354.592,
-        "expectancy_per_1usd": 0.1487,
+        "era100_pnl": 570.0995,
+        "expectancy_per_1usd": 0.2576,
         "kill_rule": "ALIVE",
-        "settled_of_20": "7/20",
+        "settled_of_20": "8/20",
         "max_working_capital_usd": 410.37,
-        "open_cost_usd": 211.24
+        "open_cost_usd": 0
       },
       "eth-momentum-sized2": {
         "settled": 57,
@@ -514,13 +514,35 @@ footer b{color:var(--ink)}
     },
     "funding": {
       "league_min_cash_usd": 1433.8,
-      "league_open_cost_usd": 855.19,
+      "league_open_cost_usd": 635.77,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 143.39,
+      "avg_position_cost_usd": 143.64,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
+      {
+        "bot_id": "eth-momentum-sized2-ratchet",
+        "question": "Ethereum Up or Down - September 27, 7:45PM-8:00PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.495,
+        "stake_usd": 211.24,
+        "outcome": "WIN",
+        "pnl_usd": 215.5075,
+        "settle_ts": "2026-09-28T00:17:04.976149+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2",
+        "question": "Bitcoin Up or Down - September 27, 7:45PM-8:00PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.505,
+        "stake_usd": 216.2,
+        "outcome": "WIN",
+        "pnl_usd": 211.9188,
+        "settle_ts": "2026-09-28T00:16:59.808565+00:00"
+      },
       {
         "bot_id": "eth-momentum-sized2",
         "question": "Ethereum Up or Down - September 27, 7:15PM-7:30PM ET",
@@ -608,28 +630,6 @@ footer b{color:var(--ink)}
         "outcome": "WIN",
         "pnl_usd": 227.6989,
         "settle_ts": "2026-09-27T22:32:01.241017+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 27, 5:45PM-6:00PM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.495,
-        "stake_usd": 218.55,
-        "outcome": "LOSS",
-        "pnl_usd": -218.55,
-        "settle_ts": "2026-09-27T22:16:56.317991+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-sized2",
-        "question": "Bitcoin Up or Down - September 27, 5:30PM-5:45PM ET",
-        "side": "YES",
-        "side_detail": "UP",
-        "price": 0.505,
-        "stake_usd": 220.61,
-        "outcome": "LOSS",
-        "pnl_usd": -220.61,
-        "settle_ts": "2026-09-27T21:47:06.992498+00:00"
       }
     ],
     "open_positions": [
@@ -754,28 +754,20 @@ footer b{color:var(--ink)}
         "seal_ts": "2026-09-27T04:07:32.083761+00:00"
       },
       {
-        "bot_id": "btc-momentum-sized2",
-        "question": "Bitcoin Up or Down - September 27, 7:45PM-8:00PM ET",
-        "side": "YES",
-        "price": 0.505,
-        "stake_usd": 216.2,
-        "seal_ts": "2026-09-27T23:31:56.175073+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2-ratchet",
-        "question": "Ethereum Up or Down - September 27, 7:45PM-8:00PM ET",
-        "side": "YES",
-        "price": 0.495,
-        "stake_usd": 211.24,
-        "seal_ts": "2026-09-27T23:32:05.318448+00:00"
-      },
-      {
         "bot_id": "eth-momentum-sized2",
         "question": "Ethereum Up or Down - September 27, 8:15PM-8:30PM ET",
         "side": "YES",
         "price": 0.505,
         "stake_usd": 227.75,
         "seal_ts": "2026-09-28T00:01:58.082695+00:00"
+      },
+      {
+        "bot_id": "btc-momentum-sized2-ratchet",
+        "question": "Bitcoin Up or Down - September 27, 8:45PM-9:00PM ET",
+        "side": "YES",
+        "price": 0.505,
+        "stake_usd": 208.02,
+        "seal_ts": "2026-09-28T00:32:00.196864+00:00"
       }
     ],
     "research": {
@@ -1513,7 +1505,7 @@ footer b{color:var(--ink)}
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 17:02 PDT",
+        "last_activity": "2026-09-27 17:32 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -1523,7 +1515,7 @@ footer b{color:var(--ink)}
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 17:00 PDT",
+        "last_activity": "2026-09-27 17:30 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -1563,8 +1555,8 @@ footer b{color:var(--ink)}
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 16:53 PDT",
-        "detail": "last scan verdict: healthy \u00b7 189 findings",
+        "last_activity": "2026-09-27 17:23 PDT",
+        "detail": "last scan verdict: healthy \u00b7 53 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
