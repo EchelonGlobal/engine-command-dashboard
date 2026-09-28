@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-09-28T15:04:46-07:00",
+  "generated_at_pt": "2026-09-28T15:32:51-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-28T15:04:46-07:00",
+    "generated_at_pt": "2026-09-28T15:32:51-07:00",
     "paper_trading_only": true,
     "settled_total": 427,
     "open_total": 15,
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 187.5
+        "last_activity_h": 187.9
       },
       "btc-momentum-apex-t0up": {
         "live": true,
@@ -427,7 +427,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 47.3
+        "last_activity_h": 47.8
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": true,
@@ -450,7 +450,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 60.8
+        "last_activity_h": 61.2
       },
       "btc-momentum-flat": {
         "live": false,
@@ -553,7 +553,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 124.0
+        "last_activity_h": 124.5
       },
       "btc-momentum-sized": {
         "live": false,
@@ -612,7 +612,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 168.9
+        "last_activity_h": 169.4
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -851,7 +851,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 13.0
+        "last_activity_h": 13.5
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -906,7 +906,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 15.8
+        "last_activity_h": 16.3
       },
       "eth-momentum": {
         "live": false,
@@ -1029,7 +1029,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 193.8
+        "last_activity_h": 194.3
       },
       "eth-momentum-apex-t0up": {
         "live": true,
@@ -1076,7 +1076,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 48.0
+        "last_activity_h": 48.5
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": true,
@@ -1099,7 +1099,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 62.3
+        "last_activity_h": 62.7
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1206,7 +1206,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 123.0
+        "last_activity_h": 123.5
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1297,7 +1297,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 168.9
+        "last_activity_h": 169.4
       },
       "eth-momentum-sized2": {
         "live": true,
@@ -1576,7 +1576,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 13.0
+        "last_activity_h": 13.5
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -1655,7 +1655,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 11.8
+        "last_activity_h": 12.3
       },
       "funding-veto": {
         "live": false,
@@ -2170,7 +2170,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 135.5
+        "last_activity_h": 135.9
       },
       "nws-poly-weather": {
         "live": true,
@@ -2213,7 +2213,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 16.6
+        "last_activity_h": 17.1
       },
       "oscars-favorite": {
         "live": true,
@@ -2231,7 +2231,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 89.1
+        "last_activity_h": 89.6
       },
       "poly-favorite": {
         "live": true,
@@ -2249,7 +2249,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 183.6
+        "last_activity_h": 184.1
       },
       "s3-sumarb": {
         "live": false,
@@ -2336,7 +2336,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 135.4
+        "last_activity_h": 135.9
       },
       "spy-v1": {
         "live": true,
@@ -2354,7 +2354,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 152.4
+        "last_activity_h": 152.9
       },
       "t5-daily": {
         "live": true,
@@ -2393,7 +2393,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 0.3
+        "last_activity_h": 0.8
       }
     },
     "dashboard_rank_order": [
@@ -3393,7 +3393,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-28 15:04 PDT",
+        "last_activity": "2026-09-28 15:32 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: see log",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -3403,7 +3403,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-28 15:00 PDT",
+        "last_activity": "2026-09-28 15:30 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -3443,8 +3443,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-28 14:38 PDT",
-        "detail": "last scan verdict: corrupt \u00b7 0 findings",
+        "last_activity": "2026-09-28 15:25 PDT",
+        "detail": "last scan verdict: healthy \u00b7 149 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -3504,7 +3504,7 @@
     "first_date": null,
     "last_date": null,
     "status": "UNREACHABLE",
-    "error": "Mac aggregation failed at build time: Command '['/home/hatch/workspace/tailscale-ssh/mac-ssh', 'python3', '-']' timed out after 45 seconds"
+    "error": "Mac aggregation failed at build time: Connection closed by UNKNOWN port 65535"
   },
   "sweep": {
     "label": "BACKTEST-DIAGNOSTIC",
