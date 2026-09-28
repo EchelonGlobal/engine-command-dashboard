@@ -1,16 +1,16 @@
 {
-  "generated_at_pt": "2026-09-28T05:02:50-07:00",
+  "generated_at_pt": "2026-09-28T15:04:46-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-28T05:02:50-07:00",
+    "generated_at_pt": "2026-09-28T15:04:46-07:00",
     "paper_trading_only": true,
-    "settled_total": 426,
+    "settled_total": 427,
     "open_total": 15,
-    "pnl_usd_total": 128.8371,
-    "paper_pnl_vs_bankroll_pct": 7.16,
+    "pnl_usd_total": 128.7512,
+    "paper_pnl_vs_bankroll_pct": 7.15,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 126.7823,
+    "pnl_usd_era100_dollar_stakes": 126.6964,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up-ratchet": {
@@ -276,16 +276,16 @@
         "open_cost_usd": 0
       },
       "t5-daily": {
-        "settled": 4,
+        "settled": 5,
         "wins": 1,
-        "losses": 3,
-        "pnl_usd": 0.3363,
-        "norm_sum": 0.0033630000000000005,
+        "losses": 4,
+        "pnl_usd": 0.2504,
+        "norm_sum": 0.0025040000000000006,
         "era1_pnl": 0.0,
-        "era100_pnl": 0.3363,
-        "expectancy_per_1usd": 0.0008,
+        "era100_pnl": 0.2504,
+        "expectancy_per_1usd": 0.0005,
         "kill_rule": "ALIVE",
-        "settled_of_20": "4/20",
+        "settled_of_20": "5/20",
         "max_working_capital_usd": 100.0,
         "open_cost_usd": 100.0
       }
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 177.4
+        "last_activity_h": 187.5
       },
       "btc-momentum-apex-t0up": {
         "live": true,
@@ -427,7 +427,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 37.3
+        "last_activity_h": 47.3
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": true,
@@ -450,7 +450,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 50.7
+        "last_activity_h": 60.8
       },
       "btc-momentum-flat": {
         "live": false,
@@ -553,7 +553,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 114.0
+        "last_activity_h": 124.0
       },
       "btc-momentum-sized": {
         "live": false,
@@ -612,7 +612,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 158.9
+        "last_activity_h": 168.9
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -851,7 +851,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 3.0
+        "last_activity_h": 13.0
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -906,7 +906,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 5.8
+        "last_activity_h": 15.8
       },
       "eth-momentum": {
         "live": false,
@@ -1029,7 +1029,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 183.8
+        "last_activity_h": 193.8
       },
       "eth-momentum-apex-t0up": {
         "live": true,
@@ -1076,7 +1076,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 38.0
+        "last_activity_h": 48.0
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": true,
@@ -1099,7 +1099,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 52.2
+        "last_activity_h": 62.3
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1206,7 +1206,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 113.0
+        "last_activity_h": 123.0
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1297,7 +1297,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 158.9
+        "last_activity_h": 168.9
       },
       "eth-momentum-sized2": {
         "live": true,
@@ -1576,7 +1576,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 3.0
+        "last_activity_h": 13.0
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -1655,7 +1655,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 1.8
+        "last_activity_h": 11.8
       },
       "funding-veto": {
         "live": false,
@@ -2170,7 +2170,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 125.4
+        "last_activity_h": 135.5
       },
       "nws-poly-weather": {
         "live": true,
@@ -2213,7 +2213,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 6.6
+        "last_activity_h": 16.6
       },
       "oscars-favorite": {
         "live": true,
@@ -2231,7 +2231,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 79.1
+        "last_activity_h": 89.1
       },
       "poly-favorite": {
         "live": true,
@@ -2249,7 +2249,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 173.6
+        "last_activity_h": 183.6
       },
       "s3-sumarb": {
         "live": false,
@@ -2336,7 +2336,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 125.4
+        "last_activity_h": 135.4
       },
       "spy-v1": {
         "live": true,
@@ -2354,21 +2354,21 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 142.4
+        "last_activity_h": 152.4
       },
       "t5-daily": {
         "live": true,
         "kill_rule": "ALIVE",
         "superseded": false,
-        "settled": 4,
+        "settled": 5,
         "wins": 1,
-        "losses": 3,
-        "win_rate": 0.25,
-        "pnl_usd": 0.3363,
-        "pnl_1k_usd": 0.34,
+        "losses": 4,
+        "win_rate": 0.2,
+        "pnl_usd": 0.2504,
+        "pnl_1k_usd": 0.25,
         "vbr_start": 1000.0,
         "has_vbr": false,
-        "account_1k_now": 1000.34,
+        "account_1k_now": 1000.25,
         "account_1k_start": 1000.0,
         "equity_1k": [
           [
@@ -2386,10 +2386,14 @@
           [
             "2026-09-25T14:06:43.812202+00:00",
             1000.34
+          ],
+          [
+            "2026-09-28T21:46:50.369629+00:00",
+            1000.25
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 69.9
+        "last_activity_h": 0.3
       }
     },
     "dashboard_rank_order": [
@@ -2411,10 +2415,21 @@
       "league_open_cost_usd": 200.0,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 148.57,
+      "avg_position_cost_usd": 148.4,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
+      {
+        "bot_id": "t5-daily",
+        "question": null,
+        "side": "long",
+        "side_detail": null,
+        "price": null,
+        "stake_usd": 100.0,
+        "outcome": "LOSS",
+        "pnl_usd": -0.0859,
+        "settle_ts": "2026-09-28T21:46:50.369629+00:00"
+      },
       {
         "bot_id": "eth-momentum-sized2-ratchet",
         "question": "Ethereum Up or Down - September 28, 6:00AM-6:15AM ET",
@@ -2513,17 +2528,6 @@
         "outcome": "LOSS",
         "pnl_usd": -151.47,
         "settle_ts": "2026-09-28T06:16:57.019794+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2-ratchet",
-        "question": "Ethereum Up or Down - September 28, 1:30AM-1:45AM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.495,
-        "stake_usd": 211.4,
-        "outcome": "LOSS",
-        "pnl_usd": -211.4,
-        "settle_ts": "2026-09-28T06:02:01.073292+00:00"
       }
     ],
     "open_positions": [
@@ -2632,20 +2636,20 @@
         "seal_ts": "2026-09-25T04:57:38.230467+00:00"
       },
       {
-        "bot_id": "t5-daily",
-        "question": null,
-        "side": "long",
-        "price": null,
-        "stake_usd": 100.0,
-        "seal_ts": "2026-09-25T14:06:43.853597+00:00"
-      },
-      {
         "bot_id": "nws-poly-weather",
         "question": "Will the highest temperature in New York City be between 66-67\u00b0F on September 28?",
         "side": "YES",
         "price": 0.06,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-28T04:07:31.217644+00:00"
+      },
+      {
+        "bot_id": "t5-daily",
+        "question": null,
+        "side": "long",
+        "price": null,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-28T21:46:50.631734+00:00"
       }
     ],
     "research": {
@@ -2802,14 +2806,14 @@
           "id": "H-22",
           "title": "FOMC announcement-day drift, index-level (Savor & Wilson 2014)",
           "tags": [
-            "PENDING"
+            "DEAD"
           ]
         },
         {
           "id": "H-23",
           "title": "January tax-loss reversal of prior-year losers",
           "tags": [
-            "PENDING"
+            "DEAD"
           ]
         },
         {
@@ -2823,9 +2827,15 @@
         }
       ],
       "hypotheses_total": 24,
-      "hypotheses_pending": 3,
+      "hypotheses_pending": 1,
       "hypotheses_in_factory": 1,
-      "hypotheses_unparsed_annotations": [],
+      "hypotheses_unparsed_annotations": [
+        {
+          "id": "H-22",
+          "annotation": "DEAD \u2014 kill-ledger #60, 2026-09-28",
+          "note": "free-text annotation; status counted"
+        }
+      ],
       "verdicts_total": 35,
       "verdicts": [
         {
@@ -3314,10 +3324,10 @@
           "label": "Discovery-loop H-24: Intraday momentum on SPY: first-30-min \u2192 last-30-min (Gao, Han, Li & Zhou 2018)",
           "status": "complete",
           "queued_at": "2026-09-27T14:47:48.993757+00:00",
-          "launched_at": null,
+          "launched_at": "2026-09-28T21:43Z",
           "combos_total": 2,
-          "executed": 0,
-          "survivors": null,
+          "executed": 2,
+          "survivors": 0,
           "done": true
         },
         {
@@ -3383,8 +3393,8 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-28 05:02 PDT",
-        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
+        "last_activity": "2026-09-28 15:04 PDT",
+        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: see log",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
       {
@@ -3393,7 +3403,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-28 05:00 PDT",
+        "last_activity": "2026-09-28 15:00 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -3403,7 +3413,7 @@
         "blurb": "Polymarket weather markets, paper",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 06:56 PDT",
+        "last_activity": "2026-09-28 14:08 PDT",
         "detail": "31 paper signals logged \u00b7 old-model track \u00b7 v3 staged, unauthorized \u00b7 last KNYC-2026-09-26-kalshi-KXHIGHNY-26SEP26-B64.5",
         "basis": "weather/paper-pnl-ledger.jsonl"
       },
@@ -3433,8 +3443,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-28 04:53 PDT",
-        "detail": "last scan verdict: healthy \u00b7 116 findings",
+        "last_activity": "2026-09-28 14:38 PDT",
+        "detail": "last scan verdict: corrupt \u00b7 0 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -3448,16 +3458,16 @@
         "id": "V1",
         "name": "sniper",
         "rule": "control: upper third -> CALL, lower third + calm RV20 -> PUT",
-        "trades": 1,
+        "trades": 0,
         "wins": 0,
-        "losses": 1,
-        "net_pnl_usd": -21.95
+        "losses": 0,
+        "net_pnl_usd": 0.0
       },
       "V2": {
         "id": "V2",
         "name": "always-on",
         "rule": "V1 signal; middle third trades toward nearer range edge",
-        "trades": 1,
+        "trades": 0,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -3490,10 +3500,11 @@
         "net_pnl_usd": 0.0
       }
     },
-    "sessions": 4,
-    "first_date": "2026-09-22",
-    "last_date": "2026-09-25",
-    "status": "RACING"
+    "sessions": 0,
+    "first_date": null,
+    "last_date": null,
+    "status": "UNREACHABLE",
+    "error": "Mac aggregation failed at build time: Command '['/home/hatch/workspace/tailscale-ssh/mac-ssh', 'python3', '-']' timed out after 45 seconds"
   },
   "sweep": {
     "label": "BACKTEST-DIAGNOSTIC",
@@ -3670,14 +3681,14 @@
         "id": "H-22",
         "title": "FOMC announcement-day drift, index-level (Savor & Wilson 2014)",
         "tags": [
-          "PENDING"
+          "DEAD"
         ]
       },
       {
         "id": "H-23",
         "title": "January tax-loss reversal of prior-year losers",
         "tags": [
-          "PENDING"
+          "DEAD"
         ]
       },
       {
@@ -3691,9 +3702,15 @@
       }
     ],
     "hypotheses_total": 24,
-    "hypotheses_pending": 3,
+    "hypotheses_pending": 1,
     "hypotheses_in_factory": 1,
-    "hypotheses_unparsed_annotations": [],
+    "hypotheses_unparsed_annotations": [
+      {
+        "id": "H-22",
+        "annotation": "DEAD \u2014 kill-ledger #60, 2026-09-28",
+        "note": "free-text annotation; status counted"
+      }
+    ],
     "verdicts_total": 35,
     "verdicts": [
       {
@@ -4182,10 +4199,10 @@
         "label": "Discovery-loop H-24: Intraday momentum on SPY: first-30-min \u2192 last-30-min (Gao, Han, Li & Zhou 2018)",
         "status": "complete",
         "queued_at": "2026-09-27T14:47:48.993757+00:00",
-        "launched_at": null,
+        "launched_at": "2026-09-28T21:43Z",
         "combos_total": 2,
-        "executed": 0,
-        "survivors": null,
+        "executed": 2,
+        "survivors": 0,
         "done": true
       },
       {
@@ -4266,8 +4283,8 @@
       "name": "MacBook Air",
       "spec": "Apple M4, 10 cores, 24 GB (fanless)",
       "role": "Dedicated sweep node: new-territory search (shorts, multi-symbol, cross-sectional)",
-      "liveness": "ALIVE",
-      "liveness_basis": "ssh echo check at payload build time"
+      "liveness": "UNREACHABLE",
+      "liveness_basis": "ssh echo check failed at build time; proxy is flaky, not proof the machine is down"
     },
     {
       "id": "vm",
