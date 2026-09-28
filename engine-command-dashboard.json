@@ -1,16 +1,16 @@
 {
-  "generated_at_pt": "2026-09-27T20:32:48-07:00",
+  "generated_at_pt": "2026-09-27T21:02:49-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-27T20:32:48-07:00",
+    "generated_at_pt": "2026-09-27T21:02:49-07:00",
     "paper_trading_only": true,
-    "settled_total": 412,
+    "settled_total": 413,
     "open_total": 16,
-    "pnl_usd_total": 1684.0657,
-    "paper_pnl_vs_bankroll_pct": 93.54,
+    "pnl_usd_total": 1911.4993,
+    "paper_pnl_vs_bankroll_pct": 106.17,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 1682.0109,
+    "pnl_usd_era100_dollar_stakes": 1909.4445,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up-ratchet": {
@@ -197,27 +197,27 @@
         "kill_rule": "ALIVE",
         "settled_of_20": "11/20",
         "max_working_capital_usd": 422.8,
-        "open_cost_usd": 0
+        "open_cost_usd": 211.4
       },
       "eth-momentum-sized2": {
-        "settled": 60,
-        "wins": 33,
+        "settled": 61,
+        "wins": 34,
         "losses": 27,
-        "pnl_usd": 1146.3474,
-        "norm_sum": 5.9688465090201985,
+        "pnl_usd": 1373.781,
+        "norm_sum": 6.989048366105382,
         "era1_pnl": 0.0,
-        "era100_pnl": 1146.3474,
-        "expectancy_per_1usd": 0.0995,
+        "era100_pnl": 1373.781,
+        "expectancy_per_1usd": 0.1146,
         "kill_rule": "ALIVE",
-        "settled_of_20": "60/20",
+        "settled_of_20": "61/20",
         "go_gate": {
           "label": "GO gate",
-          "progress": "60/150",
+          "progress": "61/150",
           "verdict_by": "2026-10-06",
           "eta": "Oct 5"
         },
         "max_working_capital_usd": 464.44,
-        "open_cost_usd": 222.93
+        "open_cost_usd": 0
       },
       "eth-momentum": {
         "settled": 26,
@@ -292,13 +292,24 @@
     },
     "funding": {
       "league_min_cash_usd": 1433.8,
-      "league_open_cost_usd": 422.93,
+      "league_open_cost_usd": 411.4,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 146.05,
+      "avg_position_cost_usd": 146.29,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
+      {
+        "bot_id": "eth-momentum-sized2",
+        "question": "Ethereum Up or Down - September 27, 11:45PM-12:00AM ET",
+        "side": "YES",
+        "side_detail": "DOWN",
+        "price": 0.495,
+        "stake_usd": 222.93,
+        "outcome": "WIN",
+        "pnl_usd": 227.4336,
+        "settle_ts": "2026-09-28T04:02:04.000782+00:00"
+      },
       {
         "bot_id": "btc-momentum-sized2",
         "question": "Bitcoin Up or Down - September 27, 11:00PM-11:15PM ET",
@@ -397,17 +408,6 @@
         "outcome": "LOSS",
         "pnl_usd": -220.44,
         "settle_ts": "2026-09-28T01:46:54.596405+00:00"
-      },
-      {
-        "bot_id": "btc-momentum-sized2-ratchet",
-        "question": "Bitcoin Up or Down - September 27, 9:00PM-9:15PM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.495,
-        "stake_usd": 51.49,
-        "outcome": "WIN",
-        "pnl_usd": 52.5302,
-        "settle_ts": "2026-09-28T01:17:10.225165+00:00"
       }
     ],
     "open_positions": [
@@ -532,12 +532,12 @@
         "seal_ts": "2026-09-27T04:07:32.083761+00:00"
       },
       {
-        "bot_id": "eth-momentum-sized2",
-        "question": "Ethereum Up or Down - September 27, 11:45PM-12:00AM ET",
+        "bot_id": "eth-momentum-sized2-ratchet",
+        "question": "Ethereum Up or Down - September 28, 12:00AM-12:15AM ET",
         "side": "YES",
-        "price": 0.495,
-        "stake_usd": 222.93,
-        "seal_ts": "2026-09-28T03:32:10.612961+00:00"
+        "price": 0.505,
+        "stake_usd": 211.4,
+        "seal_ts": "2026-09-28T03:47:03.064203+00:00"
       }
     ],
     "research": {
@@ -1275,7 +1275,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 20:32 PDT",
+        "last_activity": "2026-09-27 21:02 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -1285,7 +1285,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 20:30 PDT",
+        "last_activity": "2026-09-27 21:00 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -1325,8 +1325,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-27 20:23 PDT",
-        "detail": "last scan verdict: corrupt \u00b7 0 findings",
+        "last_activity": "2026-09-27 20:53 PDT",
+        "detail": "last scan verdict: healthy \u00b7 99 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
