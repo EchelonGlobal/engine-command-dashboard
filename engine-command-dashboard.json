@@ -1,16 +1,16 @@
 {
-  "generated_at_pt": "2026-09-29T06:32:53-07:00",
+  "generated_at_pt": "2026-09-29T07:02:48-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-29T06:32:53-07:00",
+    "generated_at_pt": "2026-09-29T07:02:48-07:00",
     "paper_trading_only": true,
-    "settled_total": 443,
-    "open_total": 15,
-    "pnl_usd_total": -629.9688,
+    "settled_total": 444,
+    "open_total": 16,
+    "pnl_usd_total": -629.9988,
     "paper_pnl_vs_bankroll_pct": -34.99,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": -632.0236,
+    "pnl_usd_era100_dollar_stakes": -632.0536,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up-ratchet": {
@@ -197,7 +197,7 @@
         "kill_rule": "ALIVE",
         "settled_of_20": "21/20",
         "max_working_capital_usd": 422.8,
-        "open_cost_usd": 0
+        "open_cost_usd": 211.4
       },
       "eth-momentum-sized2": {
         "settled": 72,
@@ -276,16 +276,16 @@
         "open_cost_usd": 0
       },
       "t5-daily": {
-        "settled": 5,
+        "settled": 6,
         "wins": 1,
-        "losses": 4,
-        "pnl_usd": 0.2504,
-        "norm_sum": 0.0025040000000000006,
+        "losses": 5,
+        "pnl_usd": 0.2204,
+        "norm_sum": 0.0022040000000000007,
         "era1_pnl": 0.0,
-        "era100_pnl": 0.2504,
-        "expectancy_per_1usd": 0.0005,
+        "era100_pnl": 0.2204,
+        "expectancy_per_1usd": 0.0004,
         "kill_rule": "ALIVE",
-        "settled_of_20": "5/20",
+        "settled_of_20": "6/20",
         "max_working_capital_usd": 100.0,
         "open_cost_usd": 100.0
       }
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 202.9
+        "last_activity_h": 203.4
       },
       "btc-momentum-apex-t0up": {
         "live": true,
@@ -431,7 +431,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 7.0
+        "last_activity_h": 7.5
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -454,7 +454,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 76.2
+        "last_activity_h": 76.7
       },
       "btc-momentum-flat": {
         "live": false,
@@ -557,7 +557,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 139.5
+        "last_activity_h": 140.0
       },
       "btc-momentum-sized": {
         "live": false,
@@ -616,7 +616,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 184.4
+        "last_activity_h": 184.9
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -855,7 +855,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 28.5
+        "last_activity_h": 29.0
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -914,7 +914,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 6.5
+        "last_activity_h": 7.0
       },
       "eth-momentum": {
         "live": false,
@@ -1037,7 +1037,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 209.3
+        "last_activity_h": 209.8
       },
       "eth-momentum-apex-t0up": {
         "live": true,
@@ -1084,7 +1084,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 63.5
+        "last_activity_h": 64.0
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -1107,7 +1107,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 77.7
+        "last_activity_h": 78.2
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1214,7 +1214,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 138.5
+        "last_activity_h": 139.0
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1305,7 +1305,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 184.4
+        "last_activity_h": 184.9
       },
       "eth-momentum-sized2": {
         "live": true,
@@ -1612,7 +1612,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 1.0
+        "last_activity_h": 1.5
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -1714,8 +1714,8 @@
             1013.09
           ]
         ],
-        "open_count": 0,
-        "last_activity_h": 0.8
+        "open_count": 1,
+        "last_activity_h": 0.3
       },
       "funding-veto": {
         "live": false,
@@ -2230,7 +2230,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 150.9
+        "last_activity_h": 151.4
       },
       "nws-poly-weather": {
         "live": true,
@@ -2277,7 +2277,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 6.1
+        "last_activity_h": 6.6
       },
       "oscars-favorite": {
         "live": true,
@@ -2295,7 +2295,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 104.6
+        "last_activity_h": 105.1
       },
       "poly-favorite": {
         "live": true,
@@ -2313,7 +2313,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 199.1
+        "last_activity_h": 199.6
       },
       "s3-sumarb": {
         "live": false,
@@ -2400,7 +2400,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 150.9
+        "last_activity_h": 151.4
       },
       "spy-v1": {
         "live": true,
@@ -2418,21 +2418,21 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 167.9
+        "last_activity_h": 168.4
       },
       "t5-daily": {
         "live": true,
         "kill_rule": "ALIVE",
         "superseded": false,
-        "settled": 5,
+        "settled": 6,
         "wins": 1,
-        "losses": 4,
-        "win_rate": 0.2,
-        "pnl_usd": 0.2504,
-        "pnl_1k_usd": 0.25,
+        "losses": 5,
+        "win_rate": 0.1667,
+        "pnl_usd": 0.2204,
+        "pnl_1k_usd": 0.22,
         "vbr_start": 1000.0,
         "has_vbr": false,
-        "account_1k_now": 1000.25,
+        "account_1k_now": 1000.22,
         "account_1k_start": 1000.0,
         "equity_1k": [
           [
@@ -2454,10 +2454,14 @@
           [
             "2026-09-28T21:46:50.369629+00:00",
             1000.25
+          ],
+          [
+            "2026-09-29T13:37:15.569813+00:00",
+            1000.22
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 15.8
+        "last_activity_h": 0.4
       }
     },
     "dashboard_rank_order": [
@@ -2474,13 +2478,24 @@
     ],
     "funding": {
       "league_min_cash_usd": 1433.8,
-      "league_open_cost_usd": 200.0,
+      "league_open_cost_usd": 411.4,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 149.79,
+      "avg_position_cost_usd": 149.83,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
+      {
+        "bot_id": "t5-daily",
+        "question": null,
+        "side": "long",
+        "side_detail": null,
+        "price": null,
+        "stake_usd": 100.0,
+        "outcome": "LOSS",
+        "pnl_usd": -0.03,
+        "settle_ts": "2026-09-29T13:37:15.569813+00:00"
+      },
       {
         "bot_id": "eth-momentum-sized2-ratchet",
         "question": "Ethereum Up or Down - September 29, 8:15AM-8:30AM ET",
@@ -2579,17 +2594,6 @@
         "outcome": "LOSS",
         "pnl_usd": -205.53,
         "settle_ts": "2026-09-29T06:31:53.972610+00:00"
-      },
-      {
-        "bot_id": "nws-poly-weather",
-        "question": "Will the highest temperature in New York City be between 66-67\u00b0F on September 28?",
-        "side": "YES",
-        "side_detail": null,
-        "price": 0.06,
-        "stake_usd": 100.0,
-        "outcome": "LOSS",
-        "pnl_usd": -100.0,
-        "settle_ts": "2026-09-29T05:47:22.387300+00:00"
       }
     ],
     "open_positions": [
@@ -2698,20 +2702,28 @@
         "seal_ts": "2026-09-25T04:57:38.230467+00:00"
       },
       {
-        "bot_id": "t5-daily",
-        "question": null,
-        "side": "long",
-        "price": null,
-        "stake_usd": 100.0,
-        "seal_ts": "2026-09-28T21:46:50.631734+00:00"
-      },
-      {
         "bot_id": "nws-poly-weather",
         "question": "Will the highest temperature in New York City be between 72-73\u00b0F on September 29?",
         "side": "YES",
         "price": 0.16,
         "stake_usd": 100.0,
         "seal_ts": "2026-09-29T07:27:29.301027+00:00"
+      },
+      {
+        "bot_id": "t5-daily",
+        "question": null,
+        "side": "long",
+        "price": null,
+        "stake_usd": 100.0,
+        "seal_ts": "2026-09-29T13:37:15.616836+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2-ratchet",
+        "question": "Ethereum Up or Down - September 29, 10:00AM-10:15AM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 211.4,
+        "seal_ts": "2026-09-29T13:47:27.209097+00:00"
       }
     ],
     "research": {
@@ -3416,13 +3428,17 @@
         {
           "id": "t29",
           "label": "T29 published lane round 18 (28 combos, free data: factor MAX, abnormal turnover, spectral-clustering stat-arb, triangulated stat-arb, correlation-gated selective shorting)",
-          "status": "running",
+          "status": "complete",
           "queued_at": "2026-09-29T13:14:45.255999+00:00",
-          "launched_at": "2026-09-29T13:23Z"
+          "launched_at": "2026-09-29T13:23Z",
+          "combos_total": 28,
+          "executed": 28,
+          "survivors": 7,
+          "done": true
         }
       ],
       "stages_queued": 0,
-      "stages_complete": 32,
+      "stages_complete": 33,
       "dl_survivors": 8,
       "loops": [
         {
@@ -3462,7 +3478,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-29 06:32 PDT",
+        "last_activity": "2026-09-29 07:02 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -3472,7 +3488,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-29 06:30 PDT",
+        "last_activity": "2026-09-29 07:00 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -3482,8 +3498,8 @@
         "blurb": "Polymarket weather markets, paper",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-28 14:08 PDT",
-        "detail": "31 paper signals logged \u00b7 old-model track \u00b7 v3 staged, unauthorized \u00b7 last KNYC-2026-09-26-kalshi-KXHIGHNY-26SEP26-B64.5",
+        "last_activity": "2026-09-29 06:56 PDT",
+        "detail": "34 paper signals logged \u00b7 old-model track \u00b7 v3 staged, unauthorized \u00b7 last KNYC-2026-09-29-kalshi-KXHIGHNY-26SEP29-B73.5",
         "basis": "weather/paper-pnl-ledger.jsonl"
       },
       {
@@ -4297,13 +4313,17 @@
       {
         "id": "t29",
         "label": "T29 published lane round 18 (28 combos, free data: factor MAX, abnormal turnover, spectral-clustering stat-arb, triangulated stat-arb, correlation-gated selective shorting)",
-        "status": "running",
+        "status": "complete",
         "queued_at": "2026-09-29T13:14:45.255999+00:00",
-        "launched_at": "2026-09-29T13:23Z"
+        "launched_at": "2026-09-29T13:23Z",
+        "combos_total": 28,
+        "executed": 28,
+        "survivors": 7,
+        "done": true
       }
     ],
     "stages_queued": 0,
-    "stages_complete": 32,
+    "stages_complete": 33,
     "dl_survivors": 8,
     "loops": [
       {
