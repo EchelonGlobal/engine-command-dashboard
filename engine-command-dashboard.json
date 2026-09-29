@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-09-29T03:33:05-07:00",
+  "generated_at_pt": "2026-09-29T11:18:53+00:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-29T03:33:05-07:00",
+    "generated_at_pt": "2026-09-29T11:18:53+00:00",
     "paper_trading_only": true,
     "settled_total": 441,
     "open_total": 15,
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 199.9
+        "last_activity_h": 200.7
       },
       "btc-momentum-apex-t0up": {
         "live": true,
@@ -431,7 +431,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 4.0
+        "last_activity_h": 4.8
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -454,7 +454,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 73.3
+        "last_activity_h": 74.0
       },
       "btc-momentum-flat": {
         "live": false,
@@ -557,7 +557,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 136.5
+        "last_activity_h": 137.3
       },
       "btc-momentum-sized": {
         "live": false,
@@ -616,7 +616,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 181.4
+        "last_activity_h": 182.1
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -855,7 +855,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 25.5
+        "last_activity_h": 26.3
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -914,7 +914,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 3.5
+        "last_activity_h": 4.3
       },
       "eth-momentum": {
         "live": false,
@@ -1037,7 +1037,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 206.3
+        "last_activity_h": 207.0
       },
       "eth-momentum-apex-t0up": {
         "live": true,
@@ -1084,7 +1084,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 60.5
+        "last_activity_h": 61.3
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -1107,7 +1107,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 74.7
+        "last_activity_h": 75.5
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1214,7 +1214,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 135.5
+        "last_activity_h": 136.3
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1305,7 +1305,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 181.4
+        "last_activity_h": 182.1
       },
       "eth-momentum-sized2": {
         "live": true,
@@ -1608,7 +1608,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 0.0
+        "last_activity_h": 0.8
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -1707,7 +1707,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 0.3
+        "last_activity_h": 1.0
       },
       "funding-veto": {
         "live": false,
@@ -2222,7 +2222,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 147.9
+        "last_activity_h": 148.7
       },
       "nws-poly-weather": {
         "live": true,
@@ -2269,7 +2269,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 3.1
+        "last_activity_h": 3.9
       },
       "oscars-favorite": {
         "live": true,
@@ -2287,7 +2287,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 101.6
+        "last_activity_h": 102.4
       },
       "poly-favorite": {
         "live": true,
@@ -2305,7 +2305,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 196.1
+        "last_activity_h": 196.9
       },
       "s3-sumarb": {
         "live": false,
@@ -2392,7 +2392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 147.9
+        "last_activity_h": 148.6
       },
       "spy-v1": {
         "live": true,
@@ -2410,7 +2410,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 164.9
+        "last_activity_h": 165.7
       },
       "t5-daily": {
         "live": true,
@@ -2449,7 +2449,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 12.8
+        "last_activity_h": 13.5
       }
     },
     "dashboard_rank_order": [
@@ -3447,7 +3447,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-29 03:32 PDT",
+        "last_activity": "2026-09-29 04:17 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -3457,7 +3457,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-29 03:31 PDT",
+        "last_activity": "2026-09-29 04:10 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -3497,8 +3497,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-29 03:08 PDT",
-        "detail": "last scan verdict: healthy \u00b7 67 findings",
+        "last_activity": "2026-09-29 03:38 PDT",
+        "detail": "last scan verdict: corrupt \u00b7 0 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
