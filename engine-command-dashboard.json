@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-09-29T21:32:55-07:00",
+  "generated_at_pt": "2026-09-29T22:02:53-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-09-29T21:32:55-07:00",
+    "generated_at_pt": "2026-09-29T22:02:53-07:00",
     "paper_trading_only": true,
     "settled_total": 451,
     "open_total": 16,
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 217.9
+        "last_activity_h": 218.4
       },
       "btc-momentum-apex-t0up": {
         "live": true,
@@ -431,7 +431,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 22.0
+        "last_activity_h": 22.5
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -454,7 +454,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 91.2
+        "last_activity_h": 91.7
       },
       "btc-momentum-flat": {
         "live": false,
@@ -557,7 +557,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 154.5
+        "last_activity_h": 155.0
       },
       "btc-momentum-sized": {
         "live": false,
@@ -616,7 +616,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 199.4
+        "last_activity_h": 199.9
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -855,7 +855,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 43.5
+        "last_activity_h": 44.0
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -918,7 +918,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 12.4
+        "last_activity_h": 12.9
       },
       "eth-momentum": {
         "live": false,
@@ -1041,7 +1041,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 224.3
+        "last_activity_h": 224.8
       },
       "eth-momentum-apex-t0up": {
         "live": false,
@@ -1088,7 +1088,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 78.5
+        "last_activity_h": 79.0
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -1111,7 +1111,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 92.7
+        "last_activity_h": 93.2
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1218,7 +1218,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 153.5
+        "last_activity_h": 154.0
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1309,7 +1309,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 199.4
+        "last_activity_h": 199.9
       },
       "eth-momentum-sized2": {
         "live": true,
@@ -1616,7 +1616,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 16.0
+        "last_activity_h": 16.5
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -1743,7 +1743,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 4.5
+        "last_activity_h": 5.0
       },
       "funding-veto": {
         "live": false,
@@ -2258,7 +2258,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 165.9
+        "last_activity_h": 166.4
       },
       "nws-poly-weather": {
         "live": true,
@@ -2305,7 +2305,7 @@
           ]
         ],
         "open_count": 2,
-        "last_activity_h": 0.4
+        "last_activity_h": 0.9
       },
       "oscars-favorite": {
         "live": true,
@@ -2323,7 +2323,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 119.6
+        "last_activity_h": 120.1
       },
       "poly-favorite": {
         "live": true,
@@ -2341,7 +2341,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 214.1
+        "last_activity_h": 214.6
       },
       "s3-sumarb": {
         "live": false,
@@ -2428,7 +2428,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 165.9
+        "last_activity_h": 166.4
       },
       "spy-v1": {
         "live": true,
@@ -2446,7 +2446,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 182.9
+        "last_activity_h": 183.4
       },
       "t5-daily": {
         "live": true,
@@ -2489,7 +2489,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 14.9
+        "last_activity_h": 15.4
       }
     },
     "dashboard_rank_order": [
@@ -3570,8 +3570,8 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-29 21:32 PDT",
-        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: see log",
+        "last_activity": "2026-09-29 22:02 PDT",
+        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
       {
@@ -3580,7 +3580,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-29 21:31 PDT",
+        "last_activity": "2026-09-29 22:01 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: --",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -3620,8 +3620,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-09-29 21:23 PDT",
-        "detail": "last scan verdict: healthy \u00b7 115 findings",
+        "last_activity": "2026-09-29 21:53 PDT",
+        "detail": "last scan verdict: healthy \u00b7 107 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
