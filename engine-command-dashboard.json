@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-10-01T04:32:49-07:00",
+  "generated_at_pt": "2026-10-01T05:02:56-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-10-01T04:32:49-07:00",
+    "generated_at_pt": "2026-10-01T05:02:56-07:00",
     "paper_trading_only": true,
     "settled_total": 466,
     "open_total": 15,
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 248.9
+        "last_activity_h": 249.4
       },
       "btc-momentum-apex-t0up": {
         "live": true,
@@ -431,7 +431,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 53.0
+        "last_activity_h": 53.5
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -454,7 +454,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 122.2
+        "last_activity_h": 122.7
       },
       "btc-momentum-flat": {
         "live": false,
@@ -557,7 +557,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 185.5
+        "last_activity_h": 186.0
       },
       "btc-momentum-sized": {
         "live": false,
@@ -616,7 +616,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 230.4
+        "last_activity_h": 230.9
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -855,7 +855,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 74.5
+        "last_activity_h": 75.0
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -942,7 +942,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 3.5
+        "last_activity_h": 4.0
       },
       "eth-momentum": {
         "live": false,
@@ -1065,7 +1065,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 255.3
+        "last_activity_h": 255.8
       },
       "eth-momentum-apex-t0up": {
         "live": false,
@@ -1112,7 +1112,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 109.5
+        "last_activity_h": 110.0
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -1135,7 +1135,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 123.7
+        "last_activity_h": 124.2
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1242,7 +1242,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 184.5
+        "last_activity_h": 185.0
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1333,7 +1333,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 230.4
+        "last_activity_h": 230.9
       },
       "eth-momentum-sized2": {
         "live": false,
@@ -1644,7 +1644,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 29.5
+        "last_activity_h": 30.0
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -1791,7 +1791,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 0.0
+        "last_activity_h": 0.5
       },
       "funding-veto": {
         "live": false,
@@ -2306,7 +2306,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 196.9
+        "last_activity_h": 197.4
       },
       "nws-poly-weather": {
         "live": true,
@@ -2361,7 +2361,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 6.1
+        "last_activity_h": 6.6
       },
       "oscars-favorite": {
         "live": true,
@@ -2379,7 +2379,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 150.6
+        "last_activity_h": 151.1
       },
       "poly-favorite": {
         "live": true,
@@ -2397,7 +2397,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 245.1
+        "last_activity_h": 245.6
       },
       "s3-sumarb": {
         "live": false,
@@ -2484,7 +2484,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 196.9
+        "last_activity_h": 197.4
       },
       "spy-v1": {
         "live": true,
@@ -2502,7 +2502,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 213.9
+        "last_activity_h": 214.4
       },
       "t5-daily": {
         "live": true,
@@ -2549,7 +2549,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 21.4
+        "last_activity_h": 21.9
       }
     },
     "dashboard_rank_order": [
@@ -3706,7 +3706,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-01 04:32 PDT",
+        "last_activity": "2026-10-01 05:02 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -3716,7 +3716,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-01 04:30 PDT",
+        "last_activity": "2026-10-01 05:00 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -3756,8 +3756,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-01 04:23 PDT",
-        "detail": "last scan verdict: healthy \u00b7 217 findings",
+        "last_activity": "2026-10-01 04:53 PDT",
+        "detail": "last scan verdict: healthy \u00b7 120 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
