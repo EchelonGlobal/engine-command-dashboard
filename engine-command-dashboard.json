@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-10-03T07:32:50-07:00",
+  "generated_at_pt": "2026-10-03T08:03:04-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-10-03T07:32:50-07:00",
+    "generated_at_pt": "2026-10-03T08:03:04-07:00",
     "paper_trading_only": true,
     "settled_total": 491,
     "open_total": 20,
@@ -214,7 +214,7 @@
           "label": "GO gate",
           "progress": "73/150",
           "verdict_by": "2026-10-06",
-          "eta": "Oct 10"
+          "eta": "Oct 11"
         },
         "max_working_capital_usd": 464.44,
         "open_cost_usd": 0
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 299.9
+        "last_activity_h": 300.4
       },
       "btc-momentum-apex-t0up": {
         "live": false,
@@ -431,7 +431,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 104.0
+        "last_activity_h": 104.5
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -454,7 +454,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 173.2
+        "last_activity_h": 173.8
       },
       "btc-momentum-flat": {
         "live": false,
@@ -557,7 +557,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 236.5
+        "last_activity_h": 237.0
       },
       "btc-momentum-sized": {
         "live": false,
@@ -616,7 +616,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 281.4
+        "last_activity_h": 281.9
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -855,7 +855,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 125.5
+        "last_activity_h": 126.0
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -954,7 +954,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 19.3
+        "last_activity_h": 19.8
       },
       "eth-momentum": {
         "live": false,
@@ -1077,7 +1077,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 306.3
+        "last_activity_h": 306.8
       },
       "eth-momentum-apex-t0up": {
         "live": false,
@@ -1124,7 +1124,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 160.5
+        "last_activity_h": 161.0
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -1147,7 +1147,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 174.7
+        "last_activity_h": 175.2
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1254,7 +1254,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 235.5
+        "last_activity_h": 236.0
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1345,7 +1345,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 281.4
+        "last_activity_h": 281.9
       },
       "eth-momentum-sized2": {
         "live": false,
@@ -1656,7 +1656,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 80.5
+        "last_activity_h": 81.0
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -1875,7 +1875,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 19.5
+        "last_activity_h": 20.0
       },
       "funding-veto": {
         "live": false,
@@ -2390,7 +2390,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 247.9
+        "last_activity_h": 248.4
       },
       "nws-poly-weather": {
         "live": true,
@@ -2453,7 +2453,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 8.1
+        "last_activity_h": 8.6
       },
       "oscars-favorite": {
         "live": true,
@@ -2471,7 +2471,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 201.6
+        "last_activity_h": 202.1
       },
       "poly-favorite": {
         "live": true,
@@ -2489,7 +2489,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 296.1
+        "last_activity_h": 296.6
       },
       "s3-sumarb": {
         "live": false,
@@ -2576,7 +2576,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 247.9
+        "last_activity_h": 248.4
       },
       "spy-v1": {
         "live": true,
@@ -2594,7 +2594,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 264.9
+        "last_activity_h": 265.4
       },
       "t5-daily": {
         "live": true,
@@ -2649,7 +2649,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 24.4
+        "last_activity_h": 24.9
       },
       "t7-02": {
         "live": true,
@@ -2667,7 +2667,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 48.9
+        "last_activity_h": 49.4
       },
       "t7-03": {
         "live": true,
@@ -2685,7 +2685,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 48.8
+        "last_activity_h": 49.3
       },
       "t7-factor": {
         "live": true,
@@ -2703,7 +2703,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 48.9
+        "last_activity_h": 49.4
       },
       "t8-06": {
         "live": true,
@@ -2721,7 +2721,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 48.4
+        "last_activity_h": 48.9
       }
     },
     "dashboard_rank_order": [
@@ -3222,9 +3222,7 @@
           "id": "H-29",
           "title": "Cross-sectional currency momentum, G10 (Menkhoff & Taylor 2007)",
           "tags": [
-            "PENDING",
-            "APPROVED",
-            "IN_FACTORY"
+            "DEAD"
           ]
         },
         {
@@ -3240,27 +3238,30 @@
           "id": "H-31",
           "title": "G10 FX value: real-exchange-rate deviation from PPP (Menkhoff, Sarno, Schmeling & Schrimpf 2017)",
           "tags": [
-            "PENDING"
+            "PENDING",
+            "APPROVED"
           ]
         },
         {
           "id": "H-32",
           "title": "Treasury time-series momentum, 12-1 on IEF (Moskowitz, Ooi & Pedersen 2012)",
           "tags": [
-            "PENDING"
+            "PENDING",
+            "APPROVED"
           ]
         },
         {
           "id": "H-33",
           "title": "High-yield credit-spread timing (credit risk premium)",
           "tags": [
-            "PENDING"
+            "PENDING",
+            "IN_REVIEW"
           ]
         }
       ],
       "hypotheses_total": 33,
-      "hypotheses_pending": 5,
-      "hypotheses_in_factory": 2,
+      "hypotheses_pending": 4,
+      "hypotheses_in_factory": 1,
       "hypotheses_unparsed_annotations": [
         {
           "id": "H-22",
@@ -3286,9 +3287,14 @@
           "id": "H-28",
           "annotation": "DEAD \u2014 kill #77, 2026-10-02",
           "note": "free-text annotation; status counted"
+        },
+        {
+          "id": "H-29",
+          "annotation": "DEAD \u2014 kill #78, 2026-10-03",
+          "note": "free-text annotation; status counted"
         }
       ],
-      "verdicts_total": 62,
+      "verdicts_total": 65,
       "verdicts": [
         {
           "id": "H-03 (dl-h03)",
@@ -3599,6 +3605,21 @@
           "id": "Plateau (sign agreement)",
           "verdict": "pass",
           "stats": "pass"
+        },
+        {
+          "id": "cell (formation/k)",
+          "verdict": "Sharpe@2x (trials)",
+          "stats": "net_1x"
+        },
+        {
+          "id": "DL-H29 / k=2",
+          "verdict": "+0.058",
+          "stats": "+0.051"
+        },
+        {
+          "id": "DL-H29 / k=3",
+          "verdict": "\u22120.034",
+          "stats": "\u22120.100"
         }
       ],
       "stages": [
@@ -4068,7 +4089,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-03 07:32 PDT",
+        "last_activity": "2026-10-03 08:02 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -4078,7 +4099,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-03 07:30 PDT",
+        "last_activity": "2026-10-03 08:00 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -4118,8 +4139,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-03 07:23 PDT",
-        "detail": "last scan verdict: healthy \u00b7 434 findings",
+        "last_activity": "2026-10-03 07:53 PDT",
+        "detail": "last scan verdict: healthy \u00b7 321 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -4404,9 +4425,7 @@
         "id": "H-29",
         "title": "Cross-sectional currency momentum, G10 (Menkhoff & Taylor 2007)",
         "tags": [
-          "PENDING",
-          "APPROVED",
-          "IN_FACTORY"
+          "DEAD"
         ]
       },
       {
@@ -4422,27 +4441,30 @@
         "id": "H-31",
         "title": "G10 FX value: real-exchange-rate deviation from PPP (Menkhoff, Sarno, Schmeling & Schrimpf 2017)",
         "tags": [
-          "PENDING"
+          "PENDING",
+          "APPROVED"
         ]
       },
       {
         "id": "H-32",
         "title": "Treasury time-series momentum, 12-1 on IEF (Moskowitz, Ooi & Pedersen 2012)",
         "tags": [
-          "PENDING"
+          "PENDING",
+          "APPROVED"
         ]
       },
       {
         "id": "H-33",
         "title": "High-yield credit-spread timing (credit risk premium)",
         "tags": [
-          "PENDING"
+          "PENDING",
+          "IN_REVIEW"
         ]
       }
     ],
     "hypotheses_total": 33,
-    "hypotheses_pending": 5,
-    "hypotheses_in_factory": 2,
+    "hypotheses_pending": 4,
+    "hypotheses_in_factory": 1,
     "hypotheses_unparsed_annotations": [
       {
         "id": "H-22",
@@ -4468,9 +4490,14 @@
         "id": "H-28",
         "annotation": "DEAD \u2014 kill #77, 2026-10-02",
         "note": "free-text annotation; status counted"
+      },
+      {
+        "id": "H-29",
+        "annotation": "DEAD \u2014 kill #78, 2026-10-03",
+        "note": "free-text annotation; status counted"
       }
     ],
-    "verdicts_total": 62,
+    "verdicts_total": 65,
     "verdicts": [
       {
         "id": "H-03 (dl-h03)",
@@ -4781,6 +4808,21 @@
         "id": "Plateau (sign agreement)",
         "verdict": "pass",
         "stats": "pass"
+      },
+      {
+        "id": "cell (formation/k)",
+        "verdict": "Sharpe@2x (trials)",
+        "stats": "net_1x"
+      },
+      {
+        "id": "DL-H29 / k=2",
+        "verdict": "+0.058",
+        "stats": "+0.051"
+      },
+      {
+        "id": "DL-H29 / k=3",
+        "verdict": "\u22120.034",
+        "stats": "\u22120.100"
       }
     ],
     "stages": [
