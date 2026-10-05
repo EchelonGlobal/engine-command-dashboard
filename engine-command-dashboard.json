@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-10-05T14:34:57-07:00",
+  "generated_at_pt": "2026-10-05T15:03:00-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-10-05T14:34:56-07:00",
+    "generated_at_pt": "2026-10-05T15:02:59-07:00",
     "paper_trading_only": true,
     "settled_total": 504,
     "open_total": 20,
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 355.0
+        "last_activity_h": 355.4
       },
       "btc-momentum-apex-t0up": {
         "live": true,
@@ -435,7 +435,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 35.5
+        "last_activity_h": 36.0
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -458,7 +458,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 228.3
+        "last_activity_h": 228.8
       },
       "btc-momentum-flat": {
         "live": false,
@@ -561,7 +561,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 291.6
+        "last_activity_h": 292.0
       },
       "btc-momentum-sized": {
         "live": false,
@@ -620,7 +620,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 336.4
+        "last_activity_h": 336.9
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -859,7 +859,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 180.5
+        "last_activity_h": 181.0
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -966,7 +966,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 6.5
+        "last_activity_h": 7.0
       },
       "eth-momentum": {
         "live": false,
@@ -1089,7 +1089,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 361.3
+        "last_activity_h": 361.8
       },
       "eth-momentum-apex-t0up": {
         "live": false,
@@ -1136,7 +1136,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 215.5
+        "last_activity_h": 216.0
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -1159,7 +1159,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 229.8
+        "last_activity_h": 230.2
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1266,7 +1266,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 290.6
+        "last_activity_h": 291.0
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1357,7 +1357,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 336.4
+        "last_activity_h": 336.9
       },
       "eth-momentum-sized2": {
         "live": false,
@@ -1668,7 +1668,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 135.5
+        "last_activity_h": 136.0
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -1915,7 +1915,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 6.5
+        "last_activity_h": 7.0
       },
       "funding-veto": {
         "live": false,
@@ -2430,7 +2430,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 303.0
+        "last_activity_h": 303.4
       },
       "nws-poly-weather": {
         "live": true,
@@ -2501,7 +2501,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 14.9
+        "last_activity_h": 15.4
       },
       "oscars-favorite": {
         "live": true,
@@ -2519,7 +2519,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 256.6
+        "last_activity_h": 257.1
       },
       "poly-favorite": {
         "live": true,
@@ -2537,7 +2537,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 351.1
+        "last_activity_h": 351.6
       },
       "s3-sumarb": {
         "live": false,
@@ -2624,7 +2624,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 302.9
+        "last_activity_h": 303.4
       },
       "spy-v1": {
         "live": true,
@@ -2642,7 +2642,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 319.9
+        "last_activity_h": 320.4
       },
       "t5-daily": {
         "live": true,
@@ -2701,7 +2701,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 7.7
+        "last_activity_h": 8.1
       },
       "t7-02": {
         "live": true,
@@ -2719,7 +2719,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 103.9
+        "last_activity_h": 104.4
       },
       "t7-03": {
         "live": true,
@@ -2737,7 +2737,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 103.9
+        "last_activity_h": 104.3
       },
       "t7-factor": {
         "live": true,
@@ -2755,7 +2755,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 103.9
+        "last_activity_h": 104.4
       },
       "t8-06": {
         "live": true,
@@ -2773,7 +2773,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 103.5
+        "last_activity_h": 103.9
       }
     },
     "dashboard_rank_order": [
@@ -4217,7 +4217,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-05 14:33 PDT",
+        "last_activity": "2026-10-05 15:02 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: see log",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -4227,7 +4227,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-05 14:31 PDT",
+        "last_activity": "2026-10-05 15:01 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -4267,8 +4267,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-05 14:23 PDT",
-        "detail": "last scan verdict: healthy \u00b7 116 findings",
+        "last_activity": "2026-10-05 14:53 PDT",
+        "detail": "last scan verdict: degraded \u00b7 0 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -4282,16 +4282,16 @@
         "id": "V1",
         "name": "sniper",
         "rule": "control: upper third -> CALL, lower third + calm RV20 -> PUT",
-        "trades": 0,
+        "trades": 4,
         "wins": 0,
-        "losses": 0,
-        "net_pnl_usd": 0.0
+        "losses": 1,
+        "net_pnl_usd": -21.95
       },
       "V2": {
         "id": "V2",
         "name": "always-on",
         "rule": "V1 signal; middle third trades toward nearer range edge",
-        "trades": 0,
+        "trades": 4,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -4300,7 +4300,7 @@
         "id": "V3",
         "name": "extremes",
         "rule": "outer quarters only: pos>=0.75 CALL, pos<=0.25 PUT",
-        "trades": 0,
+        "trades": 1,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -4309,7 +4309,7 @@
         "id": "V4",
         "name": "patient",
         "rule": "identical to V1, entry delayed to 09:30:10 ET",
-        "trades": 0,
+        "trades": 3,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -4318,17 +4318,16 @@
         "id": "V5",
         "name": "reversal",
         "rule": "extreme deciles faded: pos>=0.90 PUT, pos<=0.10 CALL",
-        "trades": 0,
+        "trades": 1,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
       }
     },
-    "sessions": 0,
-    "first_date": null,
-    "last_date": null,
-    "status": "UNREACHABLE",
-    "error": "Mac aggregation failed at build time: Command '['/home/hatch/workspace/tailscale-ssh/mac-ssh', 'python3', '-']' timed out after 45 seconds"
+    "sessions": 10,
+    "first_date": "2026-09-22",
+    "last_date": "2026-10-05",
+    "status": "RACING"
   },
   "sweep": {
     "label": "BACKTEST-DIAGNOSTIC",
@@ -5503,16 +5502,16 @@
       "name": "Mac Mini",
       "spec": "Apple M4, 10 cores, 16 GB",
       "role": "TradingView MCP control node + future sweep worker",
-      "liveness": "UNREACHABLE",
-      "liveness_basis": "ssh echo check failed at build time; proxy is flaky, not proof the machine is down"
+      "liveness": "ALIVE",
+      "liveness_basis": "ssh echo check at payload build time"
     },
     {
       "id": "air",
       "name": "MacBook Air",
       "spec": "Apple M4, 10 cores, 24 GB (fanless)",
       "role": "Dedicated sweep node: new-territory search (shorts, multi-symbol, cross-sectional)",
-      "liveness": "UNREACHABLE",
-      "liveness_basis": "ssh echo check failed at build time; proxy is flaky, not proof the machine is down"
+      "liveness": "ALIVE",
+      "liveness_basis": "ssh echo check at payload build time"
     },
     {
       "id": "vm",
