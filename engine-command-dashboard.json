@@ -1,12 +1,12 @@
 {
-  "generated_at_pt": "2026-10-05T18:33:05-07:00",
+  "generated_at_pt": "2026-10-05T19:02:55-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-10-05T18:33:04-07:00",
+    "generated_at_pt": "2026-10-05T19:02:55-07:00",
     "paper_trading_only": true,
     "settled_total": 504,
-    "open_total": 20,
+    "open_total": 21,
     "pnl_usd_total": -745.6855,
     "paper_pnl_vs_bankroll_pct": -41.42,
     "pnl_usd_era1_dollar_stakes": 2.0548,
@@ -197,7 +197,7 @@
         "kill_rule": "ALIVE",
         "settled_of_20": "57/20",
         "max_working_capital_usd": 448.74,
-        "open_cost_usd": 0
+        "open_cost_usd": 224.37
       },
       "eth-momentum-sized2": {
         "settled": 73,
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 358.9
+        "last_activity_h": 359.4
       },
       "btc-momentum-apex-t0up": {
         "live": true,
@@ -435,7 +435,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 39.5
+        "last_activity_h": 40.0
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -458,7 +458,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 232.3
+        "last_activity_h": 232.7
       },
       "btc-momentum-flat": {
         "live": false,
@@ -561,7 +561,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 295.5
+        "last_activity_h": 296.0
       },
       "btc-momentum-sized": {
         "live": false,
@@ -620,7 +620,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 340.4
+        "last_activity_h": 340.9
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -859,7 +859,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 184.5
+        "last_activity_h": 185.0
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -966,7 +966,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 10.5
+        "last_activity_h": 11.0
       },
       "eth-momentum": {
         "live": false,
@@ -1089,7 +1089,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 365.3
+        "last_activity_h": 365.8
       },
       "eth-momentum-apex-t0up": {
         "live": false,
@@ -1136,7 +1136,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 219.5
+        "last_activity_h": 220.0
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -1159,7 +1159,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 233.7
+        "last_activity_h": 234.2
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1266,7 +1266,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 294.5
+        "last_activity_h": 295.0
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1357,7 +1357,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 340.4
+        "last_activity_h": 340.9
       },
       "eth-momentum-sized2": {
         "live": false,
@@ -1668,7 +1668,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 139.5
+        "last_activity_h": 140.0
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -1914,8 +1914,8 @@
             1013.45
           ]
         ],
-        "open_count": 0,
-        "last_activity_h": 10.5
+        "open_count": 1,
+        "last_activity_h": 0.2
       },
       "funding-veto": {
         "live": false,
@@ -2430,7 +2430,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 306.9
+        "last_activity_h": 307.4
       },
       "nws-poly-weather": {
         "live": true,
@@ -2501,7 +2501,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 18.9
+        "last_activity_h": 19.4
       },
       "oscars-favorite": {
         "live": true,
@@ -2519,7 +2519,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 260.6
+        "last_activity_h": 261.1
       },
       "poly-favorite": {
         "live": true,
@@ -2537,7 +2537,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 355.1
+        "last_activity_h": 355.6
       },
       "s3-sumarb": {
         "live": false,
@@ -2624,7 +2624,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 306.9
+        "last_activity_h": 307.4
       },
       "spy-v1": {
         "live": true,
@@ -2642,7 +2642,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 323.9
+        "last_activity_h": 324.4
       },
       "t5-daily": {
         "live": true,
@@ -2701,7 +2701,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 11.6
+        "last_activity_h": 12.1
       },
       "t7-02": {
         "live": true,
@@ -2719,7 +2719,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 107.9
+        "last_activity_h": 108.4
       },
       "t7-03": {
         "live": true,
@@ -2737,7 +2737,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 107.8
+        "last_activity_h": 108.3
       },
       "t7-factor": {
         "live": true,
@@ -2755,7 +2755,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 107.9
+        "last_activity_h": 108.4
       },
       "t8-06": {
         "live": true,
@@ -2773,7 +2773,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 107.4
+        "last_activity_h": 107.9
       }
     },
     "dashboard_rank_order": [
@@ -2792,10 +2792,10 @@
     ],
     "funding": {
       "league_min_cash_usd": 1433.8,
-      "league_open_cost_usd": 200.0,
+      "league_open_cost_usd": 424.37,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 156.57,
+      "avg_position_cost_usd": 156.76,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
@@ -3070,6 +3070,14 @@
         "price": null,
         "stake_usd": 100.0,
         "seal_ts": "2026-10-05T13:54:11.331695+00:00"
+      },
+      {
+        "bot_id": "eth-momentum-sized2-ratchet",
+        "question": "Ethereum Up or Down - October 5, 10:00PM-10:15PM ET",
+        "side": "YES",
+        "price": 0.495,
+        "stake_usd": 224.37,
+        "seal_ts": "2026-10-06T01:48:49.391471+00:00"
       }
     ],
     "research": {
@@ -4217,8 +4225,8 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-05 18:33 PDT",
-        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
+        "last_activity": "2026-10-05 19:02 PDT",
+        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: see log",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
       {
@@ -4227,7 +4235,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-05 18:30 PDT",
+        "last_activity": "2026-10-05 19:01 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -4267,7 +4275,7 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-05 18:12 PDT",
+        "last_activity": "2026-10-05 18:42 PDT",
         "detail": "last scan verdict: degraded \u00b7 0 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
