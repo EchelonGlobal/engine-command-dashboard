@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-10-07T19:33:12-07:00",
+  "generated_at_pt": "2026-10-07T20:03:09-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-10-07T19:33:12-07:00",
+    "generated_at_pt": "2026-10-07T20:03:09-07:00",
     "paper_trading_only": true,
     "settled_total": 527,
     "open_total": 21,
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 407.9
+        "last_activity_h": 408.4
       },
       "btc-momentum-apex-t0up": {
         "live": false,
@@ -435,7 +435,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 88.5
+        "last_activity_h": 89.0
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -458,7 +458,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 281.3
+        "last_activity_h": 281.8
       },
       "btc-momentum-flat": {
         "live": false,
@@ -561,7 +561,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 344.5
+        "last_activity_h": 345.0
       },
       "btc-momentum-sized": {
         "live": false,
@@ -620,7 +620,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 389.4
+        "last_activity_h": 389.9
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -859,7 +859,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 233.5
+        "last_activity_h": 234.0
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -974,7 +974,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 23.8
+        "last_activity_h": 24.3
       },
       "eth-momentum": {
         "live": false,
@@ -1097,7 +1097,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 414.3
+        "last_activity_h": 414.8
       },
       "eth-momentum-apex-t0up": {
         "live": false,
@@ -1144,7 +1144,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 268.5
+        "last_activity_h": 269.0
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -1167,7 +1167,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 282.8
+        "last_activity_h": 283.3
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1274,7 +1274,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 343.5
+        "last_activity_h": 344.0
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1365,7 +1365,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 389.4
+        "last_activity_h": 389.9
       },
       "eth-momentum-sized2": {
         "live": false,
@@ -1676,7 +1676,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 188.5
+        "last_activity_h": 189.0
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -1991,7 +1991,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 2.5
+        "last_activity_h": 3.0
       },
       "funding-veto": {
         "live": false,
@@ -2506,7 +2506,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 355.9
+        "last_activity_h": 356.4
       },
       "nws-poly-weather": {
         "live": true,
@@ -2585,7 +2585,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 19.8
+        "last_activity_h": 20.3
       },
       "oscars-favorite": {
         "live": true,
@@ -2603,7 +2603,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 3,
-        "last_activity_h": 35.6
+        "last_activity_h": 36.1
       },
       "poly-favorite": {
         "live": true,
@@ -2621,7 +2621,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 404.1
+        "last_activity_h": 404.6
       },
       "s3-sumarb": {
         "live": false,
@@ -2708,7 +2708,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 355.9
+        "last_activity_h": 356.4
       },
       "spy-v1": {
         "live": true,
@@ -2726,7 +2726,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 372.9
+        "last_activity_h": 373.4
       },
       "t5-daily": {
         "live": true,
@@ -2793,7 +2793,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 12.6
+        "last_activity_h": 13.1
       },
       "t7-02": {
         "live": true,
@@ -2811,7 +2811,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 156.9
+        "last_activity_h": 157.4
       },
       "t7-03": {
         "live": true,
@@ -2829,7 +2829,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 156.8
+        "last_activity_h": 157.3
       },
       "t7-factor": {
         "live": true,
@@ -2847,7 +2847,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 156.9
+        "last_activity_h": 157.4
       },
       "t8-06": {
         "live": true,
@@ -2865,7 +2865,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 156.4
+        "last_activity_h": 156.9
       }
     },
     "dashboard_rank_order": [
@@ -4317,12 +4317,12 @@
         {
           "id": "t32",
           "label": "T32 published lane round 21 (32 combos: Form 4 insider-purchase breadth + dividend-premium ex-div-month sort)",
-          "status": "queued",
+          "status": "running",
           "queued_at": "2026-10-07T17:22Z",
-          "launched_at": "2026-10-07T17:27Z"
+          "launched_at": "2026-10-08T02:38Z"
         }
       ],
-      "stages_queued": 1,
+      "stages_queued": 0,
       "stages_complete": 43,
       "dl_survivors": 21,
       "loops": [
@@ -4363,8 +4363,8 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-07 19:32 PDT",
-        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
+        "last_activity": "2026-10-07 20:03 PDT",
+        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: see log",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
       {
@@ -4373,7 +4373,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-07 19:31 PDT",
+        "last_activity": "2026-10-07 20:00 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -4413,8 +4413,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-07 19:26 PDT",
-        "detail": "last scan verdict: healthy \u00b7 224 findings",
+        "last_activity": "2026-10-07 19:39 PDT",
+        "detail": "last scan verdict: healthy \u00b7 215 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -5642,12 +5642,16 @@
       {
         "id": "t32",
         "label": "T32 published lane round 21 (32 combos: Form 4 insider-purchase breadth + dividend-premium ex-div-month sort)",
-        "status": "queued",
+        "status": "running",
         "queued_at": "2026-10-07T17:22Z",
-        "launched_at": "2026-10-07T17:27Z"
+        "launched_at": "2026-10-08T02:38Z",
+        "combos_total": 16,
+        "executed": 16,
+        "survivors": 9,
+        "done": true
       }
     ],
-    "stages_queued": 1,
+    "stages_queued": 0,
     "stages_complete": 43,
     "dl_survivors": 21,
     "loops": [
