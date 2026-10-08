@@ -1,16 +1,16 @@
 {
-  "generated_at_pt": "2026-10-07T16:32:56-07:00",
+  "generated_at_pt": "2026-10-07T17:03:03-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-10-07T16:32:55-07:00",
+    "generated_at_pt": "2026-10-07T17:03:03-07:00",
     "paper_trading_only": true,
-    "settled_total": 526,
+    "settled_total": 527,
     "open_total": 21,
-    "pnl_usd_total": 214.6288,
-    "paper_pnl_vs_bankroll_pct": 11.92,
+    "pnl_usd_total": -15.8712,
+    "paper_pnl_vs_bankroll_pct": -0.88,
     "pnl_usd_era1_dollar_stakes": 2.0548,
-    "pnl_usd_era100_dollar_stakes": 212.574,
+    "pnl_usd_era100_dollar_stakes": -17.926,
     "stake_change_note": "2026-09-19: league moved from $1 to $100 paper positions; history kept honestly at $1.",
     "bots": {
       "btc-momentum-apex-t0up-ratchet": {
@@ -186,16 +186,16 @@
         "open_cost_usd": 0
       },
       "eth-momentum-sized2-ratchet": {
-        "settled": 73,
+        "settled": 74,
         "wins": 37,
-        "losses": 36,
-        "pnl_usd": 838.1507,
-        "norm_sum": 3.2202467273496307,
+        "losses": 37,
+        "pnl_usd": 607.6507,
+        "norm_sum": 2.2202467273496307,
         "era1_pnl": 0.0,
-        "era100_pnl": 838.1507,
-        "expectancy_per_1usd": 0.0441,
+        "era100_pnl": 607.6507,
+        "expectancy_per_1usd": 0.03,
         "kill_rule": "ALIVE",
-        "settled_of_20": "73/20",
+        "settled_of_20": "74/20",
         "max_working_capital_usd": 673.11,
         "open_cost_usd": 0
       },
@@ -392,7 +392,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 404.9
+        "last_activity_h": 405.4
       },
       "btc-momentum-apex-t0up": {
         "live": false,
@@ -435,7 +435,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 85.5
+        "last_activity_h": 86.0
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -458,7 +458,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 278.2
+        "last_activity_h": 278.8
       },
       "btc-momentum-flat": {
         "live": false,
@@ -561,7 +561,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 341.5
+        "last_activity_h": 342.0
       },
       "btc-momentum-sized": {
         "live": false,
@@ -620,7 +620,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 386.4
+        "last_activity_h": 386.9
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -859,7 +859,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 230.5
+        "last_activity_h": 231.0
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -974,7 +974,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 20.8
+        "last_activity_h": 21.3
       },
       "eth-momentum": {
         "live": false,
@@ -1097,7 +1097,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 411.3
+        "last_activity_h": 411.8
       },
       "eth-momentum-apex-t0up": {
         "live": false,
@@ -1144,7 +1144,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 265.5
+        "last_activity_h": 266.0
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -1167,7 +1167,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 279.7
+        "last_activity_h": 280.2
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1274,7 +1274,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 340.5
+        "last_activity_h": 341.0
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1365,7 +1365,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 386.4
+        "last_activity_h": 386.9
       },
       "eth-momentum-sized2": {
         "live": false,
@@ -1676,21 +1676,21 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 185.5
+        "last_activity_h": 186.0
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
         "kill_rule": "ALIVE",
         "superseded": false,
-        "settled": 73,
+        "settled": 74,
         "wins": 37,
-        "losses": 36,
-        "win_rate": 0.5068,
-        "pnl_usd": 838.1507,
-        "pnl_1k_usd": 83.82,
+        "losses": 37,
+        "win_rate": 0.5,
+        "pnl_usd": 607.6507,
+        "pnl_1k_usd": 60.77,
         "vbr_start": 10000.0,
         "has_vbr": true,
-        "account_1k_now": 1083.82,
+        "account_1k_now": 1060.77,
         "account_1k_start": 1000.0,
         "equity_1k": [
           [
@@ -1984,10 +1984,14 @@
           [
             "2026-10-07T21:17:44.226321+00:00",
             1083.82
+          ],
+          [
+            "2026-10-08T00:02:43.320488+00:00",
+            1060.77
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 2.3
+        "last_activity_h": 0.0
       },
       "funding-veto": {
         "live": false,
@@ -2502,7 +2506,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 352.9
+        "last_activity_h": 353.4
       },
       "nws-poly-weather": {
         "live": true,
@@ -2581,7 +2585,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 16.8
+        "last_activity_h": 17.3
       },
       "oscars-favorite": {
         "live": true,
@@ -2599,7 +2603,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 3,
-        "last_activity_h": 32.6
+        "last_activity_h": 33.1
       },
       "poly-favorite": {
         "live": true,
@@ -2617,7 +2621,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 401.1
+        "last_activity_h": 401.6
       },
       "s3-sumarb": {
         "live": false,
@@ -2704,7 +2708,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 352.9
+        "last_activity_h": 353.4
       },
       "spy-v1": {
         "live": true,
@@ -2722,7 +2726,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 369.9
+        "last_activity_h": 370.4
       },
       "t5-daily": {
         "live": true,
@@ -2789,7 +2793,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 9.6
+        "last_activity_h": 10.1
       },
       "t7-02": {
         "live": true,
@@ -2807,7 +2811,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 153.9
+        "last_activity_h": 154.4
       },
       "t7-03": {
         "live": true,
@@ -2825,7 +2829,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 153.8
+        "last_activity_h": 154.3
       },
       "t7-factor": {
         "live": true,
@@ -2843,7 +2847,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 153.9
+        "last_activity_h": 154.4
       },
       "t8-06": {
         "live": true,
@@ -2861,7 +2865,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 153.4
+        "last_activity_h": 153.9
       }
     },
     "dashboard_rank_order": [
@@ -2882,10 +2886,21 @@
       "league_open_cost_usd": 200.0,
       "true_min_starting_bankroll_usd": 1800.37,
       "true_min_starting_bankroll_basis": "COMPUTED: chronological replay of all paper trades; the maximum over time of (open-position capital minus cumulative realized P&L). The smallest starting cash that would never have gone negative funding the league's actual history.",
-      "avg_position_cost_usd": 158.41,
+      "avg_position_cost_usd": 158.59,
       "basis": "max concurrent paper cost observed across all bots; the smallest cash balance that could have funded every position as it actually ran"
     },
     "recent_settled": [
+      {
+        "bot_id": "eth-momentum-sized2-ratchet",
+        "question": "Ethereum Up or Down - October 7, 7:45PM-8:00PM ET",
+        "side": "YES",
+        "side_detail": "UP",
+        "price": 0.465,
+        "stake_usd": 230.5,
+        "outcome": "LOSS",
+        "pnl_usd": -230.5,
+        "settle_ts": "2026-10-08T00:02:43.320488+00:00"
+      },
       {
         "bot_id": "eth-momentum-sized2-ratchet",
         "question": "Ethereum Up or Down - October 7, 5:00PM-5:15PM ET",
@@ -2984,17 +2999,6 @@
         "outcome": "LOSS",
         "pnl_usd": -100.0,
         "settle_ts": "2026-10-07T06:47:17.343876+00:00"
-      },
-      {
-        "bot_id": "eth-momentum-sized2-ratchet",
-        "question": "Ethereum Up or Down - October 6, 10:30PM-10:45PM ET",
-        "side": "YES",
-        "side_detail": "DOWN",
-        "price": 0.445,
-        "stake_usd": 96.47,
-        "outcome": "LOSS",
-        "pnl_usd": -96.47,
-        "settle_ts": "2026-10-07T02:47:58.837770+00:00"
       }
     ],
     "open_positions": [
@@ -4363,7 +4367,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-07 16:32 PDT",
+        "last_activity": "2026-10-07 17:02 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: see log",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -4373,7 +4377,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-07 16:30 PDT",
+        "last_activity": "2026-10-07 17:00 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -4413,8 +4417,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-07 16:23 PDT",
-        "detail": "last scan verdict: healthy \u00b7 160 findings",
+        "last_activity": "2026-10-07 16:53 PDT",
+        "detail": "last scan verdict: healthy \u00b7 140 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
