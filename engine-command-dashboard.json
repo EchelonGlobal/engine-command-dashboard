@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-10-10T03:34:37-07:00",
+  "generated_at_pt": "2026-10-10T04:03:01-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-10-10T03:34:36-07:00",
+    "generated_at_pt": "2026-10-10T04:03:00-07:00",
     "paper_trading_only": true,
     "settled_total": 586,
     "open_total": 23,
@@ -560,7 +560,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 464.0
+        "last_activity_h": 464.4
       },
       "btc-momentum-apex-t0up": {
         "live": false,
@@ -603,7 +603,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 144.5
+        "last_activity_h": 145.0
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -626,7 +626,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 337.3
+        "last_activity_h": 337.8
       },
       "btc-momentum-flat": {
         "live": false,
@@ -729,7 +729,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 400.5
+        "last_activity_h": 401.0
       },
       "btc-momentum-sized": {
         "live": false,
@@ -788,7 +788,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 445.4
+        "last_activity_h": 445.9
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -1027,7 +1027,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 289.5
+        "last_activity_h": 290.0
       },
       "btc-momentum-sized2-ratchet": {
         "live": true,
@@ -1154,7 +1154,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 20.3
+        "last_activity_h": 20.7
       },
       "btc-momentum-sized2-ratchet-downonly": {
         "live": true,
@@ -1185,7 +1185,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 20.2
+        "last_activity_h": 20.6
       },
       "btc-momentum-sized2-ratchet-nohalt": {
         "live": true,
@@ -1224,7 +1224,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 20.0
+        "last_activity_h": 20.5
       },
       "btc-momentum-sized2-ratchet-qkelly": {
         "live": true,
@@ -1263,7 +1263,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 20.2
+        "last_activity_h": 20.7
       },
       "btc-momentum-sized2-ratchet-uponly": {
         "live": true,
@@ -1286,7 +1286,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 22.0
+        "last_activity_h": 22.5
       },
       "btc-momentum-sized2-ratchet-widethr": {
         "live": true,
@@ -1309,7 +1309,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 20.2
+        "last_activity_h": 20.7
       },
       "eth-momentum": {
         "live": false,
@@ -1432,7 +1432,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 470.3
+        "last_activity_h": 470.8
       },
       "eth-momentum-apex-t0up": {
         "live": false,
@@ -1479,7 +1479,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 324.5
+        "last_activity_h": 325.0
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
@@ -1502,7 +1502,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 338.8
+        "last_activity_h": 339.2
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1609,7 +1609,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 399.5
+        "last_activity_h": 400.0
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1700,7 +1700,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 445.4
+        "last_activity_h": 445.9
       },
       "eth-momentum-sized2": {
         "live": false,
@@ -2011,7 +2011,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 244.5
+        "last_activity_h": 245.0
       },
       "eth-momentum-sized2-ratchet": {
         "live": true,
@@ -2422,7 +2422,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 19.5
+        "last_activity_h": 20.0
       },
       "eth-momentum-sized2-ratchet-downonly": {
         "live": true,
@@ -2449,7 +2449,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 20.2
+        "last_activity_h": 20.6
       },
       "eth-momentum-sized2-ratchet-nohalt": {
         "live": true,
@@ -2476,7 +2476,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 22.3
+        "last_activity_h": 22.7
       },
       "eth-momentum-sized2-ratchet-qkelly": {
         "live": true,
@@ -2503,7 +2503,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 22.3
+        "last_activity_h": 22.7
       },
       "eth-momentum-sized2-ratchet-uponly": {
         "live": true,
@@ -2530,7 +2530,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 22.0
+        "last_activity_h": 22.5
       },
       "eth-momentum-sized2-ratchet-widethr": {
         "live": true,
@@ -2553,7 +2553,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 22.3
+        "last_activity_h": 22.7
       },
       "funding-veto": {
         "live": false,
@@ -3068,7 +3068,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 412.0
+        "last_activity_h": 412.4
       },
       "nws-poly-weather": {
         "live": true,
@@ -3159,7 +3159,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 5.3
+        "last_activity_h": 5.8
       },
       "nws-poly-weather-ratchet": {
         "live": true,
@@ -3186,7 +3186,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 5.3
+        "last_activity_h": 5.8
       },
       "oscars-favorite": {
         "live": true,
@@ -3204,7 +3204,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 3,
-        "last_activity_h": 91.6
+        "last_activity_h": 92.1
       },
       "poly-favorite": {
         "live": true,
@@ -3222,7 +3222,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 460.1
+        "last_activity_h": 460.6
       },
       "s3-sumarb": {
         "live": false,
@@ -3309,7 +3309,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 411.9
+        "last_activity_h": 412.4
       },
       "spy-v1": {
         "live": true,
@@ -3327,7 +3327,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 428.9
+        "last_activity_h": 429.4
       },
       "t5-daily": {
         "live": true,
@@ -3402,7 +3402,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 20.5
+        "last_activity_h": 21.0
       },
       "t5-daily-ratchet": {
         "live": true,
@@ -3425,7 +3425,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 20.5
+        "last_activity_h": 20.9
       },
       "t7-02": {
         "live": true,
@@ -3443,7 +3443,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 212.9
+        "last_activity_h": 213.4
       },
       "t7-03": {
         "live": true,
@@ -3461,7 +3461,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 212.9
+        "last_activity_h": 213.3
       },
       "t7-factor": {
         "live": true,
@@ -3479,7 +3479,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 212.9
+        "last_activity_h": 213.4
       },
       "t8-06": {
         "live": true,
@@ -3497,7 +3497,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 212.5
+        "last_activity_h": 212.9
       }
     },
     "dashboard_rank_order": [
@@ -5027,7 +5027,7 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-10 03:26 PDT",
+        "last_activity": "2026-10-10 04:02 PDT",
         "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
@@ -5037,7 +5037,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-10 03:30 PDT",
+        "last_activity": "2026-10-10 03:53 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -5077,8 +5077,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-10 03:21 PDT",
-        "detail": "last scan verdict: healthy \u00b7 387 findings",
+        "last_activity": "2026-10-10 03:47 PDT",
+        "detail": "last scan verdict: healthy \u00b7 680 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -5092,16 +5092,16 @@
         "id": "V1",
         "name": "sniper",
         "rule": "control: upper third -> CALL, lower third + calm RV20 -> PUT",
-        "trades": 0,
+        "trades": 6,
         "wins": 0,
-        "losses": 0,
-        "net_pnl_usd": 0.0
+        "losses": 1,
+        "net_pnl_usd": -21.95
       },
       "V2": {
         "id": "V2",
         "name": "always-on",
         "rule": "V1 signal; middle third trades toward nearer range edge",
-        "trades": 0,
+        "trades": 6,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -5110,7 +5110,7 @@
         "id": "V3",
         "name": "extremes",
         "rule": "outer quarters only: pos>=0.75 CALL, pos<=0.25 PUT",
-        "trades": 0,
+        "trades": 2,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -5119,7 +5119,7 @@
         "id": "V4",
         "name": "patient",
         "rule": "identical to V1, entry delayed to 09:30:10 ET",
-        "trades": 0,
+        "trades": 5,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
@@ -5128,17 +5128,16 @@
         "id": "V5",
         "name": "reversal",
         "rule": "extreme deciles faded: pos>=0.90 PUT, pos<=0.10 CALL",
-        "trades": 0,
+        "trades": 1,
         "wins": 0,
         "losses": 0,
         "net_pnl_usd": 0.0
       }
     },
-    "sessions": 0,
-    "first_date": null,
-    "last_date": null,
-    "status": "UNREACHABLE",
-    "error": "Mac aggregation failed at build time: no output"
+    "sessions": 14,
+    "first_date": "2026-09-22",
+    "last_date": "2026-10-09",
+    "status": "RACING"
   },
   "sweep": {
     "label": "BACKTEST-DIAGNOSTIC",
