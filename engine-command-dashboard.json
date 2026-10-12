@@ -1,9 +1,9 @@
 {
-  "generated_at_pt": "2026-10-12T09:43:54-07:00",
+  "generated_at_pt": "2026-10-12T10:23:09-07:00",
   "label_basis": "every figure COMPUTED from workspace files at build time; nothing invented",
   "paper_trading_only": true,
   "forward": {
-    "generated_at_pt": "2026-10-12T09:43:54-07:00",
+    "generated_at_pt": "2026-10-12T10:23:09-07:00",
     "paper_trading_only": true,
     "settled_total": 618,
     "open_total": 23,
@@ -22,7 +22,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": -4.95,
         "expectancy_per_1usd": -1.0,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "1/20",
         "max_working_capital_usd": 4.95,
         "open_cost_usd": 0
@@ -36,7 +36,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": -31.678,
         "expectancy_per_1usd": -0.3333,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "6/20",
         "go_gate": {
           "label": "Apex verdict",
@@ -84,7 +84,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": 72.5649,
         "expectancy_per_1usd": 0.2291,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "5/20",
         "max_working_capital_usd": 200.02,
         "open_cost_usd": 0
@@ -98,7 +98,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": 68.548,
         "expectancy_per_1usd": 0.1024,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "11/20",
         "max_working_capital_usd": 400.04,
         "open_cost_usd": 0
@@ -112,7 +112,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": 42.8243,
         "expectancy_per_1usd": 0.1101,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "11/20",
         "max_working_capital_usd": 200.0,
         "open_cost_usd": 0
@@ -126,7 +126,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": -249.5,
         "expectancy_per_1usd": -1.0,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "2/20",
         "max_working_capital_usd": 200.0,
         "open_cost_usd": 0
@@ -140,7 +140,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": -49.5,
         "expectancy_per_1usd": -1.0,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "1/20",
         "max_working_capital_usd": 49.5,
         "open_cost_usd": 0
@@ -154,7 +154,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": 743.9094,
         "expectancy_per_1usd": 0.1273,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "27/20",
         "max_working_capital_usd": 600.06,
         "open_cost_usd": 0
@@ -202,7 +202,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": -4.95,
         "expectancy_per_1usd": -1.0,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "1/20",
         "max_working_capital_usd": 4.95,
         "open_cost_usd": 0
@@ -216,7 +216,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": -19.9494,
         "expectancy_per_1usd": -0.2396,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "8/20",
         "go_gate": {
           "label": "Apex verdict",
@@ -264,7 +264,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": -195.13,
         "expectancy_per_1usd": -1.0,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "2/20",
         "max_working_capital_usd": 145.63,
         "open_cost_usd": 0
@@ -278,7 +278,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": 3.0416,
         "expectancy_per_1usd": -0.3197,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "3/20",
         "max_working_capital_usd": 98.04,
         "open_cost_usd": 0
@@ -292,7 +292,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": 1.5208,
         "expectancy_per_1usd": -0.3197,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "3/20",
         "max_working_capital_usd": 49.02,
         "open_cost_usd": 0
@@ -306,7 +306,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": -93.0884,
         "expectancy_per_1usd": -0.3197,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "3/20",
         "max_working_capital_usd": 195.13,
         "open_cost_usd": 0
@@ -320,7 +320,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": 52.5416,
         "expectancy_per_1usd": 0.0204,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "2/20",
         "max_working_capital_usd": 98.04,
         "open_cost_usd": 0
@@ -334,7 +334,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": 330.6418,
         "expectancy_per_1usd": 0.0209,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "104/20",
         "max_working_capital_usd": 673.11,
         "open_cost_usd": 0
@@ -396,7 +396,7 @@
         "era1_pnl": 0.0,
         "era100_pnl": -800.0,
         "expectancy_per_1usd": -1.0,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "settled_of_20": "4/20",
         "max_working_capital_usd": 400.0,
         "open_cost_usd": 200.0
@@ -560,11 +560,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 518.1
+        "last_activity_h": 518.8
       },
       "btc-momentum-apex-t0up": {
         "live": false,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 6,
         "wins": 2,
@@ -603,11 +603,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 198.7
+        "last_activity_h": 199.3
       },
       "btc-momentum-apex-t0up-ratchet": {
         "live": false,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 1,
         "wins": 0,
@@ -626,7 +626,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 391.4
+        "last_activity_h": 392.1
       },
       "btc-momentum-flat": {
         "live": false,
@@ -729,7 +729,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 454.7
+        "last_activity_h": 455.4
       },
       "btc-momentum-sized": {
         "live": false,
@@ -788,7 +788,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 499.6
+        "last_activity_h": 500.2
       },
       "btc-momentum-sized2": {
         "live": false,
@@ -1027,11 +1027,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 343.7
+        "last_activity_h": 344.4
       },
       "btc-momentum-sized2-ratchet": {
         "live": false,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 27,
         "wins": 15,
@@ -1154,11 +1154,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 74.4
+        "last_activity_h": 75.1
       },
       "btc-momentum-sized2-ratchet-downonly": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 5,
         "wins": 3,
@@ -1193,11 +1193,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 3.4
+        "last_activity_h": 4.1
       },
       "btc-momentum-sized2-ratchet-nohalt": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 11,
         "wins": 6,
@@ -1256,11 +1256,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 1.4
+        "last_activity_h": 2.1
       },
       "btc-momentum-sized2-ratchet-qkelly": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 11,
         "wins": 6,
@@ -1319,11 +1319,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 1.4
+        "last_activity_h": 2.1
       },
       "btc-momentum-sized2-ratchet-uponly": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 2,
         "wins": 0,
@@ -1346,11 +1346,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 49.6
+        "last_activity_h": 50.2
       },
       "btc-momentum-sized2-ratchet-widethr": {
         "live": false,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 1,
         "wins": 0,
@@ -1369,7 +1369,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 74.4
+        "last_activity_h": 75.0
       },
       "eth-momentum": {
         "live": false,
@@ -1492,11 +1492,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 524.4
+        "last_activity_h": 525.1
       },
       "eth-momentum-apex-t0up": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 8,
         "wins": 3,
@@ -1543,11 +1543,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 22.7
+        "last_activity_h": 23.3
       },
       "eth-momentum-apex-t0up-ratchet": {
         "live": false,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 1,
         "wins": 0,
@@ -1566,7 +1566,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 392.9
+        "last_activity_h": 393.6
       },
       "eth-momentum-flat": {
         "live": false,
@@ -1673,7 +1673,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 453.7
+        "last_activity_h": 454.4
       },
       "eth-momentum-sized": {
         "live": false,
@@ -1764,7 +1764,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 499.6
+        "last_activity_h": 500.2
       },
       "eth-momentum-sized2": {
         "live": false,
@@ -2075,11 +2075,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 298.7
+        "last_activity_h": 299.3
       },
       "eth-momentum-sized2-ratchet": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 104,
         "wins": 52,
@@ -2510,11 +2510,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 9.9
+        "last_activity_h": 10.6
       },
       "eth-momentum-sized2-ratchet-downonly": {
         "live": false,
-        "kill_rule": "ALIVE",
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 2,
         "wins": 0,
@@ -2537,11 +2537,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 74.3
+        "last_activity_h": 75.0
       },
       "eth-momentum-sized2-ratchet-nohalt": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 3,
         "wins": 1,
@@ -2568,11 +2568,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 11.4
+        "last_activity_h": 12.1
       },
       "eth-momentum-sized2-ratchet-qkelly": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 3,
         "wins": 1,
@@ -2599,11 +2599,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 11.4
+        "last_activity_h": 12.1
       },
       "eth-momentum-sized2-ratchet-uponly": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 3,
         "wins": 1,
@@ -2630,11 +2630,11 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 11.4
+        "last_activity_h": 12.1
       },
       "eth-momentum-sized2-ratchet-widethr": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 2,
         "wins": 1,
@@ -2657,7 +2657,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 11.4
+        "last_activity_h": 12.1
       },
       "funding-veto": {
         "live": false,
@@ -3172,7 +3172,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 466.1
+        "last_activity_h": 466.8
       },
       "nws-poly-weather": {
         "live": false,
@@ -3271,11 +3271,11 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 11.4
+        "last_activity_h": 12.1
       },
       "nws-poly-weather-ratchet": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 4,
         "wins": 0,
@@ -3306,11 +3306,11 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 11.4
+        "last_activity_h": 12.1
       },
       "oscars-favorite": {
-        "live": true,
-        "kill_rule": "ALIVE",
+        "live": false,
+        "kill_rule": "KILLED",
         "superseded": false,
         "settled": 0,
         "wins": 0,
@@ -3324,7 +3324,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 3,
-        "last_activity_h": 145.8
+        "last_activity_h": 146.4
       },
       "poly-favorite": {
         "live": true,
@@ -3342,7 +3342,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 10,
-        "last_activity_h": 514.3
+        "last_activity_h": 514.9
       },
       "s3-sumarb": {
         "live": false,
@@ -3429,7 +3429,7 @@
           ]
         ],
         "open_count": 0,
-        "last_activity_h": 466.1
+        "last_activity_h": 466.7
       },
       "spy-v1": {
         "live": true,
@@ -3447,7 +3447,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 483.1
+        "last_activity_h": 483.7
       },
       "t5-daily": {
         "live": true,
@@ -3526,7 +3526,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 2.6
+        "last_activity_h": 3.3
       },
       "t5-daily-ratchet": {
         "live": true,
@@ -3553,7 +3553,7 @@
           ]
         ],
         "open_count": 1,
-        "last_activity_h": 2.8
+        "last_activity_h": 3.5
       },
       "t7-02": {
         "live": true,
@@ -3571,7 +3571,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 267.1
+        "last_activity_h": 267.7
       },
       "t7-03": {
         "live": true,
@@ -3589,7 +3589,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 267.0
+        "last_activity_h": 267.7
       },
       "t7-factor": {
         "live": true,
@@ -3607,7 +3607,7 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 2,
-        "last_activity_h": 267.1
+        "last_activity_h": 267.7
       },
       "t8-06": {
         "live": true,
@@ -3625,30 +3625,18 @@
         "account_1k_start": 1000.0,
         "equity_1k": [],
         "open_count": 1,
-        "last_activity_h": 266.6
+        "last_activity_h": 267.3
       }
     },
     "dashboard_rank_order": [
-      "eth-momentum-sized2-ratchet",
-      "btc-momentum-sized2-ratchet-downonly",
-      "btc-momentum-sized2-ratchet-nohalt",
-      "eth-momentum-sized2-ratchet-widethr",
-      "btc-momentum-sized2-ratchet-qkelly",
       "t5-daily",
-      "eth-momentum-sized2-ratchet-nohalt",
-      "eth-momentum-sized2-ratchet-qkelly",
       "t5-daily-ratchet",
-      "oscars-favorite",
       "poly-favorite",
       "spy-v1",
       "t7-02",
       "t7-03",
       "t7-factor",
-      "t8-06",
-      "eth-momentum-sized2-ratchet-uponly",
-      "eth-momentum-apex-t0up",
-      "btc-momentum-sized2-ratchet-uponly",
-      "nws-poly-weather-ratchet"
+      "t8-06"
     ],
     "funding": {
       "league_min_cash_usd": 1713.44,
@@ -5177,8 +5165,8 @@
         "blurb": "BTC/ETH momentum: sized2 + apex paper arms",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-12 09:42 PDT",
-        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: see log",
+        "last_activity": "2026-10-12 10:13 PDT",
+        "detail": "Sized2 verdict 2026-10-06 \u00b7 Apex verdict 2026-10-24 \u00b7 flat control arms KILLED \u00b7 last run: no trades",
         "basis": "sandbox-league/logs/momentum-{sized,apex}.log"
       },
       {
@@ -5187,7 +5175,7 @@
         "blurb": "Kalshi\u2194sportsbook neg-risk arb, paper fills",
         "status": "PAPER RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-12 09:36 PDT",
+        "last_activity": "2026-10-12 10:06 PDT",
         "detail": "Binding 14-day verdict from 2026-09-23 lock \u00b7 last paper scan fills: 0",
         "basis": "negrisk-forward/logs/ + PAPER-FORWARD-PREREG.md"
       },
@@ -5227,8 +5215,8 @@
         "blurb": "Kalshi/Polymarket market-structure scan",
         "status": "RUNNING",
         "tone": "run",
-        "last_activity": "2026-10-12 09:22 PDT",
-        "detail": "last scan verdict: healthy \u00b7 329 findings",
+        "last_activity": "2026-10-12 09:48 PDT",
+        "detail": "last scan verdict: healthy \u00b7 265 findings",
         "basis": "pattern-engine/logs/scan_*_summary.json"
       }
     ],
@@ -6546,8 +6534,8 @@
       "name": "MacBook Air",
       "spec": "Apple M4, 10 cores, 24 GB (fanless)",
       "role": "Dedicated sweep node: new-territory search (shorts, multi-symbol, cross-sectional)",
-      "liveness": "UNREACHABLE",
-      "liveness_basis": "ssh echo check failed at build time; proxy is flaky, not proof the machine is down"
+      "liveness": "ALIVE",
+      "liveness_basis": "ssh echo check at payload build time"
     },
     {
       "id": "vm",
